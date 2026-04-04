@@ -11,7 +11,7 @@ import { NextResponse, type NextRequest } from 'next/server';
 const SECURITY_HEADERS: Record<string, string> = {
   'Content-Security-Policy': [
     "default-src 'self'",
-    "script-src 'self'",
+    "script-src 'self' 'unsafe-inline' 'unsafe-eval'",
     "style-src 'self' 'unsafe-inline'",
     "img-src 'self' data: https:",
     "font-src 'self'",
@@ -56,7 +56,7 @@ function buildHttpsRedirectUrl(request: NextRequest): string {
   return url.toString();
 }
 
-export function middleware(request: NextRequest) {
+export function proxy(request: NextRequest) {
   // Enforce HTTPS in production only (skip on localhost dev server)
   const isDev = process.env.NODE_ENV === 'development';
   if (!isDev && isNonTlsConnection(request)) {

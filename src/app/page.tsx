@@ -1,11 +1,14 @@
 import type { Metadata } from 'next';
+import { Hero } from '@/components/Hero';
+import { QuickInquiryForm } from '@/components/QuickInquiryForm';
 import { SEOHead, buildNextMetadata } from '@/components/SEOHead';
 import type { SEOMetadata } from '@/types';
 
 const landingPageSEO: SEOMetadata = {
-  title: 'Social Media Advertising Platform to Publish Ads Across Multiple Platforms',
-  description: 'Manage and distribute your advertisements across multiple social media platforms from one powerful dashboard. Our social media advertising platform helps businesses publish ads easily on platforms like Facebook, Instagram, LinkedIn, and more without managing each platform separately.',
-  keywords: ['social media advertising', 'multi-platform ads', 'ad distribution', 'social media marketing', 'ad management'],
+  title: 'Reach My Ads',
+  description:
+    'Create, manage, and optimize ads across Google, Meta, LinkedIn, and TikTok with AI-powered insights. One dashboard, every channel.',
+  keywords: ['ad management', 'AI advertising', 'Google Ads', 'Meta Ads', 'LinkedIn Ads', 'TikTok Ads', 'campaign optimization', 'multi-platform ads'],
   ogImage: 'https://reachmyads.com/og-image.png',
   canonicalUrl: 'https://reachmyads.com',
   structuredData: {
@@ -26,56 +29,54 @@ export default function Home() {
   return (
     <>
       <SEOHead structuredData={landingPageSEO.structuredData} />
-      <main className="container mx-auto px-4 py-8">
-        <article className="prose prose-invert max-w-none">
-          <h1>Social Media Advertising Platform to Publish Ads Across Multiple Platforms</h1>
-          <p>Manage and distribute your advertisements across multiple social media platforms from one powerful dashboard. Our social media advertising platform helps businesses publish ads easily on platforms like Facebook, Instagram, LinkedIn, and more without managing each platform separately.</p>
-          <p>With our multi-platform ad distribution system, businesses can save time, increase reach, and improve marketing performance.</p>
-          <p>Start managing all your social media advertisements from one place.</p>
-          <h2>What Our Platform Does</h2>
-          <p>Our platform acts as a central hub for social media advertising, allowing businesses to publish ads across different social media platforms from a single system.</p>
-          <p>Instead of manually posting ads on each social network, businesses can create one advertisement and distribute it instantly across multiple platforms.</p>
-          <p>This simplifies social media marketing and helps businesses focus on growth while our platform handles the ad distribution process.</p>
-          <h2>Key Features of Our Social Media Ad Distribution Platform</h2>
-          <h3>Multi Platform Ad Publishing</h3>
-          <p>Publish advertisements on multiple social media platforms simultaneously using one centralized system.</p>
-          <h3>Centralized Social Media Ad Management</h3>
-          <p>Create, edit, schedule, and manage all your social media advertisements from one dashboard.</p>
-          <h3>Automated Ad Distribution</h3>
-          <p>Our system automatically distributes your advertisements to selected social media channels, reducing manual effort.</p>
-          <h3>Increase Social Media Reach</h3>
-          <p>Reach a wider audience by promoting your ads across multiple platforms at the same time.</p>
-          <h3>Campaign Performance Tracking</h3>
-          <p>Track the performance of your advertisements and analyze engagement across different social media platforms.</p>
-          <h2>How Our Platform Works</h2>
-          <p>Step 1: Create Your Advertisement</p>
-          <p>Upload your ad content including text, images, or videos.</p>
-          <p>Step 2: Select Social Media Platforms</p>
-          <p>Choose the social media platforms where you want to publish your advertisement.</p>
-          <p>Step 3: Publish Your Ads</p>
-          <p>Our system distributes your advertisement across selected platforms instantly.</p>
-          <p>Step 4: Monitor Performance</p>
-          <p>Track engagement, reach, and campaign results from your dashboard.</p>
-          <h2>Benefits of Using Our Social Media Advertising Platform</h2>
-          <ul>
-            <li>Manage all social media ads from one platform</li>
-            <li>Save time by posting ads to multiple platforms at once</li>
-            <li>Improve social media marketing efficiency</li>
-            <li>Reach larger audiences across multiple networks</li>
-            <li>Track and optimize ad campaign performance</li>
-          </ul>
-          <h2>Industries That Can Benefit</h2>
-          <p>Our social media advertising platform is ideal for:</p>
-          <ul>
-            <li>Small Businesses</li>
-            <li>Startups</li>
-            <li>E-commerce Stores</li>
-            <li>Restaurants and Cafes</li>
-            <li>Service Businesses</li>
-            <li>Local Shops</li>
-            <li>Digital Marketing Agencies</li>
-          </ul>
-        </article>
+      <main>
+        <Hero />
+
+        {/* Contact */}
+        <section id="contact" className="relative bg-black py-28 sm:py-36" aria-label="Contact">
+          <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-white/[0.04] to-transparent" />
+          <div className="bg-spotlight absolute inset-0" aria-hidden="true" />
+
+          <div className="relative mx-auto max-w-[1200px] px-6">
+            <div className="mx-auto max-w-xl text-center">
+              <p className="mb-4 text-[12px] font-semibold uppercase tracking-[0.2em] text-accent-400/80">
+                Contact
+              </p>
+              <h2 className="text-gradient-section text-[clamp(1.75rem,4vw,2.75rem)] font-bold leading-[1.15] tracking-[-0.025em]">
+                Start Advertising Across Multiple Social Media Platforms Today
+              </h2>
+              <div className="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row sm:gap-8">
+                <a
+                  href="mailto:Admin@reachmyads.com"
+                  className="group flex items-center gap-3 text-[14px] font-medium text-white/70 transition-all hover:text-white"
+                >
+                  <span className="flex h-8 w-8 items-center justify-center rounded-full bg-white/5 ring-1 ring-white/10 transition-all group-hover:bg-accent-400/10 group-hover:ring-accent-400/20">
+                    <svg className="h-4 w-4 text-accent-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                    </svg>
+                  </span>
+                  Admin@reachmyads.com
+                </a>
+                <div className="hidden h-4 w-px bg-white/10 sm:block" />
+                <div className="flex items-center gap-3 text-[14px] font-medium text-white/70">
+                  <span className="flex h-8 w-8 items-center justify-center rounded-full bg-white/5 ring-1 ring-white/10">
+                    <svg className="h-4 w-4 text-accent-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                    </svg>
+                  </span>
+                  <div className="flex flex-col items-start gap-1 sm:flex-row sm:gap-3">
+                    <a href="tel:+916238299803" className="transition-all hover:text-white">+91 62382 99803</a>
+                    <span className="hidden text-white/20 sm:block">|</span>
+                    <a href="tel:+917012112355" className="transition-all hover:text-white">+91 70121 12355</a>
+                  </div>
+                </div>
+              </div>
+              <div className="mt-8 space-y-4 text-[15px] text-[#888] leading-[1.75]">
+                {/* Contact section text removed as requested */}
+              </div>
+            </div>
+          </div>
+        </section>
       </main>
     </>
   );

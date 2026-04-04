@@ -1,9 +1,8 @@
 import type { Metadata } from "next";
-import { MobileNav } from "@/components/MobileNav";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "ReachMyAds - AI-Driven Ad Management Platform",
+  title: "Reach My Ads",
   description:
     "Create, manage, and optimize ads across Google, Meta, LinkedIn, and TikTok with AI-powered insights.",
   keywords: [
@@ -15,11 +14,11 @@ export const metadata: Metadata = {
     "TikTok Ads",
   ],
   openGraph: {
-    title: "ReachMyAds - AI-Driven Ad Management Platform",
+    title: "Reach My Ads",
     description:
       "Create, manage, and optimize ads across Google, Meta, LinkedIn, and TikTok with AI-powered insights.",
     url: "https://reachmyads.com",
-    siteName: "ReachMyAds",
+    siteName: "Reach My Ads",
     type: "website",
   },
   metadataBase: new URL("https://reachmyads.com"),
@@ -28,12 +27,7 @@ export const metadata: Metadata = {
   },
 };
 
-const navLinks = [
-  { href: "#features", label: "Features" },
-  { href: "#testimonials", label: "Testimonials" },
-  { href: "#pricing", label: "Pricing" },
-  { href: "#contact", label: "Contact" },
-];
+const navLinks: { href: string; label: string }[] = [];
 
 export default function RootLayout({
   children,
@@ -56,27 +50,10 @@ export default function RootLayout({
             </a>
 
             <ul className="hidden items-center gap-8 md:flex">
-              {navLinks.map((link) => (
-                <li key={link.href}>
-                  <a
-                    href={link.href}
-                    className="text-[13px] font-medium text-[#666] transition-colors duration-200 hover:text-white"
-                  >
-                    {link.label}
-                  </a>
-                </li>
-              ))}
-              <li>
-                <a
-                  href="#contact"
-                  className="btn-primary btn-beam rounded-lg px-4 py-2 text-[13px]"
-                >
-                  Get Started
-                </a>
-              </li>
+              {/* Navigation links removed as requested */}
             </ul>
 
-            <MobileNav />
+            {/* Mobile navigation removed as there are no links left */}
           </nav>
         </header>
 
@@ -97,16 +74,7 @@ export default function RootLayout({
               </div>
 
               <ul className="flex flex-wrap gap-8">
-                {navLinks.map((link) => (
-                  <li key={link.href}>
-                    <a
-                      href={link.href}
-                      className="text-[13px] text-[#444] transition-colors hover:text-white"
-                    >
-                      {link.label}
-                    </a>
-                  </li>
-                ))}
+                {/* Footer links removed */}
               </ul>
             </div>
 
