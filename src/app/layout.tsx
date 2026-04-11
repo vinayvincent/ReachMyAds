@@ -44,9 +44,16 @@ export default function RootLayout({
             className="mx-auto flex max-w-[1200px] items-center justify-between px-6 py-4"
             aria-label="Main navigation"
           >
-            <a href="#" className="flex items-center gap-0.5 text-[20px] font-bold tracking-[-0.02em]">
-              <span className="text-gradient-blue">Reach</span>
-              <span className="text-white">My Ads</span>
+            <a href="#" className="flex items-center gap-3 text-[20px] font-bold tracking-[-0.02em]" aria-label="Reach My Ads Home">
+              <span className="flex items-center">
+                <span className="text-gradient-blue">R</span><span className="text-white">each</span>
+              </span>
+              <span className="flex items-center">
+                <span className="text-gradient-blue">M</span><span className="text-white">y</span>
+              </span>
+              <span className="flex items-center">
+                <span className="text-gradient-blue">A</span><span className="text-white">ds</span>
+              </span>
             </a>
 
             <ul className="hidden items-center gap-8 md:flex">
@@ -64,9 +71,16 @@ export default function RootLayout({
           <div className="mx-auto max-w-[1200px] px-6 py-16">
             <div className="flex flex-col items-start justify-between gap-10 sm:flex-row sm:items-center">
               <div>
-                <span className="text-lg font-bold tracking-[-0.02em]">
-                  <span className="text-gradient-blue">Reach</span>
-                  <span className="text-white">My Ads</span>
+                <span className="flex items-center gap-3 text-lg font-bold tracking-[-0.02em]" aria-label="Reach My Ads Home">
+                  <span className="flex items-center">
+                    <span className="text-gradient-blue">R</span><span className="text-white">each</span>
+                  </span>
+                  <span className="flex items-center">
+                    <span className="text-gradient-blue">M</span><span className="text-white">y</span>
+                  </span>
+                  <span className="flex items-center">
+                    <span className="text-gradient-blue">A</span><span className="text-white">ds</span>
+                  </span>
                 </span>
                 <p className="mt-3 max-w-xs text-[13px] text-[#444] leading-relaxed">
                   AI-driven ad management across every platform. Smarter campaigns, better results.
