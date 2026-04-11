@@ -2,14 +2,14 @@
 
 import { motion } from 'framer-motion';
 import Link from 'next/link';
+import Image from 'next/image';
 import type { HeroContent } from '@/types';
-import { AnimatedSection } from '@/components/AnimatedSection';
 
 const defaultHeroContent: HeroContent = {
-  headline: 'AI-Powered Ad Management Across Every Platform',
+  headline: 'Social Media Advertising Platform to Publish Ads Across Multiple Platforms',
   subheadline:
-    'Create, manage, and optimize campaigns on Google, Meta, LinkedIn, and TikTok — all from one intelligent dashboard.',
-  ctaText: 'Get Started Free',
+    'Manage and distribute your advertisements across multiple social media platforms from one powerful dashboard. Our platform helps businesses publish ads easily on Facebook, Instagram, LinkedIn, and more without managing each platform separately.\n\nSave time, increase reach, and improve marketing performance.\n\nStart managing all your social media advertisements from one place.',
+  ctaText: 'Start Advertising Today',
   ctaLink: '#contact',
   backgroundAnimation: {
     type: 'fadeIn',
@@ -68,46 +68,36 @@ export function Hero({ content }: HeroProps) {
       <div className="absolute inset-x-0 top-0 h-32 bg-gradient-to-b from-black to-transparent" aria-hidden="true" />
 
       <div className="relative z-10 mx-auto max-w-[900px] px-6 py-32 text-center lg:py-40">
-        {/* Badge */}
-        <AnimatedSection
-          animation={{ type: 'fadeIn', duration: 600, delay: 0, triggerOnScroll: false }}
-        >
-          <motion.div
-            className="mb-8 inline-flex items-center gap-2.5 rounded-full border border-white/[0.06] bg-white/[0.02] px-4 py-1.5"
-            whileHover={{ scale: 1.02, borderColor: 'rgba(255,255,255,0.12)' }}
-            transition={{ duration: 0.2 }}
-          >
-            <span className="relative flex h-1.5 w-1.5">
-              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-accent-400 opacity-75" />
-              <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-accent-400" />
-            </span>
-            <span className="text-[12px] font-medium tracking-wide text-[#777]">
-              AI-Driven Ad Management Platform
-            </span>
-          </motion.div>
-        </AnimatedSection>
-
+        
         {/* Headline */}
-        <AnimatedSection
-          animation={{ type: 'slideUp', duration: 800, delay: 100, triggerOnScroll: false }}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.1 }}
         >
           <h1 className="text-gradient-hero text-[clamp(2.25rem,5.5vw,4.5rem)] font-bold leading-[1.1] tracking-[-0.035em]">
             {hero.headline}
           </h1>
-        </AnimatedSection>
+        </motion.div>
 
         {/* Subheadline */}
-        <AnimatedSection
-          animation={{ type: 'slideUp', duration: 800, delay: 250, triggerOnScroll: false }}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.25 }}
         >
-          <p className="mx-auto mt-6 max-w-[540px] text-[15px] text-[#777] leading-[1.75] sm:text-[16px]">
-            {hero.subheadline}
-          </p>
-        </AnimatedSection>
+          <div className="mx-auto mt-6 max-w-[700px] space-y-4 text-[15px] text-[#999] leading-[1.75] sm:text-[16px]">
+            {hero.subheadline?.split('\n\n').map((paragraph, index) => (
+              <p key={index}>{paragraph}</p>
+            ))}
+          </div>
+        </motion.div>
 
         {/* CTAs */}
-        <AnimatedSection
-          animation={{ type: 'slideUp', duration: 600, delay: 400, triggerOnScroll: false }}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.4 }}
         >
           <div className="mt-10 flex flex-col items-center gap-3 sm:flex-row sm:justify-center">
             <Link
@@ -119,63 +109,32 @@ export function Hero({ content }: HeroProps) {
                 <path strokeLinecap="round" strokeLinejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6" />
               </svg>
             </Link>
-            <Link
-              href="#features"
-              className="btn-secondary inline-flex items-center gap-2 rounded-xl px-7 py-3.5 text-[14px] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
-            >
-              Learn More
-            </Link>
           </div>
-        </AnimatedSection>
+        </motion.div>
 
-        {/* Metrics bar */}
-        <AnimatedSection
-          animation={{ type: 'fadeIn', duration: 800, delay: 600, triggerOnScroll: false }}
+        {/* Hero Image Mockup Container */}
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1, delay: 0.5 }}
         >
-          <div className="mx-auto mt-20 flex max-w-lg flex-wrap items-center justify-center gap-8 sm:gap-12">
-            {[
-              { value: '4', label: 'Ad Platforms' },
-              { value: '2.5x', label: 'Avg. ROAS Lift' },
-              { value: '30%', label: 'Cost Savings' },
-            ].map((metric, i) => (
-              <motion.div
-                key={metric.label}
-                className="text-center"
-                initial={{ opacity: 0, y: 16 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.7 + i * 0.12, duration: 0.5 }}
-              >
-                <div className="metric-value text-[28px] font-bold text-white">{metric.value}</div>
-                <div className="mt-1 text-[11px] font-medium uppercase tracking-[0.15em] text-[#555]">{metric.label}</div>
-              </motion.div>
-            ))}
-          </div>
-        </AnimatedSection>
-
-        {/* Platform trust bar */}
-        <AnimatedSection
-          animation={{ type: 'fadeIn', duration: 800, delay: 800, triggerOnScroll: false }}
-        >
-          <div className="mt-16 flex flex-col items-center gap-4">
-            <div className="h-px w-16 bg-gradient-to-r from-transparent via-white/10 to-transparent" />
-            <p className="text-[11px] font-medium uppercase tracking-[0.25em] text-[#333]">
-              Manage ads across
-            </p>
-            <div className="flex flex-wrap items-center justify-center gap-6 sm:gap-10">
-              {['Google', 'Meta', 'LinkedIn', 'TikTok'].map((platform, i) => (
-                <motion.span
-                  key={platform}
-                  initial={{ opacity: 0, y: 8 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 1 + i * 0.1, duration: 0.4 }}
-                  className="text-[13px] font-medium text-[#444] transition-colors duration-200 hover:text-white"
-                >
-                  {platform}
-                </motion.span>
-              ))}
+          <div className="relative mx-auto mt-20 max-w-[1000px] w-full isolate">
+            <div className="absolute -inset-1 rounded-2xl bg-gradient-to-r from-accent-500 to-purple-500 opacity-30 blur-xl" aria-hidden="true" />
+            <div className="relative rounded-2xl bg-black/50 border border-white/10 p-2 backdrop-blur-md shadow-2xl">
+              <div className="rounded-xl overflow-hidden bg-[#111] aspect-video relative">
+                <Image
+                  src="/images/hero-dashboard.png"
+                  alt="ReachMyAds Dashboard Interface Mockup"
+                  fill
+                  style={{ objectFit: 'cover' }}
+                  priority
+                  className="opacity-90 transition-transform duration-700 hover:scale-[1.02]"
+                />
+              </div>
             </div>
           </div>
-        </AnimatedSection>
+        </motion.div>
+
       </div>
 
       {/* Bottom fade */}
