@@ -71,7 +71,7 @@ function FAQItem({ question, answer, isOpen, onClick }: { question: string; answ
             transition={{ duration: 0.3, ease: 'easeInOut' }}
             className="overflow-hidden"
           >
-            <div className="pb-6 text-[15px] leading-relaxed text-text-secondary">
+            <div className="pb-6 text-[15px] leading-relaxed text-text-secondary dark:text-slate-300">
               {answer}
             </div>
           </motion.div>
@@ -91,7 +91,7 @@ export function FAQ() {
           <h2 className="text-3xl font-bold tracking-tight text-white mb-4">
             Frequently Asked Questions
           </h2>
-          <p className="text-text-secondary">
+          <p className="text-text-secondary dark:text-slate-300">
             Everything you need to know about Reach My Ads.
           </p>
         </div>

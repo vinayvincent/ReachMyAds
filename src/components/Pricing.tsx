@@ -13,7 +13,7 @@ export function Pricing() {
           <h2 className="text-gradient-section text-4xl font-bold tracking-tight sm:text-6xl mb-8">
             The Future of <span className="text-gradient-blue">Ad Scalability</span>
           </h2>
-          <p className="text-lg sm:text-xl text-text-secondary leading-relaxed mb-12">
+          <p className="text-lg sm:text-xl text-text-secondary dark:text-slate-300 leading-relaxed mb-12">
             We're currently finalizing our next-generation pricing plans. Our institutional-grade AI optimization 
             and omnichannel synchronization engine will soon be accessible to ambitious brands through 
             specifically tailored tiers designed for hyper-scaling.
@@ -27,8 +27,8 @@ export function Pricing() {
                 Under Development
               </div>
               
-              <h3 className="text-2xl sm:text-4xl font-bold text-slate-900 mb-6">Institutional-Grade Accessibility</h3>
-              <p className="text-text-muted mb-12 max-w-xl mx-auto text-[16px] leading-relaxed">
+              <h3 className="text-2xl sm:text-4xl font-bold text-slate-900 dark:text-white mb-6">Institutional-Grade Accessibility</h3>
+              <p className="text-text-muted dark:text-slate-400 mb-12 max-w-xl mx-auto text-[16px] leading-relaxed">
                 We are calibrating our final pricing tiers to ensure maximum value for brands of every scale. 
                 Join the exclusive waitlist to secure grandfathered rates and early-access priority.
               </p>
@@ -40,7 +40,7 @@ export function Pricing() {
                   'Omnichannel Bulk Sync',
                   'Real-time ROAS Balancing',
                 ].map((feature) => (
-                  <div key={feature} className="flex items-center gap-3 text-text-secondary">
+                  <div key={feature} className="flex items-center gap-3 text-text-secondary dark:text-slate-300">
                     <span className="flex h-5 w-5 items-center justify-center rounded-full bg-accent-500/20 text-accent-600">
                       <svg className="h-3 w-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}>
                         <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />

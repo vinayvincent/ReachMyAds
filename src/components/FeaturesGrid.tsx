@@ -101,10 +101,10 @@ function FeatureCard({ feature, index }: { feature: typeof features[0]; index: n
           {feature.icon}
         </div>
       </div>
-      <h3 className="mb-3 text-[18px] font-semibold text-slate-900 tracking-tight">
+      <h3 className="mb-3 text-[18px] font-semibold text-slate-900 dark:text-white tracking-tight">
         {feature.title}
       </h3>
-      <p className="text-[15px] leading-relaxed text-text-secondary">
+      <p className="text-[15px] leading-relaxed text-text-secondary dark:text-slate-300">
         {feature.description}
       </p>
     </>

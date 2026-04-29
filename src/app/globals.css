@@ -142,6 +142,15 @@ body {
   animation: gradientBG 20s ease-in-out infinite alternate;
 }
 
+@media (prefers-color-scheme: dark) {
+  body {
+    background-color: #020617;
+  }
+  .bg-animated-mesh {
+    background: linear-gradient(115deg, #022c22, #082f49, #3b0764, #4c0519);
+  }
+}
+
 @keyframes gradientBG {
   0% { background-position: 0% 50%; }
   50% { background-position: 100% 50%; }
