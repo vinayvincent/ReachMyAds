@@ -1,24 +1,17 @@
 'use client';
 
+import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
 import Image from 'next/image';
 import type { HeroContent } from '@/types';
 
 const defaultHeroContent: HeroContent = {
-  headline: 'Social Media Advertising Platform to Publish Ads Across Multiple Platforms',
+  headline: 'Institutional-Grade AI. Omnichannel Synchronization.',
   subheadline:
-    'Manage and distribute your advertisements across multiple social media platforms from one powerful dashboard. Our platform helps businesses publish ads easily on Facebook, Instagram, LinkedIn, and more without managing each platform separately.\n\nSave time, increase reach, and improve marketing performance.\n\nStart managing all your social media advertisements from one place.',
-  ctaText: 'Start Advertising Today',
+    'The world\'s most advanced AI ad management ecosystem. Harmonize your strategy across Google, Meta, TikTok, and LinkedIn with predictive optimization and real-time cross-channel intelligence.',
+  ctaText: 'Experience the Future',
   ctaLink: '#contact',
-  backgroundAnimation: {
-    type: 'fadeIn',
-    duration: 1200,
-    delay: 0,
-    easing: 'easeOut',
-    triggerOnScroll: false,
-    threshold: 0,
-  },
 };
 
 export interface HeroProps {
@@ -27,118 +20,207 @@ export interface HeroProps {
 
 export function Hero({ content }: HeroProps) {
   const hero: HeroContent = { ...defaultHeroContent, ...content };
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  // Use static values during SSR to prevent hydration mismatch,
+  // then animate on the client after mount.
+  const shouldAnimate = mounted;
 
   return (
     <section
-      className="relative flex min-h-[100dvh] items-center justify-center overflow-hidden bg-black"
+      className="relative min-h-[100dvh] flex flex-col items-center justify-center overflow-hidden bg-transparent pt-20"
       aria-label="Hero"
     >
-      {/* Aurora mesh gradient background */}
-      <div className="pointer-events-none absolute inset-0" aria-hidden="true">
-        <motion.div
-          className="absolute left-1/2 top-0 h-[800px] w-[1200px] -translate-x-1/2 -translate-y-1/3 opacity-30"
-          style={{
-            background: 'radial-gradient(ellipse at center, rgba(59,130,246,0.15) 0%, rgba(139,92,246,0.08) 40%, transparent 70%)',
-          }}
-          animate={{
-            x: [0, 30, -20, 0],
-            y: [0, -20, 10, 0],
-            scale: [1, 1.05, 0.95, 1],
-          }}
-          transition={{ duration: 12, repeat: Infinity, ease: 'easeInOut' }}
-        />
-        <motion.div
-          className="absolute bottom-0 left-1/4 h-[600px] w-[800px] opacity-20"
-          style={{
-            background: 'radial-gradient(ellipse at center, rgba(59,130,246,0.1) 0%, transparent 60%)',
-          }}
-          animate={{
-            x: [0, -30, 20, 0],
-            y: [0, 20, -10, 0],
-            scale: [1, 0.95, 1.05, 1],
-          }}
-          transition={{ duration: 15, repeat: Infinity, ease: 'easeInOut' }}
-        />
+      {/* Background visual layering */}
+      <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
+        {/* Subtle grid with fade */}
+        <div className="absolute inset-0 bg-grid opacity-20 [mask-image:radial-gradient(ellipse_at_center,black,transparent_80%)]" />
+        
+        {/* Animated Aurora Glows — only animate after mount */}
+        {shouldAnimate && (
+          <>
+            <motion.div
+              animate={{
+                scale: [1, 1.1, 1],
+                opacity: [0.3, 0.4, 0.3],
+                x: [0, 50, 0],
+                y: [0, -30, 0],
+              }}
+              transition={{ duration: 15, repeat: Infinity, ease: 'easeInOut' }}
+              className="absolute top-[-10%] left-[10%] w-[600px] h-[600px] bg-accent-500/10 blur-[120px] rounded-full"
+            />
+            <motion.div
+              animate={{
+                scale: [1, 1.2, 1],
+                opacity: [0.2, 0.3, 0.2],
+                x: [0, -60, 0],
+                y: [0, 40, 0],
+              }}
+              transition={{ duration: 18, repeat: Infinity, ease: 'easeInOut', delay: 2 }}
+              className="absolute bottom-[-10%] right-[10%] w-[500px] h-[500px] bg-purple-500/10 blur-[120px] rounded-full"
+            />
+          </>
+        )}
+        {!shouldAnimate && (
+          <>
+            <div className="absolute top-[-10%] left-[10%] w-[600px] h-[600px] bg-accent-500/10 blur-[120px] rounded-full opacity-30" />
+            <div className="absolute bottom-[-10%] right-[10%] w-[500px] h-[500px] bg-purple-500/10 blur-[120px] rounded-full opacity-20" />
+          </>
+        )}
       </div>
 
-      {/* Grid */}
-      <div className="absolute inset-0 bg-grid opacity-60" aria-hidden="true" />
-
-      {/* Top-down fade */}
-      <div className="absolute inset-x-0 top-0 h-32 bg-gradient-to-b from-black to-transparent" aria-hidden="true" />
-
-      <div className="relative z-10 mx-auto max-w-[900px] px-6 py-32 text-center lg:py-40">
+      <div className="relative z-10 w-full max-w-[1200px] px-6 text-center">
         
         {/* Headline */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.1 }}
-        >
-          <h1 className="text-gradient-hero text-[clamp(2.25rem,5.5vw,4.5rem)] font-bold leading-[1.1] tracking-[-0.035em]">
-            {hero.headline}
+        {shouldAnimate ? (
+          <motion.h1
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.1 }}
+            className="mb-8 text-[clamp(3.5rem,9vw,6.5rem)] font-black leading-[1.05] tracking-tighter text-slate-900 drop-shadow-xl"
+          >
+            Social Advertising <br className="hidden md:block" />
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-accent-600 via-accent-500 to-accent-700 italic pr-2 drop-shadow-md">Evolved.</span>
+          </motion.h1>
+        ) : (
+          <h1 className="mb-8 text-[clamp(3.5rem,9vw,6.5rem)] font-black leading-[1.05] tracking-tighter text-slate-900 drop-shadow-xl">
+            Social Advertising <br className="hidden md:block" />
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-accent-600 via-accent-500 to-accent-700 italic pr-2 drop-shadow-md">Evolved.</span>
           </h1>
-        </motion.div>
+        )}
 
         {/* Subheadline */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.25 }}
-        >
-          <div className="mx-auto mt-6 max-w-[700px] space-y-4 text-[15px] text-[#999] leading-[1.75] sm:text-[16px]">
-            {hero.subheadline?.split('\n\n').map((paragraph, index) => (
-              <p key={index}>{paragraph}</p>
-            ))}
-          </div>
-        </motion.div>
+        {shouldAnimate ? (
+          <motion.p
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            className="mx-auto mb-12 max-w-3xl text-[18px] text-text-secondary leading-relaxed sm:text-[20px]"
+          >
+            Scale your advertising horizontally across every network with a single click. 
+            Stop managing silos and start <span className="text-slate-900 font-bold">hyper-scaling</span> your ROI 
+            with automated creative intelligence and omnichannel synchronization.
+          </motion.p>
+        ) : (
+          <p className="mx-auto mb-12 max-w-3xl text-[18px] text-text-secondary leading-relaxed sm:text-[20px]">
+            Scale your advertising horizontally across every network with a single click. 
+            Stop managing silos and start <span className="text-slate-900 font-bold">hyper-scaling</span> your ROI 
+            with automated creative intelligence and omnichannel synchronization.
+          </p>
+        )}
 
         {/* CTAs */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.4 }}
-        >
-          <div className="mt-10 flex flex-col items-center gap-3 sm:flex-row sm:justify-center">
+        {shouldAnimate ? (
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.3 }}
+            className="flex flex-col items-center gap-4 sm:flex-row sm:justify-center"
+          >
             <Link
               href={hero.ctaLink}
-              className="btn-primary btn-beam group inline-flex items-center gap-2 rounded-xl px-7 py-3.5 text-[14px] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent-400"
+              className="btn-primary btn-beam group h-14 min-w-[200px] inline-flex items-center justify-center gap-2 rounded-2xl px-8 text-[15px] font-bold"
             >
               {hero.ctaText}
-              <svg className="h-4 w-4 transition-transform duration-200 group-hover:translate-x-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5} aria-hidden="true">
+              <svg className="h-4 w-4 transition-transform group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
                 <path strokeLinecap="round" strokeLinejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6" />
               </svg>
             </Link>
+            <Link
+              href="#features"
+              className="btn-secondary h-14 min-w-[200px] inline-flex items-center justify-center gap-2 rounded-2xl px-8 text-[15px]"
+            >
+              View Demo
+            </Link>
+          </motion.div>
+        ) : (
+          <div className="flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
+            <Link
+              href={hero.ctaLink}
+              className="btn-primary btn-beam group h-14 min-w-[200px] inline-flex items-center justify-center gap-2 rounded-2xl px-8 text-[15px] font-bold"
+            >
+              {hero.ctaText}
+              <svg className="h-4 w-4 transition-transform group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6" />
+              </svg>
+            </Link>
+            <Link
+              href="#features"
+              className="btn-secondary h-14 min-w-[200px] inline-flex items-center justify-center gap-2 rounded-2xl px-8 text-[15px]"
+            >
+              View Demo
+            </Link>
           </div>
-        </motion.div>
+        )}
 
-        {/* Hero Image Mockup Container */}
-        <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1, delay: 0.5 }}
-        >
-          <div className="relative mx-auto mt-20 max-w-[1000px] w-full isolate">
-            <div className="absolute -inset-1 rounded-2xl bg-gradient-to-r from-accent-500 to-purple-500 opacity-30 blur-xl" aria-hidden="true" />
-            <div className="relative rounded-2xl bg-black/50 border border-white/10 p-2 backdrop-blur-md shadow-2xl">
-              <div className="rounded-xl overflow-hidden bg-[#111] aspect-video relative">
-                <Image
-                  src="/images/hero-dashboard.png"
-                  alt="ReachMyAds Dashboard Interface Mockup"
-                  fill
-                  style={{ objectFit: 'cover' }}
-                  priority
-                  className="opacity-90 transition-transform duration-700 hover:scale-[1.02]"
-                />
+        {/* Dashboard Preview */}
+        {shouldAnimate ? (
+          <motion.div
+            initial={{ opacity: 0, y: 60 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1.2, delay: 0.4 }}
+            className="mt-20 relative px-4 lg:px-0"
+          >
+            <div className="relative mx-auto max-w-[1000px] group">
+              {/* Glow effect on hover */}
+              <div className="absolute -inset-4 rounded-[40px] bg-accent-500/20 blur-[40px] opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none" />
+              
+              <div className="relative rounded-[24px] overflow-hidden border border-white/10 bg-black/60 backdrop-blur-xl shadow-2xl">
+                <div className="flex items-center gap-2 border-b border-white/10 bg-white/5 px-4 py-3">
+                  <div className="flex gap-1.5">
+                    <div className="h-3 w-3 rounded-full bg-white/10" />
+                    <div className="h-3 w-3 rounded-full bg-white/10" />
+                    <div className="h-3 w-3 rounded-full bg-white/10" />
+                  </div>
+                  <div className="mx-auto text-[11px] font-medium text-slate-400 tracking-widest uppercase">ReachMyAds Dashboard</div>
+                </div>
+                <div className="aspect-[16/9] relative bg-black/40">
+                  <Image
+                    src="/images/hero-dashboard.png"
+                    alt="ReachMyAds AI Dashboard Visualization"
+                    fill
+                    className="object-cover opacity-90 transition-transform duration-1000 group-hover:scale-[1.02]"
+                    priority
+                  />
+                </div>
+              </div>
+            </div>
+          </motion.div>
+        ) : (
+          <div className="mt-20 relative px-4 lg:px-0">
+            <div className="relative mx-auto max-w-[1000px] group">
+              <div className="absolute -inset-4 rounded-[40px] bg-accent-500/20 blur-[40px] opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none" />
+              
+              <div className="relative rounded-[24px] overflow-hidden border border-white/10 bg-black/60 backdrop-blur-xl shadow-2xl">
+                <div className="flex items-center gap-2 border-b border-white/10 bg-white/5 px-4 py-3">
+                  <div className="flex gap-1.5">
+                    <div className="h-3 w-3 rounded-full bg-white/10" />
+                    <div className="h-3 w-3 rounded-full bg-white/10" />
+                    <div className="h-3 w-3 rounded-full bg-white/10" />
+                  </div>
+                  <div className="mx-auto text-[11px] font-medium text-slate-400 tracking-widest uppercase">ReachMyAds Dashboard</div>
+                </div>
+                <div className="aspect-[16/9] relative bg-black/40">
+                  <Image
+                    src="/images/hero-dashboard.png"
+                    alt="ReachMyAds AI Dashboard Visualization"
+                    fill
+                    className="object-cover opacity-90 transition-transform duration-1000 group-hover:scale-[1.02]"
+                    priority
+                  />
+                </div>
               </div>
             </div>
           </div>
-        </motion.div>
-
+        )}
       </div>
 
       {/* Bottom fade */}
-      <div className="absolute bottom-0 left-0 right-0 h-40 bg-gradient-to-t from-black to-transparent" aria-hidden="true" />
+      <div className="absolute bottom-0 left-0 right-0 h-40 bg-gradient-to-t from-black to-transparent pointer-events-none" />
     </section>
   );
 }

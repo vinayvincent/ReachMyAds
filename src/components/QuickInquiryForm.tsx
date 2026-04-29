@@ -106,11 +106,11 @@ export function QuickInquiryForm({
       >
         {isFloating && (
           <div className="mb-4 flex items-center justify-between">
-            <span className="text-[13px] font-semibold text-[#e5e5e5]">Quick Inquiry</span>
+            <span className="text-[13px] font-semibold text-slate-800">Quick Inquiry</span>
             <button
               type="button"
               onClick={() => setIsMinimized(true)}
-              className="flex h-6 w-6 items-center justify-center rounded-full text-[#555] transition-colors hover:bg-white/[0.06] hover:text-white"
+              className="flex h-6 w-6 items-center justify-center rounded-full text-[#555] transition-colors hover:bg-slate-200 hover:text-slate-900"
               aria-label="Minimize inquiry form"
             >
               <svg xmlns="http://www.w3.org/2000/svg" className="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2} aria-hidden="true">
@@ -152,7 +152,7 @@ export function QuickInquiryForm({
 
           <div>
             <label htmlFor="qi-email" className="mb-1.5 block text-[12px] font-medium text-[#888]">
-              Email <span className="text-accent-400/70" aria-hidden="true">*</span>
+              Email <span className="text-accent-600" aria-hidden="true">*</span>
             </label>
             <input
               id="qi-email" type="email" autoComplete="email" aria-required="true"
@@ -166,7 +166,7 @@ export function QuickInquiryForm({
 
           <div>
             <label htmlFor="qi-inquiry" className="mb-1.5 block text-[12px] font-medium text-[#888]">
-              Message <span className="text-accent-400/70" aria-hidden="true">*</span>
+              Message <span className="text-accent-600" aria-hidden="true">*</span>
             </label>
             <textarea
               id="qi-inquiry" rows={isFloating ? 3 : 4} aria-required="true"
