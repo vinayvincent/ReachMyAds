@@ -89,15 +89,15 @@ export function Hero({ content }: HeroProps) {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.1 }}
-            className="mb-8 text-[clamp(3.5rem,9vw,6.5rem)] font-black leading-[1.05] tracking-tighter text-slate-900 drop-shadow-xl"
+            className="mb-8 text-[clamp(3.5rem,9vw,6.5rem)] font-black leading-[1.05] tracking-tighter text-blue-600 drop-shadow-xl"
           >
             Social Advertising <br className="hidden md:block" />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-accent-600 via-accent-500 to-accent-700 italic pr-2 drop-shadow-md">Evolved.</span>
+            Evolved.
           </motion.h1>
         ) : (
-          <h1 className="mb-8 text-[clamp(3.5rem,9vw,6.5rem)] font-black leading-[1.05] tracking-tighter text-slate-900 drop-shadow-xl">
+          <h1 className="mb-8 text-[clamp(3.5rem,9vw,6.5rem)] font-black leading-[1.05] tracking-tighter text-blue-600 drop-shadow-xl">
             Social Advertising <br className="hidden md:block" />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-accent-600 via-accent-500 to-accent-700 italic pr-2 drop-shadow-md">Evolved.</span>
+            Evolved.
           </h1>
         )}
 
