@@ -89,13 +89,13 @@ export function Hero({ content }: HeroProps) {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.1 }}
-            className="mb-8 text-[clamp(3.5rem,9vw,6.5rem)] font-black leading-[1.05] tracking-tighter text-slate-900 drop-shadow-xl"
+            className="mb-8 text-[clamp(3.5rem,9vw,6.5rem)] font-black leading-[1.05] tracking-tighter text-slate-900 dark:text-white drop-shadow-xl"
           >
             Social Advertising <br className="hidden md:block" />
             <span className="text-blue-600">Evolved.</span>
           </motion.h1>
         ) : (
-          <h1 className="mb-8 text-[clamp(3.5rem,9vw,6.5rem)] font-black leading-[1.05] tracking-tighter text-slate-900 drop-shadow-xl">
+          <h1 className="mb-8 text-[clamp(3.5rem,9vw,6.5rem)] font-black leading-[1.05] tracking-tighter text-slate-900 dark:text-white drop-shadow-xl">
             Social Advertising <br className="hidden md:block" />
             <span className="text-blue-600">Evolved.</span>
           </h1>
@@ -107,16 +107,16 @@ export function Hero({ content }: HeroProps) {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="mx-auto mb-12 max-w-3xl text-[18px] text-text-secondary leading-relaxed sm:text-[20px]"
+            className="mx-auto mb-12 max-w-3xl text-[18px] text-text-secondary dark:text-slate-300 leading-relaxed sm:text-[20px]"
           >
             Scale your advertising horizontally across every network with a single click. 
-            Stop managing silos and start <span className="text-slate-900 font-bold">hyper-scaling</span> your ROI 
+            Stop managing silos and start <span className="text-slate-900 dark:text-white font-bold">hyper-scaling</span> your ROI 
             with automated creative intelligence and omnichannel synchronization.
           </motion.p>
         ) : (
-          <p className="mx-auto mb-12 max-w-3xl text-[18px] text-text-secondary leading-relaxed sm:text-[20px]">
+          <p className="mx-auto mb-12 max-w-3xl text-[18px] text-text-secondary dark:text-slate-300 leading-relaxed sm:text-[20px]">
             Scale your advertising horizontally across every network with a single click. 
-            Stop managing silos and start <span className="text-slate-900 font-bold">hyper-scaling</span> your ROI 
+            Stop managing silos and start <span className="text-slate-900 dark:text-white font-bold">hyper-scaling</span> your ROI 
             with automated creative intelligence and omnichannel synchronization.
           </p>
         )}

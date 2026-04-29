@@ -49,7 +49,7 @@ export function Testimonials() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.1 }}
-            className="mt-6 text-lg leading-8 text-text-secondary"
+            className="mt-6 text-lg leading-8 text-text-secondary dark:text-slate-300"
           >
             Join 500+ agencies and brands that have scaled their advertising ROI with ReachMyAds.
           </motion.p>
@@ -75,10 +75,10 @@ export function Testimonials() {
                 </div>
                 <div>
                   <h3 className="text-[15px] font-bold text-white mb-0.5">{testimonial.name}</h3>
-                  <p className="text-[13px] text-text-muted">{testimonial.company}</p>
+                  <p className="text-[13px] text-text-muted dark:text-slate-400">{testimonial.company}</p>
                 </div>
               </div>
-              <p className="text-[15px] leading-relaxed text-text-secondary relative z-10 italic">
+              <p className="text-[15px] leading-relaxed text-text-secondary dark:text-slate-300 relative z-10 italic">
                 "{testimonial.content}"
               </p>
               

@@ -33,10 +33,10 @@ function StepCard({ step, index }: { step: typeof steps[0]; index: number }) {
       <div className="mb-8 text-[80px] leading-none font-black text-transparent bg-clip-text bg-gradient-to-br from-accent-400 to-accent-600 transition-transform duration-500 group-hover:scale-110 group-hover:rotate-3 select-none drop-shadow-sm">
         {step.step}
       </div>
-      <h3 className="text-xl font-bold text-slate-900 mb-4 group-hover:text-accent-600 transition-colors">
+      <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-4 group-hover:text-accent-600 transition-colors">
         {step.title}
       </h3>
-      <p className="text-slate-600 leading-relaxed">
+      <p className="text-slate-600 dark:text-slate-300 leading-relaxed">
         {step.description}
       </p>
       
@@ -70,11 +70,11 @@ function StepCard({ step, index }: { step: typeof steps[0]; index: number }) {
 
 export function HowItWorks() {
   return (
-    <section className="relative py-24 sm:py-32 bg-transparent border-y border-slate-200/50">
+    <section className="relative py-24 sm:py-32 bg-transparent border-y border-slate-200/50 dark:border-slate-800/50">
       <div className="mx-auto max-w-[1200px] px-6">
         <div className="flex flex-col md:flex-row items-end justify-between gap-8 mb-20">
           <div className="max-w-xl">
-            <h2 className="text-3xl font-bold tracking-tight text-slate-900 sm:text-5xl mb-6">
+            <h2 className="text-3xl font-bold tracking-tight text-slate-900 dark:text-white sm:text-5xl mb-6">
               Three steps to <span className="text-gradient-blue">unstoppable</span> growth
             </h2>
           </div>
