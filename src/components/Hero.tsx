@@ -12,6 +12,14 @@ const defaultHeroContent: HeroContent = {
     'The world\'s most advanced AI ad management ecosystem. Harmonize your strategy across Google, Meta, TikTok, and LinkedIn with predictive optimization and real-time cross-channel intelligence.',
   ctaText: 'Experience the Future',
   ctaLink: '#contact',
+  backgroundAnimation: {
+    type: 'morphing',
+    duration: 15,
+    delay: 0,
+    easing: 'easeInOut',
+    triggerOnScroll: false,
+    threshold: 0
+  }
 };
 
 export interface HeroProps {
