@@ -1,6 +1,5 @@
 'use client';
 
-import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 
 const features = [
@@ -88,36 +87,6 @@ const features = [
 ];
 
 function FeatureCard({ feature, index }: { feature: typeof features[0]; index: number }) {
-  const [mounted, setMounted] = useState(false);
-
-  useEffect(() => {
-    setMounted(true);
-  }, []);
-
-  const content = (
-    <>
-      <div className="mb-6 flex h-12 w-12 items-center justify-center rounded-2xl bg-white/[0.03] ring-1 ring-white/10 group-hover:bg-accent-500/10 group-hover:ring-accent-500/20 transition-all duration-300">
-        <div className="text-accent-600 group-hover:text-accent-700 transition-colors">
-          {feature.icon}
-        </div>
-      </div>
-      <h3 className="mb-3 text-[18px] font-semibold text-slate-900 dark:text-white tracking-tight">
-        {feature.title}
-      </h3>
-      <p className="text-[15px] leading-relaxed text-text-secondary dark:text-slate-300">
-        {feature.description}
-      </p>
-    </>
-  );
-
-  if (!mounted) {
-    return (
-      <div className="card-feature group rounded-3xl p-8 backdrop-blur-sm">
-        {content}
-      </div>
-    );
-  }
-
   return (
     <motion.div
       initial={{ opacity: 0, scale: 0.95 }}
@@ -125,39 +94,32 @@ function FeatureCard({ feature, index }: { feature: typeof features[0]; index: n
       viewport={{ once: true }}
       transition={{ delay: index * 0.1 }}
       className="card-feature group rounded-3xl p-8 backdrop-blur-sm"
+      suppressHydrationWarning
     >
-      {content}
+      <div className="mb-6 flex h-12 w-12 items-center justify-center rounded-2xl bg-slate-100 dark:bg-white/[0.03] ring-1 ring-slate-200 dark:ring-white/10 group-hover:bg-accent-500/10 group-hover:ring-accent-500/20 transition-all duration-300">
+        <div className="text-accent-600 dark:text-accent-400 group-hover:text-accent-700 dark:group-hover:text-accent-300 transition-colors">
+          {feature.icon}
+        </div>
+      </div>
+      <h3 className="mb-3 text-[18px] font-semibold text-slate-900 dark:text-white tracking-tight">
+        {feature.title}
+      </h3>
+      <p className="text-[15px] leading-relaxed text-slate-600 dark:text-slate-300">
+        {feature.description}
+      </p>
     </motion.div>
   );
 }
 
 function SectionHeader() {
-  const [mounted, setMounted] = useState(false);
-
-  useEffect(() => {
-    setMounted(true);
-  }, []);
-
-  if (!mounted) {
-    return (
-      <div className="mx-auto max-w-2xl text-center mb-20">
-        <p className="text-[14px] font-semibold uppercase tracking-[0.2em] text-accent-600 mb-4">
-          Features
-        </p>
-        <h2 className="text-gradient-section text-4xl font-bold tracking-tight sm:text-5xl">
-          Everything you need to dominate social advertising
-        </h2>
-      </div>
-    );
-  }
-
   return (
     <div className="mx-auto max-w-2xl text-center mb-20">
       <motion.p
         initial={{ opacity: 0, y: 10 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
-        className="text-[14px] font-semibold uppercase tracking-[0.2em] text-accent-600 mb-4"
+        className="text-[14px] font-semibold uppercase tracking-[0.2em] text-accent-600 dark:text-accent-400 mb-4"
+        suppressHydrationWarning
       >
         Features
       </motion.p>
@@ -166,7 +128,8 @@ function SectionHeader() {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ delay: 0.1 }}
-        className="text-gradient-section text-4xl font-bold tracking-tight sm:text-5xl"
+        className="text-4xl font-bold tracking-tight sm:text-5xl text-black dark:text-white"
+        suppressHydrationWarning
       >
         Everything you need to dominate social advertising
       </motion.h2>

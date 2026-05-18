@@ -27,8 +27,8 @@ export interface UseAnimationResult {
  * React hook that provides framer-motion animation props driven by
  * Intersection Observer for scroll-triggered animations.
  *
- * Uses `initial={false}` during SSR so content is visible on first paint,
- * then applies entrance animations after hydration on the client.
+ * Uses `initial={false}` so content is visible on first paint (SSR-safe),
+ * then applies entrance animations when the element scrolls into view.
  */
 export function useAnimation(options: UseAnimationOptions = {}): UseAnimationResult {
   const config: AnimationConfig = {
@@ -37,17 +37,11 @@ export function useAnimation(options: UseAnimationOptions = {}): UseAnimationRes
   };
 
   const ref = useRef<HTMLDivElement | null>(null);
-  const [hasMounted, setHasMounted] = useState(false);
   const [isInView, setIsInView] = useState(!config.triggerOnScroll);
 
   const osReducedMotion = useReducedMotion();
   const prefersReducedMotion =
     options.respectReducedMotion !== false && osReducedMotion;
-
-  // Track client mount so we don't render opacity:0 during SSR
-  useEffect(() => {
-    setHasMounted(true);
-  }, []);
 
   useEffect(() => {
     if (!config.triggerOnScroll || !ref.current) {
@@ -76,17 +70,12 @@ export function useAnimation(options: UseAnimationOptions = {}): UseAnimationRes
   const duration = prefersReducedMotion ? 0 : config.duration / 1000;
   const delay = prefersReducedMotion ? 0 : config.delay / 1000;
 
-  // During SSR or before mount: use `false` so framer-motion renders
-  // the animate state directly (content visible on first paint).
-  // After mount: use the real initial state so animations can play.
-  const initial: TargetAndTransition | false = !hasMounted || prefersReducedMotion
-    ? false
-    : variant.initial;
-
+  // Always use initial=false: content is visible on first paint (SSR-safe),
+  // and framer-motion plays animations from the animate state directly.
   return {
     ref,
-    initial,
-    animate: isInView ? variant.animate : (hasMounted ? variant.initial : variant.animate),
+    initial: false,
+    animate: isInView ? variant.animate : variant.initial,
     transition: {
       duration,
       delay,

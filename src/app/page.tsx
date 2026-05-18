@@ -49,10 +49,10 @@ export default function Home() {
 
           <div className="relative mx-auto max-w-[1200px] px-6">
             <div className="mx-auto max-w-xl text-center">
-              <p className="mb-4 text-[14px] font-semibold uppercase tracking-[0.2em] text-accent-600">
+              <p className="mb-4 text-[14px] font-semibold uppercase tracking-[0.2em] text-accent-600 dark:text-accent-400">
                 Get Started
               </p>
-              <h2 className="text-gradient-section text-4xl font-bold leading-tight tracking-tight mb-12">
+              <h2 className="text-4xl font-bold leading-tight tracking-tight mb-12 text-slate-900 dark:text-white">
                 Ready to scale your <span className="text-gradient-blue">advertising</span> ROI?
               </h2>
               
@@ -65,7 +65,7 @@ export default function Home() {
                 <div className="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row sm:gap-8">
                   <a
                     href="mailto:admin@reachmyads.com"
-                    className="group flex items-center gap-3 text-[14px] font-medium text-slate-600 dark:text-slate-300 transition-all hover:text-slate-900 dark:text-white"
+                    className="group flex items-center gap-3 text-[14px] font-medium text-slate-600 dark:text-slate-300 transition-all hover:text-slate-900 dark:hover:text-white"
                   >
                     <span className="flex h-10 w-10 items-center justify-center rounded-full bg-slate-100 dark:bg-slate-800 ring-1 ring-slate-200 transition-all group-hover:bg-accent-50 group-hover:ring-accent-200">
                       <svg className="h-5 w-5 text-accent-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -74,7 +74,7 @@ export default function Home() {
                     </span>
                     admin@reachmyads.com
                   </a>
-                  <div className="hidden h-4 w-px bg-slate-200 sm:block" />
+                  <div className="hidden h-4 w-px bg-slate-200 dark:bg-slate-700 sm:block" />
                   <div className="flex flex-col items-center gap-4 sm:flex-row sm:gap-6">
                     <div className="flex items-center gap-3 text-[14px] font-medium text-slate-600 dark:text-slate-300">
                       <span className="flex h-10 w-10 items-center justify-center rounded-full bg-slate-100 dark:bg-slate-800 ring-1 ring-slate-200 transition-all hover:bg-accent-50 hover:ring-accent-200">
@@ -82,16 +82,16 @@ export default function Home() {
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
                         </svg>
                       </span>
-                      <a href="tel:+916238299803" className="transition-all hover:text-slate-900 dark:text-white">+91 62382 99803</a>
+                      <a href="tel:+916238299803" className="transition-all hover:text-slate-900 dark:hover:text-white">+91 62382 99803</a>
                     </div>
-                    <div className="hidden h-4 w-px bg-slate-200 sm:block" />
+                    <div className="hidden h-4 w-px bg-slate-200 dark:bg-slate-700 sm:block" />
                     <div className="flex items-center gap-3 text-[14px] font-medium text-slate-600 dark:text-slate-300">
                       <span className="flex h-10 w-10 items-center justify-center rounded-full bg-slate-100 dark:bg-slate-800 ring-1 ring-slate-200 transition-all hover:bg-accent-50 hover:ring-accent-200">
                         <svg className="h-5 w-5 text-accent-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
                         </svg>
                       </span>
-                      <a href="tel:+917012112355" className="transition-all hover:text-slate-900 dark:text-white">+91 70121 12355</a>
+                      <a href="tel:+917012112355" className="transition-all hover:text-slate-900 dark:hover:text-white">+91 70121 12355</a>
                     </div>
                   </div>
                 </div>

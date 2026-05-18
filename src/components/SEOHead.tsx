@@ -37,6 +37,7 @@ export function SEOHead({ structuredData }: { structuredData: SEOMetadata['struc
   return (
     <script
       type="application/ld+json"
+      suppressHydrationWarning
       dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
     />
   );
