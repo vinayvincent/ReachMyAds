@@ -48,16 +48,16 @@ const faqs = [
 
 function FAQItem({ question, answer, isOpen, onClick }: { question: string; answer: string; isOpen: boolean; onClick: () => void }) {
   return (
-    <div className="border-b border-white/[0.05]">
+    <div className="border-b border-slate-200 dark:border-white/[0.05]">
       <button
         onClick={onClick}
         className="flex w-full items-center justify-between py-6 text-left group"
       >
-        <span className={`text-[17px] font-medium transition-colors ${isOpen ? 'text-accent-400' : 'text-white group-hover:text-accent-400/80'}`}>
+        <span className={`text-[17px] font-medium transition-colors ${isOpen ? 'text-accent-600 dark:text-accent-400' : 'text-slate-800 dark:text-white group-hover:text-accent-600 dark:group-hover:text-accent-400/80'}`}>
           {question}
         </span>
         <span className={`ml-6 flex-shrink-0 transition-transform duration-300 ${isOpen ? 'rotate-45' : ''}`}>
-          <svg className="h-6 w-6 text-white/30" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <svg className="h-6 w-6 text-slate-400 dark:text-white/30" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 4v16m8-8H4" />
           </svg>
         </span>
@@ -71,7 +71,7 @@ function FAQItem({ question, answer, isOpen, onClick }: { question: string; answ
             transition={{ duration: 0.3, ease: 'easeInOut' }}
             className="overflow-hidden"
           >
-            <div className="pb-6 text-[15px] leading-relaxed text-text-secondary dark:text-slate-300">
+            <div className="pb-6 text-[15px] leading-relaxed text-slate-600 dark:text-slate-300">
               {answer}
             </div>
           </motion.div>
@@ -85,18 +85,18 @@ export function FAQ() {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
 
   return (
-    <section className="py-24 sm:py-32 bg-black">
+    <section className="py-24 sm:py-32 bg-slate-50 dark:bg-black">
       <div className="mx-auto max-w-3xl px-6">
         <div className="text-center mb-16">
-          <h2 className="text-3xl font-bold tracking-tight text-white mb-4">
+          <h2 className="text-3xl font-bold tracking-tight text-slate-900 dark:text-white mb-4">
             Frequently Asked Questions
           </h2>
-          <p className="text-text-secondary dark:text-slate-300">
+          <p className="text-slate-600 dark:text-slate-300">
             Everything you need to know about Reach My Ads.
           </p>
         </div>
 
-        <div className="divide-y divide-white/[0.05]">
+        <div className="divide-y divide-slate-200 dark:divide-white/[0.05]">
           {faqs.map((faq, index) => (
             <FAQItem
               key={index}

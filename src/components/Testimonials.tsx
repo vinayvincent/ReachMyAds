@@ -29,7 +29,7 @@ const testimonials: Testimonial[] = [
 
 export function Testimonials() {
   return (
-    <section id="testimonials" className="relative py-24 sm:py-32 bg-black overflow-hidden">
+    <section id="testimonials" className="relative py-24 sm:py-32 bg-slate-50 dark:bg-black overflow-hidden">
       {/* Background visual elements */}
       <div className="absolute inset-0 bg-dots opacity-10" />
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-accent-500/5 blur-[120px] rounded-full pointer-events-none" />
@@ -39,8 +39,8 @@ export function Testimonials() {
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="text-gradient-section text-3xl font-bold tracking-tight sm:text-5xl"
+            className="text-3xl font-bold tracking-tight sm:text-5xl text-slate-900 dark:text-white"
+            suppressHydrationWarning
           >
             Trusted by the world's most <span className="text-gradient-blue">ambitious</span> teams
           </motion.h2>
@@ -50,6 +50,7 @@ export function Testimonials() {
             viewport={{ once: true }}
             transition={{ delay: 0.1 }}
             className="mt-6 text-lg leading-8 text-text-secondary dark:text-slate-300"
+            suppressHydrationWarning
           >
             Join 500+ agencies and brands that have scaled their advertising ROI with ReachMyAds.
           </motion.p>
@@ -64,17 +65,18 @@ export function Testimonials() {
               viewport={{ once: true }}
               transition={{ delay: index * 0.1 }}
               className="glass-panel p-8 relative group"
+              suppressHydrationWarning
             >
               <div className="flex items-center gap-4 mb-6">
-                <div className="h-12 w-12 rounded-full bg-white/5 ring-1 ring-white/10 flex items-center justify-center overflow-hidden">
+                <div className="h-12 w-12 rounded-full bg-slate-100 dark:bg-white/5 ring-1 ring-slate-200 dark:ring-white/10 flex items-center justify-center overflow-hidden">
                   {testimonial.avatar ? (
                     <div className="text-accent-400 font-bold text-xl">{testimonial.name[0]}</div>
                   ) : (
-                    <div className="text-white/20 font-bold text-xl">{testimonial.name[0]}</div>
+                    <div className="text-slate-400 dark:text-white/20 font-bold text-xl">{testimonial.name[0]}</div>
                   )}
                 </div>
                 <div>
-                  <h3 className="text-[15px] font-bold text-white mb-0.5">{testimonial.name}</h3>
+                  <h3 className="text-[15px] font-bold text-slate-900 dark:text-white mb-0.5">{testimonial.name}</h3>
                   <p className="text-[13px] text-text-muted dark:text-slate-400">{testimonial.company}</p>
                 </div>
               </div>

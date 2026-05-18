@@ -110,7 +110,7 @@ export function QuickInquiryForm({
             <button
               type="button"
               onClick={() => setIsMinimized(true)}
-              className="flex h-6 w-6 items-center justify-center rounded-full text-[#555] transition-colors hover:bg-slate-200 hover:text-slate-900 dark:text-white"
+              className="flex h-6 w-6 items-center justify-center rounded-full text-slate-500 dark:text-slate-300 transition-colors hover:bg-slate-200 dark:hover:bg-slate-700 hover:text-slate-900 dark:hover:text-white"
               aria-label="Minimize inquiry form"
             >
               <svg xmlns="http://www.w3.org/2000/svg" className="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2} aria-hidden="true">
@@ -151,7 +151,7 @@ export function QuickInquiryForm({
           </div>
 
           <div>
-            <label htmlFor="qi-email" className="mb-1.5 block text-[12px] font-medium text-[#888]">
+            <label htmlFor="qi-email" className="mb-1.5 block text-[12px] font-medium text-slate-600 dark:text-slate-400">
               Email <span className="text-accent-600" aria-hidden="true">*</span>
             </label>
             <input
@@ -165,7 +165,7 @@ export function QuickInquiryForm({
           </div>
 
           <div>
-            <label htmlFor="qi-inquiry" className="mb-1.5 block text-[12px] font-medium text-[#888]">
+            <label htmlFor="qi-inquiry" className="mb-1.5 block text-[12px] font-medium text-slate-600 dark:text-slate-400">
               Message <span className="text-accent-600" aria-hidden="true">*</span>
             </label>
             <textarea

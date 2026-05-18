@@ -1,6 +1,5 @@
 'use client';
 
-import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 
 const platforms = [
@@ -13,12 +12,6 @@ const platforms = [
 ];
 
 export function TrustedBy() {
-  const [mounted, setMounted] = useState(false);
-
-  useEffect(() => {
-    setMounted(true);
-  }, []);
-
   return (
     <section className="py-12 bg-transparent border-y border-slate-200/50 dark:border-slate-800/50">
       <div className="mx-auto max-w-[1200px] px-6">
@@ -27,29 +20,19 @@ export function TrustedBy() {
         </p>
         <div className="flex flex-wrap items-center justify-center gap-12 md:gap-20">
           {platforms.map((platform, index) => (
-            mounted ? (
-              <motion.div
-                key={platform.name}
-                initial={{ opacity: 0, y: 10 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.1 }}
-                className="flex items-center gap-2 group cursor-default"
-              >
-                <span className="text-xl font-bold tracking-tight text-slate-700 dark:text-slate-200 group-hover:text-accent-600 transition-colors drop-shadow-sm">
-                  {platform.name}
-                </span>
-              </motion.div>
-            ) : (
-              <div
-                key={platform.name}
-                className="flex items-center gap-2 group cursor-default"
-              >
-                <span className="text-xl font-bold tracking-tight text-slate-700 dark:text-slate-200 group-hover:text-accent-600 transition-colors drop-shadow-sm">
-                  {platform.name}
-                </span>
-              </div>
-            )
+            <motion.div
+              key={platform.name}
+              initial={{ opacity: 0, y: 10 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: index * 0.1 }}
+              className="flex items-center gap-2 group cursor-default"
+              suppressHydrationWarning
+            >
+              <span className="text-xl font-bold tracking-tight text-slate-700 dark:text-slate-200 group-hover:text-accent-600 transition-colors drop-shadow-sm">
+                {platform.name}
+              </span>
+            </motion.div>
           ))}
         </div>
       </div>

@@ -10,7 +10,7 @@ export function Pricing() {
       
       <div className="mx-auto max-w-[1200px] px-6 relative z-10">
         <div className="mx-auto max-w-3xl text-center">
-          <h2 className="text-gradient-section text-4xl font-bold tracking-tight sm:text-6xl mb-8">
+          <h2 className="text-4xl font-bold tracking-tight sm:text-6xl mb-8 text-slate-900 dark:text-white">
             The Future of <span className="text-gradient-blue">Ad Scalability</span>
           </h2>
           <p className="text-lg sm:text-xl text-text-secondary dark:text-slate-300 leading-relaxed mb-12">
