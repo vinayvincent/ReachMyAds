@@ -94,9 +94,22 @@ export default function AboutPage() {
           <h1 className="text-5xl sm:text-6xl font-extrabold leading-tight tracking-tight text-slate-900 dark:text-white mb-6">
             Built to <span className="text-gradient-blue">Redefine</span> Advertising
           </h1>
-          <p className="mx-auto max-w-2xl text-lg text-slate-600 dark:text-slate-300 leading-relaxed">
+          <p className="mx-auto max-w-2xl text-lg text-slate-600 dark:text-slate-300 leading-relaxed mb-6">
             Reach My Ads is an AI-first advertising platform engineering the future of
             cross-channel campaign management — from a single, intelligent dashboard.
+          </p>
+          <p className="mx-auto max-w-2xl text-[16px] text-slate-600 dark:text-slate-400 leading-relaxed mb-6">
+            We believe that great advertising should not be reserved for the few. Whether you are a
+            bootstrapped startup finding your first customers, or a seasoned agency managing hundreds
+            of client accounts, Reach My Ads gives you the same cutting-edge AI tools that power
+            the world&apos;s most successful digital campaigns.
+          </p>
+          <p className="mx-auto max-w-2xl text-[16px] text-slate-600 dark:text-slate-400 leading-relaxed">
+            Founded by a team of advertising veterans and AI engineers, we are obsessed with one
+            outcome — helping our clients achieve measurable, scalable, and sustainable growth
+            across Google, Meta, TikTok, LinkedIn, and every platform that matters.
+            Every feature we ship, every algorithm we train, and every decision we make is driven
+            by a single question: <span className="font-semibold text-slate-700 dark:text-slate-200 italic">"Does this make our clients more successful?"</span>
           </p>
         </div>
       </section>
