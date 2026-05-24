@@ -1,7 +1,6 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import Link from 'next/link';
 import Image from 'next/image';
 import { useState, useEffect } from 'react';
 import type { HeroContent } from '@/types';
@@ -101,30 +100,6 @@ export function Hero({ content }: HeroProps) {
           Scale your advertising horizontally across every network with a single click. Stop managing silos and start <span className="text-slate-900 dark:text-white font-bold">hyper-scaling</span> your ROI with automated creative intelligence and omnichannel synchronization.
         </motion.p>
 
-        {/* CTAs */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.3 }}
-          className="flex flex-col items-center gap-4 sm:flex-row sm:justify-center"
-          suppressHydrationWarning
-        >
-          <Link
-            href={hero.ctaLink}
-            className="btn-primary btn-beam group h-14 min-w-[200px] inline-flex items-center justify-center gap-2 rounded-2xl px-8 text-[15px] font-bold"
-          >
-            {hero.ctaText}
-            <svg className="h-4 w-4 transition-transform group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
-              <path strokeLinecap="round" strokeLinejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6" />
-            </svg>
-          </Link>
-          <Link
-            href="#features"
-            className="btn-secondary h-14 min-w-[200px] inline-flex items-center justify-center gap-2 rounded-2xl px-8 text-[15px]"
-          >
-            View Demo
-          </Link>
-        </motion.div>
 
         {/* Dashboard Preview */}
         <motion.div
