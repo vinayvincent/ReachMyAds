@@ -302,6 +302,42 @@ export default function AboutPage() {
         </div>
       </section>
 
+      {/* ── Address ── */}
+      <section className="relative py-20 sm:py-24">
+        <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-slate-300/30 dark:via-white/[0.04] to-transparent" />
+        <div className="mx-auto max-w-[1200px] px-6">
+          <div className="text-center mb-12">
+            <p className="mb-4 text-[14px] font-semibold uppercase tracking-[0.2em] text-accent-600 dark:text-accent-400">
+              Find Us
+            </p>
+            <h2 className="text-3xl sm:text-4xl font-bold text-slate-900 dark:text-white">
+              Our <span className="text-gradient-blue">Location</span>
+            </h2>
+          </div>
+
+          <div className="flex justify-center">
+            <div className="glass-panel p-10 flex flex-col items-center text-center gap-5 relative overflow-hidden group transition-all duration-500 hover:-translate-y-1 w-full max-w-sm">
+              <div className="absolute top-0 left-0 right-0 h-[3px] bg-gradient-to-r from-accent-500 via-blue-400 to-transparent rounded-t-3xl" />
+              <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-accent-600/10 ring-1 ring-accent-600/20">
+                <svg className="h-7 w-7 text-accent-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.8}>
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z" />
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z" />
+                </svg>
+              </div>
+              <div>
+                <p className="text-[12px] font-semibold uppercase tracking-[0.15em] text-accent-600 dark:text-accent-400 mb-2">Address</p>
+                <p className="text-[16px] font-bold text-slate-900 dark:text-white leading-snug mb-1">
+                  Infopark Phase 2
+                </p>
+                <p className="text-[14px] text-slate-600 dark:text-slate-400">
+                  Kochi, Kerala 682030<br />India
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
 
     </main>
   );
