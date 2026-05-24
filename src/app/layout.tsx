@@ -50,7 +50,6 @@ export default function RootLayout({
             <div className="hidden md:flex items-center gap-8">
               <a href="#features" className="text-[14px] font-medium text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:text-white transition-colors">Features</a>
               <a href="#pricing" className="text-[14px] font-medium text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:text-white transition-colors">Pricing</a>
-              <a href="#contact" className="text-[14px] font-medium text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:text-white transition-colors">Contact</a>
             </div>
 
             <a 
@@ -82,18 +81,18 @@ export default function RootLayout({
               <div>
                 <h4 className="text-slate-900 dark:text-white font-bold text-[15px] mb-6">Product</h4>
                 <ul className="space-y-4">
-                  <li><a href="#features" className="text-[14px] text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:text-white transition-colors">AI Creative Hub</a></li>
-                  <li><a href="#features" className="text-[14px] text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:text-white transition-colors">Multi-Platform Sync</a></li>
-                  <li><a href="#pricing" className="text-[14px] text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:text-white transition-colors">Pricing Plans</a></li>
-                  <li><a href="#features" className="text-[14px] text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:text-white transition-colors">Real-time Analytics</a></li>
+                  <li><a href="/#features" className="text-[14px] text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:text-white transition-colors">AI Creative Hub</a></li>
+                  <li><a href="/#features" className="text-[14px] text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:text-white transition-colors">Multi-Platform Sync</a></li>
+                  <li><a href="/#pricing" className="text-[14px] text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:text-white transition-colors">Pricing Plans</a></li>
+                  <li><a href="/#features" className="text-[14px] text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:text-white transition-colors">Real-time Analytics</a></li>
                 </ul>
               </div>
 
               <div>
                 <h4 className="text-slate-900 dark:text-white font-bold text-[15px] mb-6">Company</h4>
                 <ul className="space-y-4">
-                  <li><a href="#contact" className="text-[14px] text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:text-white transition-colors">About Us</a></li>
-                  <li><a href="#contact" className="text-[14px] text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:text-white transition-colors">Contact</a></li>
+                  <li><a href="/about" className="text-[14px] text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:text-white transition-colors">About Us</a></li>
+                  <li><a href="/#contact" className="text-[14px] text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:text-white transition-colors">Contact</a></li>
                   <li><a href="#" className="text-[14px] text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:text-white transition-colors">Privacy Policy</a></li>
                   <li><a href="#" className="text-[14px] text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:text-white transition-colors">Terms of Service</a></li>
                 </ul>
