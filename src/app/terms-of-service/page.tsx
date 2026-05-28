@@ -472,7 +472,10 @@ function useActiveSection(ids: string[]) {
       const el = document.getElementById(id);
       if (!el) return null;
       const observer = new IntersectionObserver(
-        ([entry]) => { if (entry.isIntersecting) setActive(id); },
+        (entries) => {
+          const entry = entries[0];
+          if (entry && entry.isIntersecting) setActive(id);
+        },
         { rootMargin: '-30% 0px -60% 0px' }
       );
       observer.observe(el);
