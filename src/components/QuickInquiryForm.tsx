@@ -159,6 +159,7 @@ export function QuickInquiryForm({
               aria-invalid={!!errors.email}
               aria-describedby={errors.email ? 'qi-email-error' : undefined}
               className="input-nextgen" placeholder="you@company.com"
+              suppressHydrationWarning
               {...register('email')}
             />
             {errors.email && <p id="qi-email-error" role="alert" className="mt-1 text-[11px] text-error">{errors.email.message}</p>}
@@ -173,6 +174,7 @@ export function QuickInquiryForm({
               aria-invalid={!!errors.inquiry}
               aria-describedby={errors.inquiry ? 'qi-inquiry-error' : undefined}
               className="input-nextgen resize-y" placeholder="Your question"
+              suppressHydrationWarning
               {...register('inquiry')}
             />
             {errors.inquiry && <p id="qi-inquiry-error" role="alert" className="mt-1 text-[11px] text-error">{errors.inquiry.message}</p>}
@@ -182,6 +184,7 @@ export function QuickInquiryForm({
             type="submit" disabled={isSubmitting}
             className="btn-primary btn-beam w-full rounded-xl px-4 py-2.5 text-[13px] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent-500 disabled:cursor-not-allowed disabled:opacity-50"
             whileTap={{ scale: 0.98 }}
+            suppressHydrationWarning
           >
             {isSubmitting ? (
               <span className="inline-flex items-center gap-2">
