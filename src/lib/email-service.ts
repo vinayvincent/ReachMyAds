@@ -1,7 +1,7 @@
 /**
  * Email service with message queue and retry logic using Resend.
  *
- * - Queues emails to admin@reachmyads.com asynchronously
+ * - Queues emails to info@reachmyads.com asynchronously
  * - Includes submitted data in email body with reply-to set to submitter's email
  * - Retries every 5 minutes for up to 1 hour on failure (max 12 attempts)
  * - Marks submission as 'failed' when all retries exhausted
