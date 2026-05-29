@@ -313,31 +313,8 @@ const sections = [
     ),
   },
   {
-    id: 'contact',
-    number: '13',
-    icon: '✉️',
-    title: 'Contact Us',
-    color: 'from-accent-500/10 to-blue-500/10',
-    border: 'border-accent-500/20',
-    iconBg: 'bg-accent-500/10 text-accent-600 dark:text-accent-400',
-    content: (
-      <div className="space-y-3">
-        <p className="text-[15px] text-slate-600 dark:text-slate-400">If you have any questions about this Privacy Policy, contact us:</p>
-        <div className="rounded-xl border border-accent-500/20 bg-accent-500/5 px-5 py-4 space-y-1">
-          <p className="text-[14px] font-bold text-slate-800 dark:text-slate-200">ReachMyAds</p>
-          <a href="mailto:privacy@reachmyads.com" className="inline-flex items-center gap-2 text-[14px] text-accent-600 hover:text-accent-700 dark:text-accent-400 font-medium transition-colors">
-            <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2} aria-hidden="true">
-              <path strokeLinecap="round" strokeLinejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-            </svg>
-            privacy@reachmyads.com
-          </a>
-        </div>
-      </div>
-    ),
-  },
-  {
     id: 'disclaimer',
-    number: '14',
+    number: '13',
     icon: '⚠️',
     title: 'Disclaimer',
     color: 'from-amber-500/10 to-orange-500/10',
@@ -421,7 +398,7 @@ export default function PrivacyPolicyPage() {
 
           {/* Stats bar */}
           <div className="mt-10 inline-flex items-center divide-x divide-slate-200 dark:divide-slate-700 rounded-2xl border border-slate-200/60 dark:border-slate-700/60 bg-white/80 dark:bg-slate-900/60 backdrop-blur-sm overflow-hidden shadow-sm">
-            {[['14', 'Sections'], ['GDPR', 'Aligned'], ['100%', 'Transparent']].map(([val, label]) => (
+            {[['13', 'Sections'], ['GDPR', 'Aligned'], ['100%', 'Transparent']].map(([val, label]) => (
               <div key={label} className="px-5 py-3 text-center">
                 <div className="text-[18px] font-black text-slate-900 dark:text-white">{val}</div>
                 <div className="text-[11px] text-slate-500 dark:text-slate-400 font-medium">{label}</div>
