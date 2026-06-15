@@ -64,7 +64,7 @@ export default function Home() {
 
                 <div className="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row sm:gap-8">
                   <a
-                    href="mailto:info@reachmyads.com"
+                    href="mailto:team@reachmyads.com"
                     className="group flex items-center gap-3 text-[14px] font-medium text-slate-600 dark:text-slate-300 transition-all hover:text-slate-900 dark:hover:text-white"
                   >
                     <span className="flex h-10 w-10 items-center justify-center rounded-full bg-slate-100 dark:bg-slate-800 ring-1 ring-slate-200 transition-all group-hover:bg-accent-50 group-hover:ring-accent-200">
@@ -72,7 +72,7 @@ export default function Home() {
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                       </svg>
                     </span>
-                    info@reachmyads.com
+                    team@reachmyads.com
                   </a>
                   <div className="hidden h-4 w-px bg-slate-200 dark:bg-slate-700 sm:block" />
                   <div className="flex flex-col items-center gap-4 sm:flex-row sm:gap-6">
