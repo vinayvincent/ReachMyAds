@@ -210,14 +210,14 @@ describe('POST /api/contact', () => {
       expect(submissions[0]!.source).toBe('contact_form');
     });
 
-    it('queues email to info@reachmyads.com', async () => {
+    it('queues email to team@reachmyads.com', async () => {
       const req = makeRequest(validBody());
 
       await POST(req);
 
       const emails = getQueuedEmails();
       expect(emails).toHaveLength(1);
-      expect(emails[0]!.to).toBe('info@reachmyads.com');
+      expect(emails[0]!.to).toBe('team@reachmyads.com');
       expect(emails[0]!.replyTo).toBe('jane@example.com');
       expect(emails[0]!.subject).toContain('Jane Smith');
     });

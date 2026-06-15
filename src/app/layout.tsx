@@ -87,11 +87,11 @@ export default function RootLayout({
                 <h4 className="text-slate-900 dark:text-white font-bold text-[15px] mb-6 tracking-wide uppercase text-xs">Connect</h4>
                 <ul className="space-y-4">
                   <li>
-                    <a href="mailto:info@reachmyads.com" className="group flex items-center gap-3 text-[14px] text-slate-600 dark:text-slate-300 hover:text-accent-600 dark:hover:text-accent-400 transition-colors font-medium">
+                    <a href="mailto:team@reachmyads.com" className="group flex items-center gap-3 text-[14px] text-slate-600 dark:text-slate-300 hover:text-accent-600 dark:hover:text-accent-400 transition-colors font-medium">
                       <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-slate-100 dark:bg-slate-900 group-hover:bg-accent-50 dark:group-hover:bg-accent-950/50 transition-colors">
                         <svg className="w-4 h-4 text-slate-500 group-hover:text-accent-600 dark:group-hover:text-accent-400" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
                       </span>
-                      info@reachmyads.com
+                      team@reachmyads.com
                     </a>
                   </li>
                   <li>

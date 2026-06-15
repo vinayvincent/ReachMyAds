@@ -436,6 +436,31 @@ const sections = [
       </p>
     ),
   },
+  {
+    id: 'contact-info',
+    number: '17',
+    icon: '✉️',
+    title: 'Contact Information',
+    color: 'from-blue-500/10 to-indigo-500/10',
+    border: 'border-blue-500/20',
+    iconBg: 'bg-blue-500/10 text-blue-600 dark:text-blue-400',
+    content: (
+      <div className="space-y-4">
+        <p className="text-[15px] text-slate-600 dark:text-slate-400 leading-relaxed">
+          For questions regarding these Terms, contact:
+        </p>
+        <div className="rounded-xl border border-slate-200/60 dark:border-slate-700/60 bg-white/50 dark:bg-slate-900/30 p-5 space-y-2.5">
+          <p className="text-[14px] font-bold text-slate-800 dark:text-slate-200">ReachMyAds</p>
+          <p className="text-[14px] text-slate-600 dark:text-slate-400">
+            Email:{' '}
+            <a href="mailto:team@reachmyads.com" className="text-accent-600 hover:text-accent-700 dark:text-accent-400 transition-colors font-semibold">
+              team@reachmyads.com
+            </a>
+          </p>
+        </div>
+      </div>
+    ),
+  },
 ];
 
 /* ─── Active section hook ───────────────────────────────────── */
@@ -506,7 +531,7 @@ export default function TermsOfServicePage() {
 
           {/* Stats bar */}
           <div className="mt-10 inline-flex items-center divide-x divide-slate-200 dark:divide-slate-700 rounded-2xl border border-slate-200/60 dark:border-slate-700/60 bg-white/80 dark:bg-slate-900/60 backdrop-blur-sm overflow-hidden shadow-sm">
-            {[['16', 'Sections'], ['Fair Use', 'Policy'], ['100%', 'Transparent']].map(([val, label]) => (
+            {[['17', 'Sections'], ['Fair Use', 'Policy'], ['100%', 'Transparent']].map(([val, label]) => (
               <div key={label} className="px-5 py-3 text-center">
                 <div className="text-[18px] font-black text-slate-900 dark:text-white">{val}</div>
                 <div className="text-[11px] text-slate-500 dark:text-slate-400 font-medium">{label}</div>

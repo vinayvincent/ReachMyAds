@@ -15,7 +15,7 @@ import { checkRateLimit, recordSubmission } from '@/lib/rate-limiter';
 import { queueAndSend } from '@/lib/email-service';
 import type { ContactFormData, ContactSubmission, SubmissionResult } from '@/types';
 
-const ADMIN_EMAIL = 'info@reachmyads.com';
+const ADMIN_EMAIL = 'team@reachmyads.com';
 
 /**
  * Implements the handleContactSubmission() algorithm from the design doc.

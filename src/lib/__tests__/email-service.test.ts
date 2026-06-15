@@ -17,7 +17,7 @@ import type { ContactSubmission } from '@/types';
 function makeRequest(overrides: Partial<EmailSendRequest> = {}): EmailSendRequest {
   return {
     submissionId: 'sub-test-1',
-    to: 'info@reachmyads.com',
+    to: 'team@reachmyads.com',
     subject: 'New inquiry from Test User',
     body: 'Name: Test User\nEmail: test@example.com\n\nMessage:\nHello world test message',
     replyTo: 'test@example.com',
@@ -74,7 +74,7 @@ describe('Email Service', () => {
       // Email is in the queue
       const emails = getQueuedEmails();
       expect(emails).toHaveLength(1);
-      expect(emails[0]!.to).toBe('info@reachmyads.com');
+      expect(emails[0]!.to).toBe('team@reachmyads.com');
       expect(emails[0]!.replyTo).toBe('test@example.com');
     });
 
@@ -102,14 +102,14 @@ describe('Email Service', () => {
       expect(emails[0]!.replyTo).toBe('submitter@example.com');
     });
 
-    it('always queues email to info@reachmyads.com', async () => {
+    it('always queues email to team@reachmyads.com', async () => {
       createSubmission('sub-admin');
       setEmailSender(async () => true);
 
       await queueAndSend(makeRequest({ submissionId: 'sub-admin' }));
 
       const emails = getQueuedEmails();
-      expect(emails[0]!.to).toBe('info@reachmyads.com');
+      expect(emails[0]!.to).toBe('team@reachmyads.com');
     });
   });
 
@@ -233,7 +233,7 @@ describe('Email Service', () => {
 
       const emailEntry = findEmailBySubmissionId('sub-fail-queue');
       expect(emailEntry).toBeDefined();
-      expect(emailEntry!.to).toBe('info@reachmyads.com');
+      expect(emailEntry!.to).toBe('team@reachmyads.com');
     });
   });
 
