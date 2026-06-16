@@ -327,10 +327,10 @@ export default function AboutPage() {
               <div>
                 <p className="text-[12px] font-semibold uppercase tracking-[0.15em] text-accent-600 dark:text-accent-400 mb-2">Address</p>
                 <p className="text-[16px] font-bold text-slate-900 dark:text-white leading-snug mb-1">
-                  Infopark Phase 2
+                  House No 10, Karippai Lane
                 </p>
                 <p className="text-[14px] text-slate-600 dark:text-slate-400">
-                  Kochi, Kerala 682030<br />India
+                  Chelakkottukara, Thrissur 680005<br />India
                 </p>
               </div>
             </div>
