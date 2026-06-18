@@ -10,10 +10,7 @@ export default function NavLinks() {
 
   return (
     <>
-      <div className="hidden md:flex items-center gap-8">
-        <a href="/#features" className="text-[14px] font-medium text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:text-white transition-colors">Features</a>
-        <a href="/#pricing" className="text-[14px] font-medium text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:text-white transition-colors">Pricing</a>
-      </div>
+
 
       <a
         href="/#contact"
