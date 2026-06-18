@@ -4,7 +4,6 @@ import { TrustedBy } from '@/components/TrustedBy';
 import { FeaturesGrid } from '@/components/FeaturesGrid';
 import { ComparisonTable } from '@/components/ComparisonTable';
 import { HowItWorks } from '@/components/HowItWorks';
-import { Pricing } from '@/components/Pricing';
 import { SEOHead, buildNextMetadata } from '@/components/SEOHead';
 import type { SEOMetadata } from '@/types';
 
@@ -39,7 +38,6 @@ export default function Home() {
         <FeaturesGrid />
         <HowItWorks />
         <ComparisonTable />
-        <Pricing />
 
         {/* Contact */}
         <section id="contact" className="relative bg-transparent py-28 sm:py-36" aria-label="Contact">
