@@ -1,0 +1,131 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<style>
+  html,body{margin:0;padding:0;overflow:hidden;background:transparent}
+  svg{display:block}
+</style></head>
+<body>
+<svg id="stage" xmlns="http://www.w3.org/2000/svg"></svg>
+<script>
+const G = {"letters": [{"ch": "R", "x": 0, "d": "M147 0Q119 0 97.0 17.5Q75 35 75 61V639Q75 665 92.5 682.5Q110 700 136 700H424Q476 700 521.5 672.5Q567 645 595.0 596.5Q623 548 623 485Q623 447 607.5 411.0Q592 375 566 346Q547 326 526 312Q542 302 554 289Q572 268 582.5 244.5Q593 221 595 194Q599 169 600.5 150.0Q602 131 606.5 118.0Q611 105 624 98Q646 85 651.5 60.5Q657 36 640 17Q629 4 612.0 0.5Q595 -3 578.0 0.5Q561 4 550 10Q533 20 516.0 39.5Q499 59 488.5 92.0Q478 125 478 177Q478 194 472.0 208.5Q466 223 455.0 233.5Q444 244 427.0 249.5Q410 255 387 255H200V61Q200 35 186.0 17.5Q172 0 147 0ZM200 358H419Q437 358 454.0 374.5Q471 391 482.0 419.5Q493 448 493 482Q493 526 469.5 555.5Q446 585 419 585H200Z", "tx": 156.412}, {"ch": "e", "x": 671.5, "d": "M317 -10Q232 -10 169.5 25.5Q107 61 73.5 122.0Q40 183 40 260Q40 350 76.5 413.5Q113 477 172.0 511.0Q231 545 297 545Q348 545 393.5 524.0Q439 503 474.0 466.5Q509 430 529.5 382.0Q550 334 550 280Q549 256 531.0 241.0Q513 226 489 226H159Q164 198 178 177Q200 139 235.5 119.5Q271 100 311 100Q348 100 370.0 106.0Q392 112 405.5 120.5Q419 129 430 135Q448 144 464 144Q486 144 500.5 129.0Q515 114 515 94Q515 67 487 45Q461 23 414.0 6.5Q367 -10 317 -10ZM160 326H422V333Q420 362 401.5 385.0Q383 408 355.5 421.5Q328 435 297 435Q267 435 241.0 427.0Q215 419 196.0 400.0Q177 381 166 349Q162 338 160 326Z", "tx": 206.439}, {"ch": "a", "x": 1246.0, "d": "M503 545Q529 545 546.0 528.0Q563 511 563 484V61Q563 35 546.0 17.5Q529 0 503.0 0.0Q477 0 460 18Q443 35 443 60Q431 46 413 33Q389 15 356.5 2.5Q324 -10 286 -10Q217 -10 161.0 25.5Q105 61 72.5 123.5Q40 186 40 267Q40 349 72.5 411.5Q105 474 160.0 509.5Q215 545 282 545Q325 545 361.0 532.0Q397 519 424 499Q434 491 443 483V484Q443 510 460.0 527.5Q477 545 503 545ZM301 100Q345 100 378.0 122.0Q411 144 429.5 182.0Q448 220 448 267Q448 315 429.5 353.0Q411 391 378.0 413.0Q345 435 301 435Q258 435 225.0 413.0Q192 391 173.5 353.0Q155 315 155 267Q155 220 173.5 182.0Q192 144 225.0 122.0Q258 100 301 100Z", "tx": 249.239}, {"ch": "c", "x": 1858.5, "d": "M303 545Q360 545 402.5 533.0Q445 521 468.5 499.5Q492 478 492 448Q492 428 480.0 410.5Q468 393 445 393Q429 393 418.5 397.5Q408 402 400.0 409.0Q392 416 381 422Q371 428 350.5 431.5Q330 435 320 435Q269 435 233.5 413.0Q198 391 179.0 353.5Q160 316 160 267Q160 219 179.5 181.5Q199 144 233.5 122.0Q268 100 313 100Q338 100 356.0 103.0Q374 106 386 112Q400 120 411.0 129.0Q422 138 444 138Q470 138 484.0 121.5Q498 105 498 81Q498 56 470.0 35.5Q442 15 396.5 2.5Q351 -10 298 -10Q219 -10 161.0 26.5Q103 63 71.5 126.0Q40 189 40 267Q40 349 73.5 411.5Q107 474 166.5 509.5Q226 545 303 545Z", "tx": 294.871}, {"ch": "h", "x": 2363.0, "d": "M346 545Q418 545 455.5 514.0Q493 483 507.0 431.5Q521 380 521 317V61Q521 35 504.0 17.5Q487 0 461.0 0.0Q435 0 418.0 17.5Q401 35 401 61V317Q401 350 393.0 376.5Q385 403 364.0 419.0Q343 435 304 435Q266 435 239.0 419.0Q212 403 198.5 376.5Q185 350 185 317V61Q185 35 168.0 17.5Q151 0 125.0 0.0Q99 0 82.0 17.5Q65 35 65 61V679Q65 705 82.0 722.5Q99 740 125.0 740.0Q151 740 168.0 722.5Q185 705 185 679V458Q190 464 195 471Q211 490 234.0 507.0Q257 524 285.0 534.5Q313 545 346 545Z", "tx": 332.456}, {"ch": "M", "x": 3198.0, "d": "M138 701Q152 701 167.5 693.5Q183 686 191 674L409 339L633 674Q652 701 682 701Q706 701 725.0 684.0Q744 667 744 640V61Q744 35 727.0 17.5Q710 0 682.0 0.0Q654 0 636.5 17.5Q619 35 619 61V464L454 212Q445 201 431.5 193.0Q418 185 404 186Q391 185 377.5 193.0Q364 201 355 212L190 473V61Q190 35 174.0 17.5Q158 0 132 0Q107 0 91.0 17.5Q75 35 75 61V640Q75 665 93.5 683.0Q112 701 138 701Z", "tx": 394.663}, {"ch": "y", "x": 4001.5, "d": "M462 535Q488 535 505.0 517.5Q522 500 522 474V49Q522 -43 487.5 -97.5Q453 -152 395.0 -176.0Q337 -200 265 -200Q233 -200 197.0 -195.0Q161 -190 138 -180Q108 -167 96.5 -147.5Q85 -128 92 -106Q101 -77 121.0 -66.5Q141 -56 163 -64Q179 -69 205.0 -79.5Q231 -90 265 -90Q311 -90 341.5 -77.5Q372 -65 387.5 -35.5Q403 -6 403 45V56Q393 43 382 34Q356 12 321.0 1.0Q286 -10 241 -10Q188 -10 148.5 14.5Q109 39 87.0 82.5Q65 126 65 182V474Q65 500 82.0 517.5Q99 535 125.0 535.0Q151 535 168.0 517.5Q185 500 185 474V218Q185 153 213.5 126.5Q242 100 293 100Q328 100 352.0 113.5Q376 127 389.0 153.5Q402 180 402 218V474Q402 500 419.0 517.5Q436 535 462 535Z", "tx": 454.524}, {"ch": "A", "x": 4837.5, "d": "M168 157 116 35Q109 16 94.5 5.5Q80 -5 63 -5Q36 -5 23.0 10.0Q10 25 10 47Q10 56 13 66L262 664Q270 684 286.5 695.0Q303 706 322 704Q340 704 355.5 693.5Q371 683 378 664L624 78Q629 65 629 54Q629 27 611.5 11.0Q594 -5 573 -5Q555 -5 540.5 6.0Q526 17 518 36L466 157ZM316 506 217 272H417Z", "tx": 516.806}, {"ch": "d", "x": 5461.0, "d": "M503 740Q529 740 546.0 723.0Q563 706 563 679V61Q563 35 546.0 17.5Q529 0 503.0 0.0Q477 0 460 18Q443 35 443 60Q431 46 413 33Q389 15 356.5 2.5Q324 -10 286 -10Q217 -10 161.0 25.5Q105 61 72.5 123.5Q40 186 40 267Q40 349 72.5 411.5Q105 474 160.0 509.5Q215 545 282 545Q325 545 361.0 532.0Q397 519 424 499Q434 491 443 483V679Q443 705 460.0 722.5Q477 740 503 740ZM301 100Q345 100 378.0 122.0Q411 144 429.5 182.0Q448 220 448 267Q448 315 429.5 353.0Q411 391 378.0 413.0Q345 435 301 435Q258 435 225.0 413.0Q192 391 173.5 353.0Q155 315 155 267Q155 220 173.5 182.0Q192 144 225.0 122.0Q258 100 301 100Z", "tx": 563.257}, {"ch": "s", "x": 6073.5, "d": "M34 83Q24 97 25.0 119.0Q26 141 51 157Q67 167 85.0 165.5Q103 164 120 147Q149 118 181.0 102.0Q213 86 261 86Q276 87 294.0 90.5Q312 94 325.5 106.5Q339 119 339 145Q339 167 324.0 180.0Q309 193 284.5 202.0Q260 211 230 219Q199 228 166.5 239.0Q134 250 107.0 267.5Q80 285 63.0 314.0Q46 343 46 387Q46 437 74.0 472.0Q102 507 146.5 526.0Q191 545 240 545Q271 545 305.0 537.5Q339 530 370.0 513.5Q401 497 422 470Q433 455 435.0 434.0Q437 413 416 396Q401 384 381.0 385.5Q361 387 348 399Q331 421 302.5 434.0Q274 447 237 447Q222 447 204.5 443.5Q187 440 174.0 428.5Q161 417 161 392Q161 369 176.0 355.5Q191 342 216.5 333.5Q242 325 271 317Q301 309 332.0 298.0Q363 287 389.0 269.0Q415 251 431.0 222.5Q447 194 447 150Q447 99 417.0 63.0Q387 27 342.0 8.5Q297 -10 250 -10Q191 -10 132.0 10.5Q73 31 34 83Z", "tx": 608.888}], "S": 0.0745, "base": 113.13};
+const P = new URLSearchParams(location.search || window.__Q || '');
+const W = +P.get('w')||1080, H = +P.get('h')||1080;
+const THEME = P.get('theme')||'light';
+const MODE = P.get('mode')||'intro';        // intro | loader
+const BG = P.get('bg')!=='none';
+const INK = THEME==='dark' ? '#FFFFFF' : '#15152B';
+const PAPER = THEME==='dark' ? '#15152B' : '#FFFFFF';
+const NS='http://www.w3.org/2000/svg';
+const svg=document.getElementById('stage');
+svg.setAttribute('width',W); svg.setAttribute('height',H);
+svg.setAttribute('viewBox',`0 0 ${W} ${H}`);
+const el=(n,a={},p=svg)=>{const e=document.createElementNS(NS,n);for(const k in a)e.setAttribute(k,a[k]);p.appendChild(e);return e;};
+
+if(BG) el('rect',{width:W,height:H,fill:PAPER});
+
+// Logo in its native units: mark 40..131, text 162..645, y 40..132
+const LOGO={x0:40,x1:645,y0:40,y1:132};
+const MARK_C={x:85.5,y:86};
+const root=el('g');
+const logo=el('g',{},root);
+const markG=el('g',{},logo);
+const STROKE_D='M50 122 V86.5 A34 34 0 0 1 84 52.5';
+const stroke=el('path',{d:STROKE_D,fill:'none',stroke:INK,'stroke-width':20,'stroke-linecap':'round','stroke-linejoin':'round'},markG);
+const LEN=stroke.getTotalLength();
+const DOT={x:119,y:52.5,r:12.5};
+const rings=[0,1].map(()=>el('circle',{cx:DOT.x,cy:DOT.y,r:DOT.r,fill:'none',stroke:INK},markG));
+const dotG=el('g',{},markG);
+const dot=el('circle',{cx:DOT.x,cy:DOT.y,r:DOT.r,fill:INK},dotG);
+
+const defs=el('defs');
+const cp=el('clipPath',{id:'txtclip'},defs);
+el('rect',{x:140,y:20,width:560,height:116},cp);
+const textG=el('g',{'clip-path':'url(#txtclip)'},logo);
+const letters=G.letters.map(L=>{
+  const outer=el('g',{},textG);
+  el('path',{d:L.d,fill:INK,transform:`translate(${L.tx} ${G.base}) scale(${G.S} ${-G.S})`},outer);
+  return outer;
+});
+
+// ---------- easing ----------
+const clamp=(v,a=0,b=1)=>Math.min(b,Math.max(a,v));
+const seg=(t,a,b)=>clamp((t-a)/(b-a));
+const easeOutExpo=x=>x>=1?1:1-Math.pow(2,-10*x);
+const easeInOutCubic=x=>x<.5?4*x*x*x:1-Math.pow(-2*x+2,3)/2;
+const easeOutCubic=x=>1-Math.pow(1-x,3);
+const easeInCubic=x=>x*x*x;
+const easeOutBack=(x,s=2.2)=>1+(s+1)*Math.pow(x-1,3)+s*Math.pow(x-1,2);
+const lerp=(a,b,t)=>a+(b-a)*t;
+
+function setStroke(head,tail){ // 0..1 along path
+  const h=clamp(head), tl=clamp(tail);
+  const vis=Math.max(0,h-tl)*LEN;
+  if(vis<0.01 && h<=0){stroke.style.opacity=0;return;}
+  stroke.style.opacity=1;
+  stroke.setAttribute('stroke-dasharray',`${vis} ${LEN*2}`);
+  stroke.setAttribute('stroke-dashoffset',`${-tl*LEN}`);
+}
+function setDot(s){
+  dotG.setAttribute('transform',`translate(${DOT.x} ${DOT.y}) scale(${Math.max(0,s)}) translate(${-DOT.x} ${-DOT.y})`);
+}
+let RING_GROW=34;
+function setRing(i,p){ // p 0..1
+  const r=rings[i];
+  if(p<=0||p>=1){r.style.opacity=0;return;}
+  const e=easeOutCubic(p);
+  r.setAttribute('r',lerp(DOT.r,DOT.r+RING_GROW,e));
+  r.setAttribute('stroke-width',lerp(5,0.5,e));
+  r.style.opacity=0.55*(1-p);
+}
+
+// frame placement
+const logoW=LOGO.x1-LOGO.x0, logoCx=(LOGO.x0+LOGO.x1)/2, logoCy=(LOGO.y0+LOGO.y1)/2;
+const fill = (+P.get('fill')) || (W>H ? 0.52 : 0.72);
+const SCALE = MODE==='loader' ? (Math.min(W,H)*0.5)/92 : (W*fill)/logoW;
+
+// ---------- INTRO (5s) ----------
+const INTRO_DUR=5;
+function intro(t){
+  // 1. stroke reaches toward the dot
+  const sp=easeInOutCubic(seg(t,0.15,0.95));
+  setStroke(sp,0);
+  // 2. dot pops when reached, sends out signal rings
+  const dp=seg(t,0.82,1.25);
+  setDot(dp<=0?0:easeOutBack(dp));
+  setRing(0,seg(t,0.9,1.9));
+  setRing(1,seg(t,1.12,2.12));
+  // 3. mark slides left while the wordmark rises in
+  const mv=easeInOutCubic(seg(t,1.3,2.15));
+  const markScale=lerp(2.3,1,mv);
+  const cx=lerp(MARK_C.x,logoCx,mv), cy=lerp(MARK_C.y,logoCy,mv);
+  logo.setAttribute('transform',`translate(${W/2} ${H/2}) scale(${SCALE*markScale}) translate(${-cx} ${-cy})`);
+  letters.forEach((g,i)=>{
+    const lp=easeOutExpo(seg(t,1.78+i*0.045,2.6+i*0.045));
+    g.setAttribute('transform',`translate(0 ${lerp(96,0,lp)})`);
+  });
+  // 4. soft fade out for a clean loop
+  const out=easeInCubic(seg(t,4.55,4.95));
+  root.style.opacity=1-out;
+}
+
+// ---------- LOADER (1.8s loop, mark only) ----------
+const LOOP_DUR=1.8;
+function loader(t){
+  t=((t%LOOP_DUR)+LOOP_DUR)%LOOP_DUR; RING_GROW=22;
+  const head=easeInOutCubic(seg(t,0,0.62));
+  const tail=easeInOutCubic(seg(t,1.12,1.72));
+  setStroke(head,tail);
+  const dIn=seg(t,0.5,0.85), dOut=seg(t,1.3,1.7);
+  setDot(dOut>0 ? 1-easeInCubic(dOut) : (dIn<=0?0:easeOutBack(dIn)));
+  setRing(0,seg(t,0.56,1.4));
+  setRing(1,seg(t,0.74,1.58));
+  letters.forEach(g=>g.style.display='none');
+  logo.setAttribute('transform',`translate(${W/2} ${H/2}) scale(${SCALE}) translate(${-MARK_C.x} ${-MARK_C.y})`);
+}
+
+window.DURATION = MODE==='loader'?LOOP_DUR:INTRO_DUR;
+window.renderAt = t => (MODE==='loader'?loader:intro)(t);
+if(P.get('t')!==null){ renderAt(+P.get('t')); }
+else { const s=performance.now(); const tick=n=>{renderAt(((n-s)/1000)%(window.DURATION+(MODE==='loader'?0:0.6)));requestAnimationFrame(tick)}; requestAnimationFrame(tick); }
+</script>
+</body></html>

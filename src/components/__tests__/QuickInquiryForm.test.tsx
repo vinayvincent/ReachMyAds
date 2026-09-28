@@ -43,7 +43,7 @@ function mockFetch(
 
 async function fillValidInquiry(user: ReturnType<typeof userEvent.setup>) {
   await user.type(screen.getByLabelText(/^email/i), 'jane@example.com');
-  await user.type(screen.getByLabelText(/^message/i), 'I would like to learn more about your platform.');
+  await user.type(screen.getByLabelText(/what do you sell/i), 'I would like to learn more about your platform.');
 }
 
 // ---------------------------------------------------------------------------
@@ -70,8 +70,8 @@ describe('QuickInquiryForm', () => {
     render(<QuickInquiryForm />);
 
     expect(screen.getByLabelText(/^email/i)).toBeInTheDocument();
-    expect(screen.getByLabelText(/^message/i)).toBeInTheDocument();
-    expect(screen.getByRole('button', { name: /send inquiry/i })).toBeInTheDocument();
+    expect(screen.getByLabelText(/what do you sell/i)).toBeInTheDocument();
+    expect(screen.getByRole('button', { name: /send it over/i })).toBeInTheDocument();
   });
 
   it('has an accessible section landmark', () => {
@@ -138,8 +138,8 @@ describe('QuickInquiryForm', () => {
     const user = userEvent.setup();
     render(<QuickInquiryForm />);
 
-    await user.type(screen.getByLabelText(/^message/i), 'This is a valid inquiry message.');
-    await user.click(screen.getByRole('button', { name: /send inquiry/i }));
+    await user.type(screen.getByLabelText(/what do you sell/i), 'This is a valid inquiry message.');
+    await user.click(screen.getByRole('button', { name: /send it over/i }));
 
     await waitFor(() => {
       expect(screen.getByText(/email is required/i)).toBeInTheDocument();
@@ -151,8 +151,8 @@ describe('QuickInquiryForm', () => {
     render(<QuickInquiryForm />);
 
     await user.type(screen.getByLabelText(/^email/i), 'not-an-email');
-    await user.type(screen.getByLabelText(/^message/i), 'This is a valid inquiry message.');
-    await user.click(screen.getByRole('button', { name: /send inquiry/i }));
+    await user.type(screen.getByLabelText(/what do you sell/i), 'This is a valid inquiry message.');
+    await user.click(screen.getByRole('button', { name: /send it over/i }));
 
     await waitFor(() => {
       expect(screen.getByText(/valid email/i)).toBeInTheDocument();
@@ -164,8 +164,8 @@ describe('QuickInquiryForm', () => {
     render(<QuickInquiryForm />);
 
     await user.type(screen.getByLabelText(/^email/i), 'jane@example.com');
-    await user.type(screen.getByLabelText(/^message/i), 'Short');
-    await user.click(screen.getByRole('button', { name: /send inquiry/i }));
+    await user.type(screen.getByLabelText(/what do you sell/i), 'Short');
+    await user.click(screen.getByRole('button', { name: /send it over/i }));
 
     await waitFor(() => {
       expect(screen.getByText(/at least 10 characters/i)).toBeInTheDocument();
@@ -185,7 +185,7 @@ describe('QuickInquiryForm', () => {
     });
 
     await fillValidInquiry(user);
-    await user.click(screen.getByRole('button', { name: /send inquiry/i }));
+    await user.click(screen.getByRole('button', { name: /send it over/i }));
 
     await waitFor(() => {
       expect(screen.getByRole('status')).toHaveTextContent(/inquiry sent/i);
@@ -218,7 +218,7 @@ describe('QuickInquiryForm', () => {
 
     await waitFor(() => expect(fetchSpy).toHaveBeenCalledWith('/api/csrf'));
     await fillValidInquiry(user);
-    await user.click(screen.getByRole('button', { name: /send inquiry/i }));
+    await user.click(screen.getByRole('button', { name: /send it over/i }));
 
     await waitFor(() => {
       expect(screen.getByRole('alert')).toHaveTextContent(/too many requests/i);
@@ -242,7 +242,7 @@ describe('QuickInquiryForm', () => {
 
     await waitFor(() => expect(fetchSpy).toHaveBeenCalledWith('/api/csrf'));
     await fillValidInquiry(user);
-    await user.click(screen.getByRole('button', { name: /send inquiry/i }));
+    await user.click(screen.getByRole('button', { name: /send it over/i }));
 
     await waitFor(() => {
       expect(screen.getByRole('alert')).toHaveTextContent(/network error/i);
@@ -271,7 +271,7 @@ describe('QuickInquiryForm', () => {
 
     await waitFor(() => expect(fetchSpy).toHaveBeenCalledWith('/api/csrf'));
     await fillValidInquiry(user);
-    await user.click(screen.getByRole('button', { name: /send inquiry/i }));
+    await user.click(screen.getByRole('button', { name: /send it over/i }));
 
     await waitFor(() => {
       expect(screen.getByRole('button', { name: /sending/i })).toBeDisabled();
@@ -284,7 +284,7 @@ describe('QuickInquiryForm', () => {
     });
 
     await waitFor(() => {
-      expect(screen.getByRole('button', { name: /send inquiry/i })).toBeEnabled();
+      expect(screen.getByRole('button', { name: /send it over/i })).toBeEnabled();
     });
   });
 });

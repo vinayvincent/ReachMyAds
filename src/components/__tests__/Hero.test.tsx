@@ -1,4 +1,4 @@
-import { render, screen } from '@testing-library/react';
+import { render, screen, within } from '@testing-library/react';
 import { describe, it, expect, vi, beforeAll } from 'vitest';
 import { Hero } from '@/components/Hero';
 
@@ -18,27 +18,26 @@ beforeAll(() => {
   });
 });
 
-// Mock next/link to render a plain anchor
-vi.mock('next/link', () => ({
-  default: ({ href, children, ...props }: { href: string; children: React.ReactNode; [key: string]: unknown }) => (
-    <a href={href} {...props}>{children}</a>
-  ),
-}));
-
 describe('Hero', () => {
-  it('renders default headline, subheadline, and CTA', () => {
+  it('renders the default headline, subheadline and both calls to action', () => {
     render(<Hero />);
 
-    expect(
-      screen.getByRole('heading', { level: 1 }),
-    ).toHaveTextContent('AI-Powered Ad Management Across Every Platform');
+    const heading = screen.getByRole('heading', { level: 1 });
+    expect(heading).toHaveTextContent('We run your ads.');
+    expect(heading).toHaveTextContent('You get customers.');
 
     expect(
-      screen.getByText(/Create, manage, and optimize campaigns/),
+      screen.getByText(/Running the ads is only the start/),
     ).toBeInTheDocument();
 
-    const cta = screen.getByRole('link', { name: /Get Started Free/ });
-    expect(cta).toHaveAttribute('href', '#contact');
+    expect(screen.getByRole('link', { name: /Get started/ })).toHaveAttribute(
+      'href',
+      '#lead-form',
+    );
+    expect(screen.getByRole('link', { name: /See how it works/ })).toHaveAttribute(
+      'href',
+      '#how-it-works',
+    );
   });
 
   it('renders custom content when provided', () => {
@@ -55,19 +54,27 @@ describe('Hero', () => {
 
     expect(screen.getByRole('heading', { level: 1 })).toHaveTextContent('Custom Headline');
     expect(screen.getByText('Custom sub')).toBeInTheDocument();
-
-    const cta = screen.getByRole('link', { name: 'Sign Up Now' });
-    expect(cta).toHaveAttribute('href', '/signup');
+    expect(screen.getByRole('link', { name: /Sign Up Now/ })).toHaveAttribute('href', '/signup');
   });
 
-  it('has an accessible section landmark', () => {
+  it('labels the section by its own heading', () => {
     render(<Hero />);
-    expect(screen.getByRole('region', { name: 'Hero' })).toBeInTheDocument();
+    const region = screen.getByRole('region', { name: /We run your ads/ });
+    expect(region).toBeInTheDocument();
   });
 
-  it('hides background orbs from assistive technology', () => {
+  it('names every advertising surface it claims to run', () => {
+    render(<Hero />);
+
+    const strip = screen.getByText(/Your ads go out on/).parentElement!;
+
+    for (const brand of ['Google', 'Instagram', 'Facebook', 'WhatsApp', 'YouTube', 'LinkedIn']) {
+      expect(within(strip).getByText(brand)).toBeInTheDocument();
+    }
+  });
+
+  it('hides decorative background layers from assistive technology', () => {
     const { container } = render(<Hero />);
-    const hidden = container.querySelector('[aria-hidden="true"]');
-    expect(hidden).toBeInTheDocument();
+    expect(container.querySelector('[aria-hidden="true"]')).toBeInTheDocument();
   });
 });

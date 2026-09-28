@@ -17,8 +17,14 @@ export function buildNextMetadata(seo: SEOMetadata): Metadata {
       title: seo.title,
       description: seo.description,
       url: seo.canonicalUrl,
+      // A page's openGraph replaces the layout's wholesale in Next.js, so the
+      // site-wide fields have to be restated here or they drop off the page.
+      siteName: 'Reach My Ads',
+      locale: 'en_IN',
       type: 'website',
-      ...(seo.ogImage ? { images: [{ url: seo.ogImage }] } : {}),
+      ...(seo.ogImage
+        ? { images: [{ url: seo.ogImage, width: 1200, height: 630, alt: seo.title }] }
+        : {}),
     },
     twitter: {
       card: 'summary_large_image',

@@ -1,32 +1,143 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
+import { Source_Sans_3, Source_Serif_4 } from "next/font/google";
 import "./globals.css";
-import NavLinks from "@/components/NavLinks";
+import { SiteHeader } from "@/components/SiteHeader";
+import { Logo } from "@/components/Logo";
+import { PageLoader } from "@/components/PageLoader";
+import { CopyrightYear } from "@/components/CopyrightYear";
+import { siteGraph, SITE_NAME, SITE_URL } from "@/lib/structured-data";
+
+/** Body and interface text. */
+const sourceSans = Source_Sans_3({
+  subsets: ["latin"],
+  variable: "--font-rma-body",
+  display: "swap",
+  weight: ["400", "500", "600", "700"],
+});
+
+/** Headings. A text serif gives the page an editorial, print-like voice. */
+const sourceSerif = Source_Serif_4({
+  subsets: ["latin"],
+  variable: "--font-rma-serif",
+  display: "swap",
+  weight: ["500", "600", "700"],
+});
+
+const TITLE = "Reach My Ads | Google & Instagram Ads for Small Businesses";
+const DESCRIPTION =
+  "We run your ads on Google, Meta and LinkedIn, collect every call and WhatsApp enquiry in one inbox, and show which ad made each sale. No agency needed.";
 
 export const metadata: Metadata = {
-  title: "Reach My Ads | AI-Powered Multi-Platform Ad Management",
-  description:
-    "Scale your advertising across Google, Meta, TikTok, and more with the worlds most advanced AI ad management platform.",
+  title: {
+    default: TITLE,
+    template: "%s | Reach My Ads",
+  },
+  description: DESCRIPTION,
+  applicationName: SITE_NAME,
+  authors: [{ name: SITE_NAME, url: SITE_URL }],
+  creator: SITE_NAME,
+  publisher: SITE_NAME,
+  category: "Business Software",
   keywords: [
-    "ad management",
-    "AI advertising",
-    "Google Ads",
-    "Meta Ads",
-    "LinkedIn Ads",
-    "TikTok Ads",
+    "advertising for small business India",
+    "run my Google ads",
+    "Instagram ads for shops",
+    "WhatsApp lead tracking",
+    "lead management software India",
+    "digital marketing without an agency",
+    "cost per customer tracking",
   ],
+  metadataBase: new URL(SITE_URL),
+  // No site-wide canonical: every page states its own. A canonical here is
+  // inherited by any page that forgets one, which tells Google that page is a
+  // copy of the home page and drops it from the index.
   openGraph: {
-    title: "Reach My Ads | AI-Powered Multi-Platform Ad Management",
+    title: TITLE,
     description:
-      "Scale your advertising across Google, Meta, TikTok, and more with the worlds most advanced AI ad management platform.",
-    url: "https://reachmyads.com",
-    siteName: "Reach My Ads",
+      "We run your ads, collect every enquiry in one inbox, and follow each one through to the sale, so you never need to hire an agency.",
+    url: SITE_URL,
+    siteName: SITE_NAME,
+    locale: "en_IN",
     type: "website",
   },
-  metadataBase: new URL("https://reachmyads.com"),
-  alternates: {
-    canonical: "https://reachmyads.com",
+  twitter: {
+    card: "summary_large_image",
+    title: TITLE,
+    description:
+      "We run your ads, collect every enquiry in one inbox, and trace every sale back to the ad that made it.",
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
+  // Search Console and Bing Webmaster ownership checks. Set the tokens in the
+  // hosting environment; nothing is rendered while they are unset.
+  verification: {
+    google: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION || undefined,
+    other: process.env.NEXT_PUBLIC_BING_SITE_VERIFICATION
+      ? { "msvalidate.01": process.env.NEXT_PUBLIC_BING_SITE_VERIFICATION }
+      : undefined,
+  },
+  formatDetection: {
+    telephone: true,
+    address: true,
+    email: true,
+  },
+  other: {
+    // Picked up by some AI crawlers ahead of the JSON-LD graph.
+    "ai-content-declaration": "human-authored",
   },
 };
+
+export const viewport: Viewport = {
+  themeColor: [
+    { media: "(prefers-color-scheme: light)", color: "#ffffff" },
+    { media: "(prefers-color-scheme: dark)", color: "#070b12" },
+  ],
+  colorScheme: "light dark",
+};
+
+/**
+ * Resolves the theme before first paint so the page never flashes the wrong
+ * mode. Falls back to the OS preference when nothing has been chosen yet.
+ */
+const themeScript = `try{var t=localStorage.getItem('rma-theme');if(t==='dark'||(!t&&window.matchMedia('(prefers-color-scheme: dark)').matches)){document.documentElement.classList.add('dark')}}catch(e){}`;
+
+const footerLinks = [
+  {
+    heading: "Product",
+    links: [
+      { label: "How it works", href: "/#how-it-works" },
+      { label: "Platforms", href: "/#platforms" },
+      { label: "Lead tracking", href: "/#leads" },
+      { label: "Ask questions", href: "/#ai" },
+      { label: "Your trade", href: "/#verticals" },
+      { label: "FAQ", href: "/#faq" },
+    ],
+  },
+  {
+    heading: "Company",
+    links: [
+      { label: "About us", href: "/about" },
+      { label: "Contact", href: "/#contact" },
+      { label: "Get started", href: "/#lead-form" },
+    ],
+  },
+  {
+    heading: "Legal",
+    links: [
+      { label: "Privacy Policy", href: "/privacy-policy" },
+      { label: "Terms of Service", href: "/terms-of-service" },
+    ],
+  },
+];
 
 export default function RootLayout({
   children,
@@ -34,105 +145,103 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="scroll-smooth" suppressHydrationWarning>
-      <body className="noise-overlay bg-animated-mesh text-slate-900 dark:text-white min-h-screen">
-        {/* Header */}
-        <header className="sticky top-0 z-50 bg-white/50 dark:bg-slate-950/50 backdrop-blur-xl border-b border-slate-200/50 dark:border-slate-800/50">
-          <nav
-            className="mx-auto flex max-w-[1200px] items-center justify-between px-6 py-4"
-            aria-label="Main navigation"
-          >
-            <a href="/" className="flex items-center gap-2 text-[20px] font-bold tracking-tight" aria-label="Reach My Ads Home">
-              <span className="text-slate-900 dark:text-white">
-                <span className="text-accent-600">R</span>each <span className="text-accent-600">M</span>y <span className="text-accent-600">A</span>ds
-              </span>
-            </a>
+    <html
+      lang="en-IN"
+      className={`${sourceSans.variable} ${sourceSerif.variable} scroll-smooth`}
+      suppressHydrationWarning
+    >
+      <body className="min-h-screen bg-canvas text-ink antialiased">
+        {/* Runs before the body paints, so the saved theme never flashes. */}
+        <script dangerouslySetInnerHTML={{ __html: themeScript }} />
+        {/* First-visit brand loader. Placed after the theme script so it paints in the right theme. */}
+        <PageLoader />
+        <script
+          type="application/ld+json"
+          suppressHydrationWarning
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(siteGraph()) }}
+        />
 
-            <NavLinks />
-          </nav>
-        </header>
+        <a
+          href="#main"
+          className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-[100] focus:rounded-lg focus:bg-brand focus:px-4 focus:py-2 focus:text-white"
+        >
+          Skip to content
+        </a>
 
-        {children}
+        <SiteHeader />
 
-        {/* Footer */}
-        <footer className="relative border-t border-slate-200/50 dark:border-slate-800/50 bg-white/30 dark:bg-slate-950/30 backdrop-blur-sm pt-20 pb-10">
-          <div className="mx-auto max-w-[1200px] px-6">
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12 lg:gap-8 mb-16 items-start">
-              {/* Company */}
-              <div className="lg:col-span-3">
-                <h4 className="text-slate-900 dark:text-white font-bold text-[15px] mb-6 tracking-wide uppercase text-xs">Company</h4>
-                <ul className="space-y-4">
-                  <li><a href="/about" className="text-[14px] text-slate-600 dark:text-slate-300 hover:text-accent-600 dark:hover:text-accent-400 transition-colors font-medium">About Us</a></li>
-                  <li><a href="/#contact" className="text-[14px] text-slate-600 dark:text-slate-300 hover:text-accent-600 dark:hover:text-accent-400 transition-colors font-medium">Contact</a></li>
-                  <li><a href="/privacy-policy" className="text-[14px] text-slate-600 dark:text-slate-300 hover:text-accent-600 dark:hover:text-accent-400 transition-colors font-medium">Privacy Policy</a></li>
-                  <li><a href="/terms-of-service" className="text-[14px] text-slate-600 dark:text-slate-300 hover:text-accent-600 dark:hover:text-accent-400 transition-colors font-medium">Terms of Service</a></li>
-                </ul>
-              </div>
+        <main id="main">{children}</main>
 
-              {/* Brand (Middle) */}
-              <div className="md:col-span-2 lg:col-span-6 flex flex-col items-center text-center bg-gradient-to-b from-slate-50 to-white dark:from-slate-900/40 dark:to-slate-950/40 border border-slate-200/60 dark:border-slate-800/60 rounded-3xl p-8 backdrop-blur-md shadow-sm relative overflow-hidden group">
-                <div className="absolute top-0 left-1/2 -translate-x-1/2 w-40 h-px bg-gradient-to-r from-transparent via-accent-500 to-transparent opacity-80" />
-                <a href="/" className="flex items-center gap-2 text-[24px] font-extrabold tracking-tight mb-4" aria-label="Reach My Ads Home">
-                  <span className="text-slate-900 dark:text-white">
-                    <span className="text-accent-600">R</span>each <span className="text-accent-600">M</span>y <span className="text-accent-600">A</span>ds
-                  </span>
+        <footer className="relative border-t border-line bg-canvas-soft">
+          <div className="relative mx-auto max-w-[1180px] px-6 py-14">
+            <div className="grid grid-cols-2 gap-10 md:grid-cols-4 lg:grid-cols-6">
+              <div className="col-span-2 lg:col-span-2">
+                <a href="/" aria-label="Reach My Ads home">
+                  <Logo className="h-9 w-auto" />
                 </a>
-                <p className="text-[14px] text-slate-600 dark:text-slate-300 leading-relaxed max-w-md">
-                  Next-generation AI ad management for ambitious brands and agencies. Scale horizontally across every network with a single click.
+                <p className="mt-4 max-w-xs text-[14px] leading-relaxed text-ink-2">
+                  We run your ads, catch every call and message in one inbox, and tell you what each
+                  customer cost. No agency needed.
                 </p>
               </div>
 
-              {/* Connect */}
-              <div className="lg:col-span-3 lg:pl-12">
-                <h4 className="text-slate-900 dark:text-white font-bold text-[15px] mb-6 tracking-wide uppercase text-xs">Connect</h4>
-                <ul className="space-y-4">
+              {footerLinks.map((group) => (
+                <div key={group.heading}>
+                  <h2 className="mono-label-muted mb-4">{group.heading}</h2>
+                  <ul className="space-y-2.5">
+                    {group.links.map((link) => (
+                      <li key={link.label}>
+                        <a
+                          href={link.href}
+                          className="text-[14px] text-ink-2 transition-colors hover:text-brand-ink"
+                        >
+                          {link.label}
+                        </a>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              ))}
+
+              <div className="col-span-2 md:col-span-1">
+                <h2 className="mono-label-muted mb-4">Contact</h2>
+                <ul className="space-y-2.5 text-[14px] text-ink-2">
                   <li>
-                    <a href="mailto:team@reachmyads.com" className="group flex items-center gap-3 text-[14px] text-slate-600 dark:text-slate-300 hover:text-accent-600 dark:hover:text-accent-400 transition-colors font-medium">
-                      <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-slate-100 dark:bg-slate-900 group-hover:bg-accent-50 dark:group-hover:bg-accent-950/50 transition-colors">
-                        <svg className="w-4 h-4 text-slate-500 group-hover:text-accent-600 dark:group-hover:text-accent-400" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
-                      </span>
+                    <a
+                      href="mailto:team@reachmyads.com"
+                      className="transition-colors hover:text-brand-ink"
+                    >
                       team@reachmyads.com
                     </a>
                   </li>
                   <li>
-                    <a href="tel:+916238299803" className="group flex items-center gap-3 text-[14px] text-slate-600 dark:text-slate-300 hover:text-accent-600 dark:hover:text-accent-400 transition-colors font-medium">
-                      <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-slate-100 dark:bg-slate-900 group-hover:bg-accent-50 dark:group-hover:bg-accent-950/50 transition-colors">
-                        <svg className="w-4 h-4 text-slate-500 group-hover:text-accent-600 dark:group-hover:text-accent-400" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.94.725l.548 2.2a1 1 0 01-.321.988l-1.305.98a10.582 10.582 0 004.872 4.872l.98-1.305a1 1 0 01.988-.321l2.2.548a1 1 0 01.725.94V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path></svg>
-                      </span>
+                    <a href="tel:+916238299803" className="transition-colors hover:text-brand-ink">
                       +91 62382 99803
                     </a>
                   </li>
                   <li>
-                    <a href="tel:+917012112355" className="group flex items-center gap-3 text-[14px] text-slate-600 dark:text-slate-300 hover:text-accent-600 dark:hover:text-accent-400 transition-colors font-medium">
-                      <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-slate-100 dark:bg-slate-900 group-hover:bg-accent-50 dark:group-hover:bg-accent-950/50 transition-colors">
-                        <svg className="w-4 h-4 text-slate-500 group-hover:text-accent-600 dark:group-hover:text-accent-400" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.94.725l.548 2.2a1 1 0 01-.321.988l-1.305.98a10.582 10.582 0 004.872 4.872l.98-1.305a1 1 0 01.988-.321l2.2.548a1 1 0 01.725.94V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path></svg>
-                      </span>
+                    <a href="tel:+917012112355" className="transition-colors hover:text-brand-ink">
                       +91 70121 12355
                     </a>
                   </li>
-                  <li>
-                    <div className="flex items-start gap-3 text-[14px] text-slate-600 dark:text-slate-300 font-medium">
-                      <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-slate-100 dark:bg-slate-900 shrink-0 mt-0.5">
-                        <svg className="w-4 h-4 text-slate-500" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z"/><path strokeLinecap="round" strokeLinejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z"/></svg>
-                      </span>
-                      <span className="leading-relaxed">
-                        House No 10, Karippai Lane,<br />
-                        Chelakkottukara,<br />
-                        Thrissur 680005, Kerala, India
-                      </span>
-                    </div>
+                  <li className="pt-1 leading-relaxed text-ink-3">
+                    House No 10, Karippai Lane,
+                    <br />
+                    Chelakkottukara,
+                    <br />
+                    Thrissur 680005, Kerala, India
                   </li>
                 </ul>
               </div>
             </div>
 
-            <div className="pt-8 border-t border-slate-200/50 dark:border-slate-800/50 flex flex-col md:flex-row justify-between items-center gap-4">
-              <p className="text-[13px] text-text-muted dark:text-slate-400" suppressHydrationWarning>
-                &copy; 2026 Reach My Ads. All rights reserved.
+            <div className="mt-12 flex flex-col items-start justify-between gap-3 border-t border-line pt-7 sm:flex-row sm:items-center">
+              <p className="text-[13px] text-ink-3">
+                &copy; <CopyrightYear /> Reach My Ads. All rights reserved.
               </p>
-              <div className="flex gap-6">
-                <span className="text-[12px] text-text-muted dark:text-slate-400">Proudly built for world-class advertisers.</span>
-              </div>
+              <p className="text-[13px] text-ink-3">
+                Built in Kerala, India.
+              </p>
             </div>
           </div>
         </footer>

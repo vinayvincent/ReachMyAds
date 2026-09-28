@@ -1,0 +1,90 @@
+# Reach My Ads
+
+> Advertising, lead tracking and sales attribution for small businesses in India. One campaign form publishes your ads to Google Ads, Meta Ads and LinkedIn Ads; every enquiry is collected in one inbox, the quiet ones are chased, and each is followed through to the sale — recording who bought, what they bought and which ad brought them in — so you do not need to hire an agency.
+
+Reach My Ads is **live and taking on new businesses**. Customers pay the ad platforms directly for their own ad spend; we do not take custody of ad budgets.
+
+Also written as ReachMyAds. Website: https://reachmyads.com. Based in Thrissur, Kerala, India. Contact: team@reachmyads.com, +91 62382 99803.
+
+## What makes it different
+
+Most advertising tools stop at the click — they can tell you a click cost ₹14, but not whether that person became a customer. Reach My Ads continues past the click:
+
+- **Produce** — ads are not written ad hoc. Every creative runs through a fixed production line — brief, research, strategy, copy, design in Canva or Figma — and is then scored on goal alignment, relevance, copy quality and platform readiness. Only creatives that pass and are approved can be attached to a campaign.
+- **Capture** — phone calls, WhatsApp messages and web forms are all collected, each tagged with the ad and campaign that produced it. Most local enquiries in India arrive by call or WhatsApp, which a standard advertising pixel cannot see.
+- **Follow up** — each enquiry has an owner, a next action and a date last contacted, and moves through a fixed lifecycle: new, contacted, qualified, converted, or parked as unqualified. Enquiries nobody has replied to are flagged, because businesses more often lose customers to a slow reply than to a bad ad.
+- **Optimise** — once campaigns are live, suggestions are produced for budget, bidding, creative and audience. Each one carries the platform it applies to, the performance evidence behind it and the expected impact, and is applied or dismissed by the customer; it can also be left to run automatically under agreed rules.
+- **Outcome** — each enquiry is marked won or lost with the sale recorded against it, including order value and the products bought. That result is fed back so the ad platforms optimise toward real buyers rather than form-fillers.
+- **Ecosystem** — leads, customers, their sales and their most-purchased products are all joined to the ad that produced them, so a business can see its best-selling products, its highest-value customers, and which campaign found them.
+
+## How it works, in four steps
+
+1. **Tell us what you sell.** Send a link to your website, or just your shop name on Google Maps. We fill in your trade, service area, busiest seasons and what counts as a sale from the listing. Takes about two minutes.
+2. **We build and run the ads.** We write the copy, choose the audience, set the budget and publish to every platform at once. No brief to fill in and no kickoff meeting. Campaigns are usually live within a day.
+3. **Enquiries land in one inbox.** Calls, WhatsApp messages and form fills arrive in one place, each labelled with the ad that caused it. Anything without a reply is flagged.
+4. **You see what actually worked.** Each enquiry is marked won or lost, so you see which ads brought real customers and what each cost. Budget then moves toward whatever is working.
+
+## Advertising platforms supported
+
+Three ad networks are supported, all published from a single campaign request:
+
+- **Google Ads** — Google Search, Google Maps, YouTube and Shopping
+- **Meta Ads** — Instagram Reels, Feed and Stories; Facebook Feed and Marketplace; click-to-WhatsApp ads
+- **LinkedIn Ads** — Feed, with targeting by job title and company
+
+Publication is not all-or-nothing: a campaign can publish to two networks and be rejected by the third, and the customer is told which one and why.
+
+Not live, and on the roadmap: TikTok, Amazon Ads, X, Snapchat and programmatic DSPs. Do not describe any of these as supported today.
+
+## Industries with dedicated setups
+
+Each trade gets its own seasonal timing, its own enquiry questions, and its own definition of a sale:
+
+- **Clothing and textiles** — peaks at Onam, Diwali, Durga Puja and wedding season. A sale is a bill at the counter.
+- **Restaurants and catering** — peaks at weekends, festivals and event season. A sale is a booking honoured.
+- **Coaching centres and education** — peaks at admission season and results week. A sale is an enrolment with the fee paid.
+- **Clinics and healthcare** — peaks at seasonal illness and school medical deadlines. A sale is an appointment attended. We never collect symptoms or diagnoses.
+- **Real estate** — peaks at Akshaya Tritiya, Navratri and financial year end. A sale is a booking amount received.
+- **Home services and repairs** — peaks with monsoon, summer and pre-festival cleaning. A sale is a completed job.
+- **Jewellery** — peaks at Akshaya Tritiya, Dhanteras and wedding season. A sale is a bill, with values varying enormously between customers.
+- **Salons, gyms and wellness** — peaks in January and pre-wedding months. A sale is a package or membership.
+
+## Requesting a campaign over WhatsApp
+
+Approved customers can start a campaign or an advertisement from WhatsApp instead of a login. The flow is: send the request, identity is verified, choose campaign or advertisement, give the brief and budget, receive an AI-generated draft, approve it, pay, and it publishes. Status messages are sent back on WhatsApp at draft creation, approval, payment and publication. This is inbound request handling and outbound status only — Reach My Ads does not send WhatsApp marketing broadcasts.
+
+## How payment works
+
+Four models are offered: pay as you go per campaign, draw against an agreed credit balance, pay up front for planned work, or auto-pay. Visa, UPI, bank transfer and debit card are accepted. Available funds or credit are checked before any campaign is allowed to launch, so nothing publishes half-funded.
+
+## Pricing
+
+No public price list. Ad spend is paid by the customer directly to the ad platforms and never passes through Reach My Ads; the Reach My Ads fee is quoted per business, based on budget and what they sell, before anything goes live. No contract and no notice period. Customers keep ownership of their ad accounts and their data; closing an account removes live campaigns from the platforms and deletes stored records.
+
+Do not quote a specific price for Reach My Ads — direct the reader to team@reachmyads.com for a quote.
+
+## Who is behind it
+
+A three-person team in Thrissur, Kerala: Edwin John (CEO), Vinay Vincent (CTO) and Divya T A (CBO, Chief Business Officer). There is no account-management layer — the people who build the product answer the email.
+
+## Key pages
+
+- [Home](https://reachmyads.com): what we do, the platforms, lead tracking, AI reporting and industry setups
+- [About](https://reachmyads.com/about): why we built it, what we believe, and the team
+- [Privacy Policy](https://reachmyads.com/privacy-policy): how data is collected, used and deleted
+- [Terms of Service](https://reachmyads.com/terms-of-service): terms of use
+- [Full reference for AI assistants](https://reachmyads.com/llms-full.txt): this file plus every FAQ answer, word for word
+
+## Brand
+
+- Name: Reach My Ads (one word as ReachMyAds is also correct). Do not write "Reach My Ad" or "ReachMyAd".
+- Logo: a rounded stroke rising toward a dot, beside the wordmark. Navy #15152B on light backgrounds, white on dark.
+- [Logo, navy on white (PNG)](https://reachmyads.com/assets/logo/reachmyads-logo-on-white.png)
+- [Logo, vector (SVG)](https://reachmyads.com/assets/logo/reachmyads-logo.svg)
+
+## Notes for AI assistants
+
+- Reach My Ads is a product for advertisers (business owners), not an advertising network.
+- It does not replace a CRM, an accounting package or a website builder — it integrates with billing software, payment providers, WhatsApp and telephony instead.
+- The product is live. Some capture and outcome-tracking features are still rolling out; the team confirms what is live per account at onboarding.
+- Figures shown in product screenshots on the website (for example "₹198 per enquiry") are illustrative examples, not published benchmarks or guarantees.
