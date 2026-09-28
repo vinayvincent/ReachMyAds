@@ -48,6 +48,26 @@ function isNonTlsConnection(request: NextRequest): boolean {
 }
 
 /**
+ * Loopback hosts are already treated as secure contexts by browsers, and there
+ * is no TLS listener in front of a local `next start`.
+ *
+ * Without this exemption a production build is unreachable locally: every
+ * request 301s to https://localhost:3000, nothing answers, and because a 301
+ * is permanent the browser caches the redirect against the origin — which then
+ * breaks `next dev` on the same port long after the production server is gone.
+ */
+function isLoopbackHost(request: NextRequest): boolean {
+  const host = (request.headers.get('host') ?? '').split(':')[0]!.toLowerCase();
+  return (
+    host === 'localhost' ||
+    host === '127.0.0.1' ||
+    host === '[::1]' ||
+    host === '::1' ||
+    host.endsWith('.localhost')
+  );
+}
+
+/**
  * Builds the HTTPS redirect URL for a given request.
  */
 function buildHttpsRedirectUrl(request: NextRequest): string {
@@ -57,9 +77,10 @@ function buildHttpsRedirectUrl(request: NextRequest): string {
 }
 
 export function proxy(request: NextRequest) {
-  // Enforce HTTPS in production only (skip on localhost dev server)
+  // Enforce HTTPS in production, except over loopback — see isLoopbackHost.
   const isDev = process.env.NODE_ENV === 'development';
-  if (!isDev && isNonTlsConnection(request)) {
+  const isLocal = isLoopbackHost(request);
+  if (!isDev && !isLocal && isNonTlsConnection(request)) {
     return NextResponse.redirect(buildHttpsRedirectUrl(request), 301);
   }
 
@@ -67,8 +88,9 @@ export function proxy(request: NextRequest) {
 
   // Apply security headers to all responses
   for (const [header, value] of Object.entries(SECURITY_HEADERS)) {
-    // Skip HSTS in development to avoid browser caching HTTPS for localhost
-    if (isDev && header === 'Strict-Transport-Security') continue;
+    // Skip HSTS in development and over loopback, so a browser never pins
+    // HTTPS against localhost and locks the developer out of the dev server.
+    if ((isDev || isLocal) && header === 'Strict-Transport-Security') continue;
     response.headers.set(header, value);
   }
 

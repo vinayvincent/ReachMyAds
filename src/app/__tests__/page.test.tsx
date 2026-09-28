@@ -3,7 +3,6 @@ import { describe, it, expect, vi, beforeAll } from 'vitest';
 import Home from '@/app/page';
 import { buildNextMetadata } from '@/components/SEOHead';
 
-// Mock matchMedia for framer-motion / useReducedMotion
 beforeAll(() => {
   Object.defineProperty(window, 'matchMedia', {
     writable: true,
@@ -19,99 +18,150 @@ beforeAll(() => {
     })),
   });
 
-  // Mock IntersectionObserver (required by useAnimation with triggerOnScroll)
+  // Sections reveal on scroll, so the observer must report them as visible.
   class MockIntersectionObserver implements IntersectionObserver {
     readonly root = null;
     readonly rootMargin = '';
     readonly thresholds: readonly number[] = [];
     private cb: IntersectionObserverCallback;
-    constructor(cb: IntersectionObserverCallback) { this.cb = cb; }
+    constructor(cb: IntersectionObserverCallback) {
+      this.cb = cb;
+    }
     observe(el: Element) {
-      this.cb(
-        [{ isIntersecting: true, target: el } as IntersectionObserverEntry],
-        this,
-      );
+      this.cb([{ isIntersecting: true, target: el } as IntersectionObserverEntry], this);
     }
     unobserve() {}
     disconnect() {}
-    takeRecords(): IntersectionObserverEntry[] { return []; }
+    takeRecords(): IntersectionObserverEntry[] {
+      return [];
+    }
   }
   global.IntersectionObserver = MockIntersectionObserver;
 
-  // Mock fetch for CSRF token (used by ContactForm and QuickInquiryForm)
   global.fetch = vi.fn().mockResolvedValue({
     json: () => Promise.resolve({ csrfToken: 'test-token' }),
   });
 });
 
-// Mock next/link to render a plain anchor
-vi.mock('next/link', () => ({
-  default: ({ href, children, ...props }: { href: string; children: React.ReactNode; [key: string]: unknown }) => (
-    <a href={href} {...props}>{children}</a>
-  ),
-}));
+/** Reads the page's own JSON-LD graph (the layout renders identity separately). */
+function readGraph(container: HTMLElement) {
+  const script = container.querySelector('script[type="application/ld+json"]');
+  expect(script).toBeInTheDocument();
+  return JSON.parse(script!.textContent!);
+}
 
 describe('Landing page (page.tsx)', () => {
-  it('renders all four sections: Hero, Features, Testimonials, Pricing', () => {
+  it('renders every section of the page', () => {
     render(<Home />);
 
-    expect(screen.getByRole('region', { name: 'Hero' })).toBeInTheDocument();
-    expect(screen.getByRole('region', { name: 'Features' })).toBeInTheDocument();
-    expect(screen.getByRole('region', { name: 'Testimonials' })).toBeInTheDocument();
-    expect(screen.getByRole('region', { name: 'Pricing' })).toBeInTheDocument();
+    for (const name of [
+      /We run your ads/,
+      /Three networks/,
+      /Three jobs/,
+      /Four steps/,
+      /From the first click to the sale/,
+      /Just ask, in your own words/,
+      /You do not need to hire anyone/,
+      /We already know your business/,
+      /Common questions/,
+    ]) {
+      expect(screen.getByRole('region', { name })).toBeInTheDocument();
+    }
   });
 
-  it('renders Contact section with ContactForm', () => {
+  it('renders the closing contact section with the lead form', () => {
     render(<Home />);
 
-    expect(screen.getByRole('region', { name: 'Contact' })).toBeInTheDocument();
-    expect(screen.getByRole('heading', { name: /Get in Touch/i })).toBeInTheDocument();
-    expect(screen.getByRole('region', { name: 'Contact form' })).toBeInTheDocument();
+    expect(
+      screen.getByRole('region', { name: /Tell us what you sell/ }),
+    ).toBeInTheDocument();
+    expect(screen.getByRole('heading', { name: 'Send us a line', level: 3 })).toBeInTheDocument();
+    expect(
+      screen.getByRole('link', { name: /team@reachmyads\.com\s*We read every one/ }),
+    ).toHaveAttribute('href', 'mailto:team@reachmyads.com');
+    expect(screen.getByRole('link', { name: /\+91 62382 99803/ })).toHaveAttribute(
+      'href',
+      'tel:+916238299803',
+    );
   });
 
-  it('renders floating QuickInquiryForm', () => {
+  it('exposes the at-a-glance product facts', () => {
     render(<Home />);
-
-    expect(screen.getByRole('region', { name: 'Quick inquiry form' })).toBeInTheDocument();
+    expect(
+      screen.getByRole('region', { name: 'Reach My Ads at a glance' }),
+    ).toBeInTheDocument();
+    expect(screen.getByText('Ad networks, one form')).toBeInTheDocument();
   });
 
-  it('renders JSON-LD structured data script block', () => {
+  it('renders a JSON-LD @graph rather than a single loose node', () => {
     const { container } = render(<Home />);
-    const jsonLdScript = container.querySelector('script[type="application/ld+json"]');
-    expect(jsonLdScript).toBeInTheDocument();
+    const data = readGraph(container);
 
-    const data = JSON.parse(jsonLdScript!.textContent!);
     expect(data['@context']).toBe('https://schema.org');
-    expect(data['@type']).toBe('SoftwareApplication');
-    expect(data.name).toBe('ReachMyAds');
-    expect(data.applicationCategory).toBe('BusinessApplication');
+    expect(Array.isArray(data['@graph'])).toBe(true);
   });
 
-  it('includes SoftwareApplication offers in JSON-LD', () => {
+  it('describes the software, the service, the steps and the FAQ to crawlers', () => {
     const { container } = render(<Home />);
-    const jsonLdScript = container.querySelector('script[type="application/ld+json"]');
-    const data = JSON.parse(jsonLdScript!.textContent!);
+    const types = readGraph(container)['@graph'].map((node: { '@type': string }) => node['@type']);
 
-    expect(data.offers).toBeDefined();
-    expect(data.offers['@type']).toBe('AggregateOffer');
-    expect(data.offers.priceCurrency).toBe('USD');
+    expect(types).toEqual(
+      expect.arrayContaining([
+        'WebPage',
+        'SoftwareApplication',
+        'Service',
+        'HowTo',
+        'ItemList',
+        'FAQPage',
+      ]),
+    );
   });
 
-  it('wraps sections in a <main> element', () => {
-    render(<Home />);
-    expect(screen.getByRole('main')).toBeInTheDocument();
+  // Our fee is quoted per business, so the graph must not publish a price that
+  // would then be repeated back by search results and AI assistants.
+  it('publishes no price for the SoftwareApplication', () => {
+    const { container } = render(<Home />);
+    const graph = readGraph(container)['@graph'] as Record<string, unknown>[];
+    const software = graph.find((node) => node['@type'] === 'SoftwareApplication')!;
+
+    expect(software.offers).toBeUndefined();
+  });
+
+  it('lists every advertising network as an ItemList for crawlers', () => {
+    const { container } = render(<Home />);
+    const graph = readGraph(container)['@graph'] as Record<string, unknown>[];
+    const list = graph.find((node) => node['@type'] === 'ItemList')!;
+    const names = (list.itemListElement as { name: string }[]).map((item) => item.name);
+
+    expect(names).toEqual([
+      'Google Ads — Search, Maps, YouTube and Shopping',
+      'Meta Ads — Instagram, Facebook and click-to-WhatsApp',
+      'LinkedIn Ads',
+    ]);
+    expect(list.numberOfItems).toBe(names.length);
+  });
+
+  it('gives the HowTo four ordered steps', () => {
+    const { container } = render(<Home />);
+    const graph = readGraph(container)['@graph'] as Record<string, unknown>[];
+    const howTo = graph.find((node) => node['@type'] === 'HowTo')!;
+    const steps = howTo.step as { position: number; name: string }[];
+
+    expect(steps).toHaveLength(4);
+    expect(steps.map((s) => s.position)).toEqual([1, 2, 3, 4]);
   });
 });
 
 describe('Landing page SEO metadata', () => {
   it('exports valid Next.js metadata via buildNextMetadata', async () => {
-    // Import the metadata export from the page module
     const pageModule = await import('@/app/page');
     const metadata = pageModule.metadata;
 
     expect(metadata).toBeDefined();
-    expect(metadata.title).toBe('ReachMyAds - AI-Driven Ad Management Platform');
-    expect(metadata.description).toContain('Google, Meta, LinkedIn, and TikTok');
+    expect(metadata.title).toBe(
+      'Reach My Ads | Google & Instagram Ads for Small Businesses',
+    );
+    expect(metadata.description).toContain('Google, Meta and LinkedIn');
     expect(metadata.openGraph).toBeDefined();
     expect(metadata.twitter).toBeDefined();
     expect(metadata.alternates?.canonical).toBe('https://reachmyads.com');

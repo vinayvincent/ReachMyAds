@@ -1,4 +1,27 @@
 import { TermsTOC } from './TermsTOC';
+import type { Metadata } from 'next';
+import { SEOHead } from '@/components/SEOHead';
+import { legalPageGraph, SITE_URL } from '@/lib/structured-data';
+
+const TITLE = 'Terms of Service';
+const DESCRIPTION =
+  'The terms for using Reach My Ads: accounts, ad platform policies, AI-generated content, payments, data, liability and termination. Governed by the laws of India.';
+/** Matches the effective date shown on the page. Update both together. */
+const EFFECTIVE_DATE = '2026-05-27';
+
+export const metadata: Metadata = {
+  title: TITLE,
+  description: DESCRIPTION,
+  alternates: { canonical: '/terms-of-service' },
+  openGraph: {
+    title: `${TITLE} | Reach My Ads`,
+    description: DESCRIPTION,
+    url: `${SITE_URL}/terms-of-service`,
+    siteName: 'Reach My Ads',
+    locale: 'en_IN',
+    type: 'website',
+  },
+};
 
 /* ─── Section metadata (passed to client TOC) ───────────────── */
 const sectionsMeta = [
@@ -24,25 +47,25 @@ const sectionsMeta = [
 /* ─── Page (Server Component) ───────────────────────────────── */
 export default function TermsOfServicePage() {
   return (
-    <main className="min-h-screen">
+    <div className="min-h-screen">
+      <SEOHead
+        structuredData={legalPageGraph({
+          path: '/terms-of-service',
+          name: TITLE,
+          description: DESCRIPTION,
+          dateModified: EFFECTIVE_DATE,
+        })}
+      />
 
       {/* ── Hero ─────────────────────────────────────────────── */}
-      <section className="relative overflow-hidden py-24 bg-gradient-to-br from-slate-50 via-white to-violet-50/40 dark:from-slate-950 dark:via-slate-900 dark:to-violet-950/20 border-b border-slate-200/50 dark:border-slate-800/50">
-        <div className="pointer-events-none absolute inset-0">
-          <div className="absolute -top-20 right-[10%] h-[500px] w-[500px] rounded-full bg-violet-500/8 blur-[120px]" />
-          <div className="absolute bottom-0 left-[5%] h-[400px] w-[400px] rounded-full bg-blue-500/6 blur-[100px]" />
-          <div className="absolute inset-0 bg-grid opacity-40" />
-        </div>
+      <section className="relative overflow-hidden py-24 bg-canvas-soft border-b border-line">
 
         <div className="relative mx-auto max-w-[900px] px-6 text-center">
-          <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-violet-500/20 bg-violet-500/8 px-4 py-1.5 text-[11px] font-bold uppercase tracking-widest text-violet-600 dark:text-violet-400">
-            <span className="h-1.5 w-1.5 rounded-full bg-violet-500 animate-pulse" />
-            Legal Document
-          </div>
+          <p className="eyebrow mb-4">Legal Document</p>
 
-          <h1 className="mb-4 text-[clamp(2.8rem,7vw,5rem)] font-black leading-[1.05] tracking-tighter text-slate-900 dark:text-white">
+          <h1 className="mb-4 text-[clamp(2.8rem,7vw,5rem)] h-display text-slate-900 dark:text-white">
             Terms &{' '}
-            <span className="text-gradient-blue">Conditions</span>
+            <span className="text-accent">Conditions</span>
           </h1>
 
           <div className="mb-6 flex items-center justify-center gap-3 text-[14px] text-slate-500 dark:text-slate-400">
@@ -60,10 +83,10 @@ export default function TermsOfServicePage() {
             By using ReachMyAds, you agree to these Terms.
           </p>
 
-          <div className="mt-10 inline-flex items-center divide-x divide-slate-200 dark:divide-slate-700 rounded-2xl border border-slate-200/60 dark:border-slate-700/60 bg-white/80 dark:bg-slate-900/60 backdrop-blur-sm overflow-hidden shadow-sm">
+          <div className="mt-10 inline-flex items-center divide-x divide-slate-200 dark:divide-slate-700 rounded-lg border border-line bg-surface overflow-hidden">
             {[['17', 'Sections'], ['Fair Use', 'Policy'], ['100%', 'Transparent']].map(([val, label]) => (
               <div key={label} className="px-5 py-3 text-center">
-                <div className="text-[18px] font-black text-slate-900 dark:text-white">{val}</div>
+                <div className="text-[18px] font-semibold text-slate-900 dark:text-white">{val}</div>
                 <div className="text-[11px] text-slate-500 dark:text-slate-400 font-medium">{label}</div>
               </div>
             ))}
@@ -83,9 +106,8 @@ export default function TermsOfServicePage() {
 
             {/* 01 */}
             <section id="about" aria-labelledby="heading-about"
-              className="scroll-mt-24 rounded-2xl border bg-gradient-to-br from-blue-500/10 to-cyan-500/10 border-blue-500/20 p-6 md:p-8 transition-all duration-300">
+              className="scroll-mt-24 rounded-xl border border-line bg-surface p-6 md:p-8">
               <div className="mb-5 flex items-start gap-4">
-                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl text-xl bg-blue-500/10 text-blue-600 dark:text-blue-400">🏢</div>
                 <div className="flex-1 min-w-0">
                   <span className="text-[10px] font-bold uppercase tracking-widest text-slate-400 dark:text-slate-500">Section 01</span>
                   <h2 id="heading-about" className="text-[18px] font-bold text-slate-900 dark:text-white leading-snug">About ReachMyAds</h2>
@@ -102,9 +124,8 @@ export default function TermsOfServicePage() {
 
             {/* 02 */}
             <section id="eligibility" aria-labelledby="heading-eligibility"
-              className="scroll-mt-24 rounded-2xl border bg-gradient-to-br from-emerald-500/10 to-teal-500/10 border-emerald-500/20 p-6 md:p-8 transition-all duration-300">
+              className="scroll-mt-24 rounded-xl border border-line bg-surface p-6 md:p-8">
               <div className="mb-5 flex items-start gap-4">
-                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl text-xl bg-emerald-500/10 text-emerald-600 dark:text-emerald-400">✅</div>
                 <div className="flex-1 min-w-0">
                   <span className="text-[10px] font-bold uppercase tracking-widest text-slate-400 dark:text-slate-500">Section 02</span>
                   <h2 id="heading-eligibility" className="text-[18px] font-bold text-slate-900 dark:text-white leading-snug">Eligibility</h2>
@@ -130,9 +151,8 @@ export default function TermsOfServicePage() {
 
             {/* 03 */}
             <section id="user-accounts" aria-labelledby="heading-user-accounts"
-              className="scroll-mt-24 rounded-2xl border bg-gradient-to-br from-violet-500/10 to-purple-500/10 border-violet-500/20 p-6 md:p-8 transition-all duration-300">
+              className="scroll-mt-24 rounded-xl border border-line bg-surface p-6 md:p-8">
               <div className="mb-5 flex items-start gap-4">
-                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl text-xl bg-violet-500/10 text-violet-600 dark:text-violet-400">👤</div>
                 <div className="flex-1 min-w-0">
                   <span className="text-[10px] font-bold uppercase tracking-widest text-slate-400 dark:text-slate-500">Section 03</span>
                   <h2 id="heading-user-accounts" className="text-[18px] font-bold text-slate-900 dark:text-white leading-snug">User Accounts</h2>
@@ -156,9 +176,8 @@ export default function TermsOfServicePage() {
 
             {/* 04 */}
             <section id="services" aria-labelledby="heading-services"
-              className="scroll-mt-24 rounded-2xl border bg-gradient-to-br from-amber-500/10 to-yellow-500/10 border-amber-500/20 p-6 md:p-8 transition-all duration-300">
+              className="scroll-mt-24 rounded-xl border border-line bg-surface p-6 md:p-8">
               <div className="mb-5 flex items-start gap-4">
-                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl text-xl bg-amber-500/10 text-amber-600 dark:text-amber-400">⚡</div>
                 <div className="flex-1 min-w-0">
                   <span className="text-[10px] font-bold uppercase tracking-widest text-slate-400 dark:text-slate-500">Section 04</span>
                   <h2 id="heading-services" className="text-[18px] font-bold text-slate-900 dark:text-white leading-snug">Services Provided</h2>
@@ -182,9 +201,8 @@ export default function TermsOfServicePage() {
 
             {/* 05 */}
             <section id="acceptable-use" aria-labelledby="heading-acceptable-use"
-              className="scroll-mt-24 rounded-2xl border bg-gradient-to-br from-red-500/10 to-rose-500/10 border-red-500/20 p-6 md:p-8 transition-all duration-300">
+              className="scroll-mt-24 rounded-xl border border-line bg-surface p-6 md:p-8">
               <div className="mb-5 flex items-start gap-4">
-                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl text-xl bg-red-500/10 text-red-600 dark:text-red-400">🚫</div>
                 <div className="flex-1 min-w-0">
                   <span className="text-[10px] font-bold uppercase tracking-widest text-slate-400 dark:text-slate-500">Section 05</span>
                   <h2 id="heading-acceptable-use" className="text-[18px] font-bold text-slate-900 dark:text-white leading-snug">Acceptable Use</h2>
@@ -210,9 +228,8 @@ export default function TermsOfServicePage() {
 
             {/* 06 */}
             <section id="platform-policies" aria-labelledby="heading-platform-policies"
-              className="scroll-mt-24 rounded-2xl border bg-gradient-to-br from-orange-500/10 to-amber-500/10 border-orange-500/20 p-6 md:p-8 transition-all duration-300">
+              className="scroll-mt-24 rounded-xl border border-line bg-surface p-6 md:p-8">
               <div className="mb-5 flex items-start gap-4">
-                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl text-xl bg-orange-500/10 text-orange-600 dark:text-orange-400">🔗</div>
                 <div className="flex-1 min-w-0">
                   <span className="text-[10px] font-bold uppercase tracking-widest text-slate-400 dark:text-slate-500">Section 06</span>
                   <h2 id="heading-platform-policies" className="text-[18px] font-bold text-slate-900 dark:text-white leading-snug">Advertising Platform Policies</h2>
@@ -243,9 +260,8 @@ export default function TermsOfServicePage() {
 
             {/* 07 */}
             <section id="ai-content" aria-labelledby="heading-ai-content"
-              className="scroll-mt-24 rounded-2xl border bg-gradient-to-br from-pink-500/10 to-rose-500/10 border-pink-500/20 p-6 md:p-8 transition-all duration-300">
+              className="scroll-mt-24 rounded-xl border border-line bg-surface p-6 md:p-8">
               <div className="mb-5 flex items-start gap-4">
-                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl text-xl bg-pink-500/10 text-pink-600 dark:text-pink-400">🤖</div>
                 <div className="flex-1 min-w-0">
                   <span className="text-[10px] font-bold uppercase tracking-widest text-slate-400 dark:text-slate-500">Section 07</span>
                   <h2 id="heading-ai-content" className="text-[18px] font-bold text-slate-900 dark:text-white leading-snug">AI-Generated Content</h2>
@@ -274,9 +290,8 @@ export default function TermsOfServicePage() {
 
             {/* 08 */}
             <section id="payments" aria-labelledby="heading-payments"
-              className="scroll-mt-24 rounded-2xl border bg-gradient-to-br from-emerald-500/10 to-green-500/10 border-emerald-500/20 p-6 md:p-8 transition-all duration-300">
+              className="scroll-mt-24 rounded-xl border border-line bg-surface p-6 md:p-8">
               <div className="mb-5 flex items-start gap-4">
-                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl text-xl bg-emerald-500/10 text-emerald-600 dark:text-emerald-400">💳</div>
                 <div className="flex-1 min-w-0">
                   <span className="text-[10px] font-bold uppercase tracking-widest text-slate-400 dark:text-slate-500">Section 08</span>
                   <h2 id="heading-payments" className="text-[18px] font-bold text-slate-900 dark:text-white leading-snug">Payments &amp; Subscription</h2>
@@ -315,9 +330,8 @@ export default function TermsOfServicePage() {
 
             {/* 09 */}
             <section id="intellectual-property" aria-labelledby="heading-intellectual-property"
-              className="scroll-mt-24 rounded-2xl border bg-gradient-to-br from-indigo-500/10 to-blue-500/10 border-indigo-500/20 p-6 md:p-8 transition-all duration-300">
+              className="scroll-mt-24 rounded-xl border border-line bg-surface p-6 md:p-8">
               <div className="mb-5 flex items-start gap-4">
-                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl text-xl bg-indigo-500/10 text-indigo-600 dark:text-indigo-400">©️</div>
                 <div className="flex-1 min-w-0">
                   <span className="text-[10px] font-bold uppercase tracking-widest text-slate-400 dark:text-slate-500">Section 09</span>
                   <h2 id="heading-intellectual-property" className="text-[18px] font-bold text-slate-900 dark:text-white leading-snug">Intellectual Property</h2>
@@ -339,9 +353,8 @@ export default function TermsOfServicePage() {
 
             {/* 10 */}
             <section id="data-privacy" aria-labelledby="heading-data-privacy"
-              className="scroll-mt-24 rounded-2xl border bg-gradient-to-br from-slate-500/10 to-zinc-500/10 border-slate-400/20 p-6 md:p-8 transition-all duration-300">
+              className="scroll-mt-24 rounded-xl border border-line bg-surface p-6 md:p-8">
               <div className="mb-5 flex items-start gap-4">
-                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl text-xl bg-slate-500/10 text-slate-600 dark:text-slate-400">🔒</div>
                 <div className="flex-1 min-w-0">
                   <span className="text-[10px] font-bold uppercase tracking-widest text-slate-400 dark:text-slate-500">Section 10</span>
                   <h2 id="heading-data-privacy" className="text-[18px] font-bold text-slate-900 dark:text-white leading-snug">Data &amp; Privacy</h2>
@@ -362,9 +375,8 @@ export default function TermsOfServicePage() {
 
             {/* 11 */}
             <section id="service-availability" aria-labelledby="heading-service-availability"
-              className="scroll-mt-24 rounded-2xl border bg-gradient-to-br from-teal-500/10 to-cyan-500/10 border-teal-500/20 p-6 md:p-8 transition-all duration-300">
+              className="scroll-mt-24 rounded-xl border border-line bg-surface p-6 md:p-8">
               <div className="mb-5 flex items-start gap-4">
-                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl text-xl bg-teal-500/10 text-teal-600 dark:text-teal-400">🖥️</div>
                 <div className="flex-1 min-w-0">
                   <span className="text-[10px] font-bold uppercase tracking-widest text-slate-400 dark:text-slate-500">Section 11</span>
                   <h2 id="heading-service-availability" className="text-[18px] font-bold text-slate-900 dark:text-white leading-snug">Service Availability</h2>
@@ -386,9 +398,8 @@ export default function TermsOfServicePage() {
 
             {/* 12 */}
             <section id="liability" aria-labelledby="heading-liability"
-              className="scroll-mt-24 rounded-2xl border bg-gradient-to-br from-red-500/10 to-orange-500/10 border-red-500/20 p-6 md:p-8 transition-all duration-300">
+              className="scroll-mt-24 rounded-xl border border-line bg-surface p-6 md:p-8">
               <div className="mb-5 flex items-start gap-4">
-                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl text-xl bg-red-500/10 text-red-600 dark:text-red-400">⚖️</div>
                 <div className="flex-1 min-w-0">
                   <span className="text-[10px] font-bold uppercase tracking-widest text-slate-400 dark:text-slate-500">Section 12</span>
                   <h2 id="heading-liability" className="text-[18px] font-bold text-slate-900 dark:text-white leading-snug">Limitation of Liability</h2>
@@ -414,9 +425,8 @@ export default function TermsOfServicePage() {
 
             {/* 13 */}
             <section id="termination" aria-labelledby="heading-termination"
-              className="scroll-mt-24 rounded-2xl border bg-gradient-to-br from-slate-500/10 to-gray-500/10 border-slate-400/20 p-6 md:p-8 transition-all duration-300">
+              className="scroll-mt-24 rounded-xl border border-line bg-surface p-6 md:p-8">
               <div className="mb-5 flex items-start gap-4">
-                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl text-xl bg-slate-500/10 text-slate-600 dark:text-slate-400">🚪</div>
                 <div className="flex-1 min-w-0">
                   <span className="text-[10px] font-bold uppercase tracking-widest text-slate-400 dark:text-slate-500">Section 13</span>
                   <h2 id="heading-termination" className="text-[18px] font-bold text-slate-900 dark:text-white leading-snug">Account Suspension &amp; Termination</h2>
@@ -440,9 +450,8 @@ export default function TermsOfServicePage() {
 
             {/* 14 */}
             <section id="third-party" aria-labelledby="heading-third-party"
-              className="scroll-mt-24 rounded-2xl border bg-gradient-to-br from-violet-500/10 to-purple-500/10 border-violet-500/20 p-6 md:p-8 transition-all duration-300">
+              className="scroll-mt-24 rounded-xl border border-line bg-surface p-6 md:p-8">
               <div className="mb-5 flex items-start gap-4">
-                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl text-xl bg-violet-500/10 text-violet-600 dark:text-violet-400">🌐</div>
                 <div className="flex-1 min-w-0">
                   <span className="text-[10px] font-bold uppercase tracking-widest text-slate-400 dark:text-slate-500">Section 14</span>
                   <h2 id="heading-third-party" className="text-[18px] font-bold text-slate-900 dark:text-white leading-snug">Third-Party Services</h2>
@@ -467,9 +476,8 @@ export default function TermsOfServicePage() {
 
             {/* 15 */}
             <section id="changes" aria-labelledby="heading-changes"
-              className="scroll-mt-24 rounded-2xl border bg-gradient-to-br from-cyan-500/10 to-blue-500/10 border-cyan-500/20 p-6 md:p-8 transition-all duration-300">
+              className="scroll-mt-24 rounded-xl border border-line bg-surface p-6 md:p-8">
               <div className="mb-5 flex items-start gap-4">
-                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl text-xl bg-cyan-500/10 text-cyan-600 dark:text-cyan-400">📝</div>
                 <div className="flex-1 min-w-0">
                   <span className="text-[10px] font-bold uppercase tracking-widest text-slate-400 dark:text-slate-500">Section 15</span>
                   <h2 id="heading-changes" className="text-[18px] font-bold text-slate-900 dark:text-white leading-snug">Changes to Terms</h2>
@@ -487,9 +495,8 @@ export default function TermsOfServicePage() {
 
             {/* 16 */}
             <section id="governing-law" aria-labelledby="heading-governing-law"
-              className="scroll-mt-24 rounded-2xl border bg-gradient-to-br from-indigo-500/10 to-slate-500/10 border-indigo-500/20 p-6 md:p-8 transition-all duration-300">
+              className="scroll-mt-24 rounded-xl border border-line bg-surface p-6 md:p-8">
               <div className="mb-5 flex items-start gap-4">
-                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl text-xl bg-indigo-500/10 text-indigo-600 dark:text-indigo-400">🏛️</div>
                 <div className="flex-1 min-w-0">
                   <span className="text-[10px] font-bold uppercase tracking-widest text-slate-400 dark:text-slate-500">Section 16</span>
                   <h2 id="heading-governing-law" className="text-[18px] font-bold text-slate-900 dark:text-white leading-snug">Governing Law</h2>
@@ -504,9 +511,8 @@ export default function TermsOfServicePage() {
 
             {/* 17 */}
             <section id="contact-info" aria-labelledby="heading-contact-info"
-              className="scroll-mt-24 rounded-2xl border bg-gradient-to-br from-blue-500/10 to-indigo-500/10 border-blue-500/20 p-6 md:p-8 transition-all duration-300">
+              className="scroll-mt-24 rounded-xl border border-line bg-surface p-6 md:p-8">
               <div className="mb-5 flex items-start gap-4">
-                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl text-xl bg-blue-500/10 text-blue-600 dark:text-blue-400">✉️</div>
                 <div className="flex-1 min-w-0">
                   <span className="text-[10px] font-bold uppercase tracking-widest text-slate-400 dark:text-slate-500">Section 17</span>
                   <h2 id="heading-contact-info" className="text-[18px] font-bold text-slate-900 dark:text-white leading-snug">Contact Information</h2>
@@ -542,6 +548,6 @@ export default function TermsOfServicePage() {
           </div>
         </div>
       </div>
-    </main>
+    </div>
   );
 }
