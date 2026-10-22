@@ -29,7 +29,17 @@ export const faqs: FaqEntry[] = [
   {
     question: 'Where do my enquiries go?',
     answer:
-      'Into one simple list. Phone calls, WhatsApp messages and website forms all land together, each one labelled with the ad that brought it in. If somebody has been waiting for a reply, we flag them for you.',
+      'Into the CRM that comes built in. Phone calls, WhatsApp messages, website forms and Shopify buyers all land together, each one labelled with the ad that brought it in. If somebody has been waiting for a reply, we flag them for you.',
+  },
+  {
+    question: 'Do I still need a separate CRM?',
+    answer:
+      'No. A CRM comes with Reach My Ads, already joined to your ads, your WhatsApp and your Shopify store. You set up your own pipeline stages, give every deal an owner, a task and a due date, and new leads can be shared out to your team automatically. When a deal moves to the next stage, the right WhatsApp message can go out by itself. Because the CRM shares its records with the ads, every won deal is joined back to the campaign that found it, and people who already bought from you are left out of ads meant for new customers. If you keep your customers in a spreadsheet today, you can import it.',
+  },
+  {
+    question: 'Does it work with my Shopify store?',
+    answer:
+      'Yes. If you sell online through Shopify, you connect your store once and your products, customers and the last 12 months of orders come across. From then on every order is traced back to the ad that brought the buyer, so you can see sales against spend for each campaign and each product. When a product sells out, the ads selling it pause, and they start again when it is back in stock. Your products can be kept in a Meta catalogue for product ads, and purchases are reported to Meta and Google so they find more people who buy. On WhatsApp, cash-on-delivery orders are confirmed before you ship, and cart reminders, shipping updates, review requests and win-back messages go out on their own. Every buyer lands in the CRM, and a paid order closes their deal.',
   },
   {
     question: 'Do you track what people actually buy?',

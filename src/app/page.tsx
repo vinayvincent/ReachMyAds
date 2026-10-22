@@ -5,6 +5,8 @@ import { Platforms } from '@/components/Platforms';
 import { Pillars } from '@/components/Pillars';
 import { HowItWorks } from '@/components/HowItWorks';
 import { LeadTracking } from '@/components/LeadTracking';
+import { Ecosystem } from '@/components/Ecosystem';
+import { ShopifyStore } from '@/components/ShopifyStore';
 import { AIAnalytics } from '@/components/AIAnalytics';
 import { NoAgency } from '@/components/NoAgency';
 import { Verticals } from '@/components/Verticals';
@@ -17,7 +19,7 @@ import type { SEOMetadata } from '@/types';
 const landingPageSEO: SEOMetadata = {
   title: 'Reach My Ads | Google & Instagram Ads for Small Businesses',
   description:
-    'We run your ads on Google, Meta and LinkedIn, collect every call and WhatsApp enquiry in one inbox, and show which ad made each sale. No agency needed.',
+    'Ads on Google, Meta and LinkedIn, a built-in CRM, WhatsApp and your Shopify store, all in one place. See which ad made each sale. No agency needed.',
   keywords: [
     'advertising for small business India',
     'run my Google ads',
@@ -25,6 +27,11 @@ const landingPageSEO: SEOMetadata = {
     'Google Meta LinkedIn ads from one place',
     'WhatsApp lead tracking',
     'lead management software India',
+    'CRM for small business India',
+    'CRM with WhatsApp integration',
+    'Shopify ads management',
+    'Shopify WhatsApp COD confirmation',
+    'Shopify sales attribution',
     'digital marketing without an agency',
     'cost per customer tracking',
     'ad management platform',
@@ -63,10 +70,12 @@ export default function Home() {
 
       <Hero />
       <Proof />
+      <Ecosystem />
       <Platforms />
       <Pillars />
       <HowItWorks />
       <LeadTracking />
+      <ShopifyStore />
       <AIAnalytics />
       <NoAgency />
       <Verticals />

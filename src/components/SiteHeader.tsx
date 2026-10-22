@@ -8,8 +8,9 @@ import { Logo } from './Logo';
 
 const navItems = [
   { label: 'How it works', href: '/#how-it-works', section: 'how-it-works' },
+  { label: 'CRM', href: '/#leads', section: 'leads' },
+  { label: 'Shopify', href: '/#shopify', section: 'shopify' },
   { label: 'Platforms', href: '/#platforms', section: 'platforms' },
-  { label: 'Lead tracking', href: '/#leads', section: 'leads' },
   { label: 'Ask questions', href: '/#ai', section: 'ai' },
   { label: 'Your trade', href: '/#verticals', section: 'verticals' },
   { label: 'About', href: '/about', section: null },

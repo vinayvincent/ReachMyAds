@@ -57,6 +57,10 @@ export function organizationSchema(): JsonLd {
       'LinkedIn Ads',
       'Click-to-WhatsApp ads',
       'Lead management',
+      'CRM for small businesses',
+      'WhatsApp Business messaging',
+      'Shopify store marketing',
+      'Ecommerce sales attribution',
       'Sales attribution',
       'Local business advertising in India',
     ],
@@ -74,7 +78,7 @@ export function organizationSchema(): JsonLd {
     },
     image: `${SITE_URL}/assets/icons/reachmyads-icon-512.png`,
     description:
-      'Reach My Ads runs advertising for small businesses across Google Ads, Meta Ads and LinkedIn Ads from one campaign form, collects every enquiry in one inbox, and reports what each customer cost.',
+      'Reach My Ads runs advertising for small businesses across Google Ads, Meta Ads and LinkedIn Ads from one campaign form, with a built-in CRM, WhatsApp messaging and a Shopify connection in the same system, and reports what each customer cost.',
     email: businessInfo.email,
     telephone: businessInfo.phones[0],
     address: {
@@ -124,12 +128,12 @@ export function softwareSchema(): JsonLd {
     '@id': `${SITE_URL}/#software`,
     name: SITE_NAME,
     applicationCategory: 'BusinessApplication',
-    applicationSubCategory: 'Advertising and lead management',
+    applicationSubCategory: 'Advertising, CRM and ecommerce marketing',
     operatingSystem: 'Web browser',
     url: SITE_URL,
     publisher: { '@id': ORG_ID },
     description:
-      'Advertising and lead tracking for small businesses. Reach My Ads writes, scores and publishes your campaigns to Google Ads, Meta Ads and LinkedIn Ads from a single form, collects every call, WhatsApp message and form fill in one inbox, and follows each enquiry through to the sale — recording who bought, what they bought, and which ad brought them in.',
+      'Advertising, CRM and Shopify marketing for small businesses, in one system. Reach My Ads writes, scores and publishes your campaigns to Google Ads, Meta Ads and LinkedIn Ads from a single form, collects every call, WhatsApp message, form fill and Shopify buyer in a built-in CRM, and follows each enquiry through to the sale, recording who bought, what they bought, and which ad brought them in.',
     featureList: [
       'One campaign form publishes to Google Ads, Meta Ads and LinkedIn Ads, each configured correctly for that network',
       'Covers Google Search, Maps, YouTube and Shopping; Instagram Reels, Feed and Stories; Facebook Feed and Marketplace; click-to-WhatsApp; and LinkedIn',
@@ -143,6 +147,17 @@ export function softwareSchema(): JsonLd {
       'Best-selling products and highest-value customers traced back to the ad that found them',
       'Pay as you go, credit, pay first or auto-pay, with available funds checked before any campaign launches',
       'Plain-English AI answers about campaign performance, cost per customer and what sells',
+      'Built-in CRM: custom pipeline stages, deal owners, tasks, automatic lead routing, lead import and export',
+      'CRM automations that send an approved WhatsApp template when a deal changes stage',
+      'Shared WhatsApp Business inbox, with STOP replies honoured for every marketing message',
+      'Shopify connection: products, customers and 12 months of orders synced, with every order attributed to the ad that brought the buyer',
+      'Sales and return on ad spend per campaign and per product for Shopify stores',
+      'Ads paused automatically when a Shopify product sells out, and resumed when it is restocked',
+      'Shopify products synced to a Meta catalogue; purchases sent to Meta Conversions API and Google Ads',
+      'WhatsApp cash-on-delivery confirmation, abandoned-cart reminders, shipping updates, review requests and win-back messages for Shopify orders',
+      'Shopify buyer audiences (past buyers, cart abandoners, top spenders, repeat buyers, lapsed buyers) sent to Meta and Google, consented customers only',
+      'Shopify orders close the matching CRM deal; abandoned checkouts become follow-up tasks',
+      'Past customers from the CRM and Shopify excluded from new-customer ads',
       'Seasonal campaign timing built around the Indian festival calendar',
     ],
   };
@@ -180,12 +195,12 @@ export function serviceSchema(): JsonLd {
   return {
     '@type': 'Service',
     '@id': `${SITE_URL}/#service`,
-    name: 'Done-for-you advertising and lead tracking',
+    name: 'Done-for-you advertising, CRM and Shopify marketing',
     serviceType: 'Digital advertising management',
     provider: { '@id': ORG_ID },
     areaServed: { '@type': 'Country', name: 'India' },
     description:
-      'We write, launch and manage your ads on Google Ads, Meta Ads and LinkedIn Ads from one brief, then capture every enquiry and follow it through to the sale — recording what each customer bought and which ad found them — so you do not need to hire an agency.',
+      'We write, launch and manage your ads on Google Ads, Meta Ads and LinkedIn Ads from one brief, capture every enquiry in a built-in CRM, connect your Shopify store, and follow each customer through to the sale, recording what they bought and which ad found them, so you do not need to hire an agency or buy separate tools.',
     hasOfferCatalog: {
       '@type': 'OfferCatalog',
       name: 'Industries we support',
@@ -332,7 +347,7 @@ export function homePageGraph(): JsonLd {
       path: '/',
       name: 'Reach My Ads | Google & Instagram Ads for Small Businesses',
       description:
-        'We run your ads on Google, Meta and LinkedIn from one form, collect every enquiry in one inbox, and report what each customer cost.',
+        'We run your ads on Google, Meta and LinkedIn from one form, with a built-in CRM, WhatsApp and your Shopify store in the same place, and report what each customer cost.',
       primaryTopic: `${SITE_URL}/#software`,
     }),
     softwareSchema(),

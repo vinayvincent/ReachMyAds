@@ -5,12 +5,12 @@ import { Reveal, Stagger, RevealItem } from './motion/Reveal';
 import { TextReveal } from './motion/TextReveal';
 
 const points = [
-  'Calls, WhatsApp messages and website forms, all in one list',
+  'Calls, WhatsApp chats, website forms and Shopify buyers, all in one CRM',
   'Each one labelled with the ad and the campaign that brought it in',
-  'Every enquiry has an owner, a next step and a date you last spoke',
-  'Anyone nobody has replied to gets flagged for you',
-  'Mark it bought and record the amount. We join it back to the ad',
-  'The ones going nowhere get parked, so your list stays real',
+  'Your own pipeline stages, with an owner, a task and a due date on every deal',
+  'New leads shared out to your team, and anyone left waiting gets flagged',
+  'Move a deal along and the next WhatsApp message goes out by itself',
+  'Mark it won and record the amount, or let the Shopify order do it for you',
 ];
 
 /**
@@ -22,7 +22,7 @@ const leads = [
   { name: 'New enquiry', via: 'WhatsApp · Instagram Reel', time: '2 min ago', state: 'new' as const },
   { name: 'Contacted', via: 'Call · Google Search ad', time: '1 hour ago', state: 'contacted' as const },
   { name: 'Worth chasing', via: 'Web form · Facebook ad', time: '2 days ago', state: 'qualified' as const },
-  { name: 'Bought · ₹4,800', via: 'Call · Google Maps ad', time: 'Last week', state: 'won' as const },
+  { name: 'Bought #1042 · ₹2,499', via: 'Shopify order · Instagram ad', time: 'Yesterday', state: 'won' as const },
 ];
 
 const stateStyles = {
@@ -39,7 +39,7 @@ function LeadInbox() {
   return (
     <div className="mock-window">
       <div className="mock-bar flex items-center gap-2 px-4 py-3">
-        <p className="mono-label-muted">Your enquiries</p>
+        <p className="mono-label-muted">CRM · Your pipeline</p>
         <span className="pill-mono ml-auto">4 this week</span>
       </div>
 
@@ -102,18 +102,19 @@ export function LeadTracking() {
       <div className="mx-auto max-w-[1100px] px-6">
         <div className="grid items-center gap-10 lg:grid-cols-2 lg:gap-14">
           <Reveal>
-            <p className="mono-label">Leads, customers and sales</p>
+            <p className="mono-label">A CRM, built in</p>
             <TextReveal
               as="h2"
               id="leads-heading"
-              text="From the first click to the sale"
-              accentWords={['sale']}
+              text="A CRM that already knows your ads"
+              accentWords={['CRM']}
               className="h-display mt-3 text-[clamp(2rem,4vw,2.85rem)] text-ink"
             />
             <p className="mt-4 text-[16.5px] leading-relaxed text-ink-2">
-              Most tools tell you a click cost ₹14 and stop there. We keep following that
-              person. Did they call, did they buy, what did they buy, and were they worth more than
-              the ad cost. That is the only number that actually matters.
+              No separate CRM to buy, set up or keep in sync. Every enquiry your ads bring in lands
+              here already labelled, and moves along your pipeline until it buys. Most tools tell you
+              a click cost ₹14 and stop there. We keep following that person: did they call, did they
+              buy, what did they buy, and were they worth more than the ad cost.
             </p>
 
             <Stagger className="mt-7 space-y-3" as="ul">
