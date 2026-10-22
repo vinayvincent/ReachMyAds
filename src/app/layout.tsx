@@ -25,7 +25,7 @@ const sourceSerif = Source_Serif_4({
 
 const TITLE = "Reach My Ads | Google & Instagram Ads for Small Businesses";
 const DESCRIPTION =
-  "We run your ads on Google, Meta and LinkedIn, collect every call and WhatsApp enquiry in one inbox, and show which ad made each sale. No agency needed.";
+  "Ads on Google, Meta and LinkedIn, a built-in CRM, WhatsApp and your Shopify store, all in one place. See which ad made each sale. No agency needed.";
 
 export const metadata: Metadata = {
   title: {
@@ -44,6 +44,8 @@ export const metadata: Metadata = {
     "Instagram ads for shops",
     "WhatsApp lead tracking",
     "lead management software India",
+    "CRM for small business India",
+    "Shopify ads management",
     "digital marketing without an agency",
     "cost per customer tracking",
   ],
@@ -54,7 +56,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: TITLE,
     description:
-      "We run your ads, collect every enquiry in one inbox, and follow each one through to the sale, so you never need to hire an agency.",
+      "Ads, a built-in CRM, WhatsApp and your Shopify store in one place. Every sale traced back to the ad that made it.",
     url: SITE_URL,
     siteName: SITE_NAME,
     locale: "en_IN",

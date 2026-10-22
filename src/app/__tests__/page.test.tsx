@@ -56,10 +56,12 @@ describe('Landing page (page.tsx)', () => {
 
     for (const name of [
       /We run your ads/,
+      /Ads, CRM, WhatsApp and your store/,
       /Three networks/,
       /Three jobs/,
       /Four steps/,
-      /From the first click to the sale/,
+      /A CRM that already knows your ads/,
+      /Your Shopify store, plugged straight in/,
       /Just ask, in your own words/,
       /You do not need to hire anyone/,
       /We already know your business/,

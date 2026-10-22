@@ -9,8 +9,8 @@ import { Stagger, RevealItem, Reveal } from './motion/Reveal';
  */
 const facts = [
   { to: 3, label: 'Ad networks, one form', note: 'Google Ads, Meta Ads, LinkedIn Ads', suffix: '' },
-  { to: 3, label: 'Ways a customer can reach you', note: 'Phone call, WhatsApp, website form', suffix: '' },
-  { to: 1, label: 'Inbox they all land in', note: 'Each one tagged with the ad that brought it', suffix: '' },
+  { to: 4, label: 'Tools in one login', note: 'Ads, CRM, WhatsApp and your Shopify store', suffix: '' },
+  { to: 1, label: 'CRM every enquiry lands in', note: 'Calls, WhatsApp, forms and store orders', suffix: '' },
   { to: 1, label: 'Day to go live', note: 'From your link to ads running', suffix: '' },
 ];
 

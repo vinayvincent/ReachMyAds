@@ -10,7 +10,7 @@ import type { HeroContent } from '@/types';
 const defaultHeroContent: HeroContent = {
   headline: 'We run your ads. You get customers.',
   subheadline:
-    'Running the ads is only the start. One form puts the same campaign on Google, Meta and LinkedIn. Every call and message lands in one place, we help you reply, our AI tells you what to change next, and every sale is traced back to the ad that made it. One system, instead of five.',
+    'Running the ads is only the start. One form puts the same campaign on Google, Meta and LinkedIn. Every call, WhatsApp chat and form lands in a CRM that comes built in. Sell online? Your Shopify store plugs straight in, and every order is traced back to the ad that made it. Ads, CRM, WhatsApp and your store in one place, so you never need another tool.',
   ctaText: 'Get started',
   ctaLink: '#lead-form',
   backgroundAnimation: {
@@ -126,6 +126,13 @@ export function Hero({ content }: HeroProps) {
               ))}
 
             </ul>
+
+            {/* The rest of the system. Ads are the way in, but these are why
+                an owner does not need to go anywhere else. */}
+            <p className="mt-5 text-[13.5px] leading-relaxed text-ink-2">
+              <span className="font-semibold text-ink">Plus, in the same login:</span> a built-in
+              CRM, your WhatsApp inbox and your Shopify store.
+            </p>
           </div>
         </div>
 

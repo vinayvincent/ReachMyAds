@@ -9,7 +9,7 @@ const agency = [
   'Weeks of emails and meetings to launch',
   'One platform at a time, set up by hand',
   'A report once a month you cannot check',
-  'Enquiries land wherever they land',
+  'A separate CRM, WhatsApp tool and store apps on top',
   'They own the account and the data',
 ];
 
@@ -18,7 +18,7 @@ const ours = [
   'Live in a day, from one link or a WhatsApp message',
   'Google, Meta and LinkedIn from one form',
   'Ask a question any time, in plain English',
-  'Every enquiry in one list, and chased up',
+  'CRM, WhatsApp and your Shopify store, built in',
   'It stays your account, and your data',
 ];
 

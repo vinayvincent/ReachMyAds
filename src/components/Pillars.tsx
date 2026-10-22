@@ -149,10 +149,10 @@ const pillars = [
   },
   {
     n: '02',
-    title: 'Every customer in one place',
-    body: 'Phone calls, WhatsApp messages and website forms all land in one simple list, and move along it: contacted, worth chasing, bought. You record what they bought, and it stays joined to the ad that found them.',
+    title: 'A CRM for every customer',
+    body: 'Phone calls, WhatsApp messages, website forms and Shopify buyers all land in a CRM that comes built in, and move along it: contacted, worth chasing, bought. What they bought stays joined to the ad that found them.',
     icon: 'M8 10h.01M12 10h.01M16 10h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z',
-    link: { label: 'See lead tracking', href: '#leads' },
+    link: { label: 'See the CRM', href: '#leads' },
     visual: InboxVisual,
     span: 'lg:col-span-5',
     wide: false,
@@ -176,7 +176,7 @@ export function Pillars() {
     <section className="relative bg-canvas-soft section" aria-labelledby="pillars-heading">
       <div className="relative mx-auto max-w-[1180px] px-6">
         <Reveal className="mb-12 max-w-2xl">
-          <p className="mono-label">Everything in one place</p>
+          <p className="mono-label">What we do for you</p>
           <TextReveal
             as="h2"
             id="pillars-heading"

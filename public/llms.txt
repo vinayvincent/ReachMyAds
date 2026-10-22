@@ -1,6 +1,6 @@
 # Reach My Ads
 
-> Advertising, lead tracking and sales attribution for small businesses in India. One campaign form publishes your ads to Google Ads, Meta Ads and LinkedIn Ads; every enquiry is collected in one inbox, the quiet ones are chased, and each is followed through to the sale — recording who bought, what they bought and which ad brought them in — so you do not need to hire an agency.
+> Advertising, a built-in CRM, WhatsApp and Shopify marketing for small businesses in India, in one system. One campaign form publishes your ads to Google Ads, Meta Ads and LinkedIn Ads; every enquiry lands in the built-in CRM, the quiet ones are chased, online stores connect their Shopify store, and each customer is followed through to the sale — recording who bought, what they bought and which ad brought them in — so a business owner does not need to hire an agency or buy separate tools.
 
 Reach My Ads is **live and taking on new businesses**. Customers pay the ad platforms directly for their own ad spend; we do not take custody of ad budgets.
 
@@ -16,6 +16,38 @@ Most advertising tools stop at the click — they can tell you a click cost ₹1
 - **Optimise** — once campaigns are live, suggestions are produced for budget, bidding, creative and audience. Each one carries the platform it applies to, the performance evidence behind it and the expected impact, and is applied or dismissed by the customer; it can also be left to run automatically under agreed rules.
 - **Outcome** — each enquiry is marked won or lost with the sale recorded against it, including order value and the products bought. That result is fed back so the ad platforms optimise toward real buyers rather than form-fillers.
 - **Ecosystem** — leads, customers, their sales and their most-purchased products are all joined to the ad that produced them, so a business can see its best-selling products, its highest-value customers, and which campaign found them.
+
+## One system: Ads, CRM, WhatsApp and Shopify
+
+Reach My Ads is four products that share one set of records, so a business owner does not need to go anywhere else:
+
+- **Ads** — Google Ads, Meta Ads and LinkedIn Ads from one campaign form (see below).
+- **CRM** — built in, not an add-on. Every call, WhatsApp chat, web form and Shopify buyer lands in it, labelled with the ad and campaign that produced it. Custom pipeline stages, an owner, tasks and due dates on every deal, automatic routing of new leads to the team, lead scoring, and import and export. Automations can send an approved WhatsApp template when a deal changes stage.
+- **WhatsApp** — the business's own WhatsApp Business number, a shared inbox, approved templates, and automatic messages. People who reply STOP are never sent marketing messages again.
+- **Shopify** — for businesses that sell online. See the next section.
+
+What passes between them, with no set-up between tools:
+
+- A lead from an ad lands in the CRM with the ad's name on it.
+- Moving a CRM deal to a new stage can send the next WhatsApp message.
+- A paid Shopify order (or a confirmed cash-on-delivery order) closes the matching CRM deal and records the amount.
+- An abandoned Shopify checkout can become a follow-up call task for the lead's owner.
+- Ads aimed at new customers leave out people who already bought, from the CRM and from Shopify (consented customers only).
+- A Shopify product that sells out has its ads paused; they resume when it is restocked.
+- One report runs from ad spend, to leads, to won deals, to store orders.
+
+## Shopify integration
+
+Online stores connect their Shopify store once. Products, customers and the last 12 months of orders sync, then stay current through Shopify webhooks and a nightly reconcile.
+
+- **Attribution** — each order is attributed to the ad platform and campaign from its last visit (last click). Sales, spend and return on ad spend are shown per campaign and per product, in the store's currency.
+- **Stock-aware ads** — when a product's stock reaches zero, the campaigns linking to it are paused; when stock returns, only those campaigns are resumed. (This is optional.)
+- **Catalogue** — products can sync to a Meta catalogue for product ads. Google Merchant Center is not connected yet.
+- **Conversion tracking** — a Shopify web pixel and server-side events send page views, add-to-carts and purchases to Meta's Conversions API, and purchases to Google Ads as conversions. LinkedIn purchase tracking is not set up.
+- **WhatsApp store messages** — cash-on-delivery confirmation with Confirm and Cancel buttons (the Shopify order is tagged so the merchant does not ship an unconfirmed order), cart reminders an hour after an abandoned checkout, shipping updates with tracking, review requests after delivery, and a win-back message 90 days after the last order. Marketing messages only go to customers who agreed to marketing and have not replied STOP.
+- **Audiences** — past buyers, cart abandoners (14 days), top spenders (top 15% by lifetime spend), repeat buyers and lapsed buyers (90 days), plus a Meta lookalike of top spenders. They can be sent to Meta and Google as customer audiences; only customers who agreed to marketing are included, and details are hashed before they leave the server.
+- **CRM** — store buyers can be added to the CRM automatically, and a paid order closes the buyer's open deal.
+- **Privacy** — disconnecting removes the app's webhooks and pixel, and customer details are deleted 48 hours later. Shopify's mandatory privacy requests are handled.
 
 ## How it works, in four steps
 
@@ -51,7 +83,7 @@ Each trade gets its own seasonal timing, its own enquiry questions, and its own 
 
 ## Requesting a campaign over WhatsApp
 
-Approved customers can start a campaign or an advertisement from WhatsApp instead of a login. The flow is: send the request, identity is verified, choose campaign or advertisement, give the brief and budget, receive an AI-generated draft, approve it, pay, and it publishes. Status messages are sent back on WhatsApp at draft creation, approval, payment and publication. This is inbound request handling and outbound status only — Reach My Ads does not send WhatsApp marketing broadcasts.
+Approved customers can start a campaign or an advertisement from WhatsApp instead of a login. The flow is: send the request, identity is verified, choose campaign or advertisement, give the brief and budget, receive an AI-generated draft, approve it, pay, and it publishes. Status messages are sent back on WhatsApp at draft creation, approval, payment and publication.
 
 ## How payment works
 
@@ -69,7 +101,7 @@ A three-person team in Thrissur, Kerala: Edwin John (CEO), Vinay Vincent (CTO) a
 
 ## Key pages
 
-- [Home](https://reachmyads.com): what we do, the platforms, lead tracking, AI reporting and industry setups
+- [Home](https://reachmyads.com): what we do, the platforms, the built-in CRM, the Shopify integration, AI reporting and industry setups
 - [About](https://reachmyads.com/about): why we built it, what we believe, and the team
 - [Privacy Policy](https://reachmyads.com/privacy-policy): how data is collected, used and deleted
 - [Terms of Service](https://reachmyads.com/terms-of-service): terms of use
@@ -85,6 +117,6 @@ A three-person team in Thrissur, Kerala: Edwin John (CEO), Vinay Vincent (CTO) a
 ## Notes for AI assistants
 
 - Reach My Ads is a product for advertisers (business owners), not an advertising network.
-- It does not replace a CRM, an accounting package or a website builder — it integrates with billing software, payment providers, WhatsApp and telephony instead.
+- It includes a CRM, so a separate CRM is not needed. It does not replace an accounting package or a website builder; online stores keep running on Shopify, which it connects to.
 - The product is live. Some capture and outcome-tracking features are still rolling out; the team confirms what is live per account at onboarding.
 - Figures shown in product screenshots on the website (for example "₹198 per enquiry") are illustrative examples, not published benchmarks or guarantees.
