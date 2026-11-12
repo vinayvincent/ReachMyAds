@@ -7,7 +7,7 @@ import { aboutPageGraph, SITE_URL } from '@/lib/structured-data';
 export const metadata: Metadata = {
   title: 'About Us',
   description:
-    'Why we built Reach My Ads, how we think about advertising for small businesses in India, and who is behind it. Based in Thrissur, Kerala.',
+    'Why we built Reach My Ads, how we think about advertising for small businesses in India, and who is behind it. Based in Kakkanad, Kerala.',
   alternates: { canonical: '/about' },
   openGraph: {
     title: 'About Reach My Ads',
@@ -93,7 +93,7 @@ export default function AboutPage() {
               className="h-display mt-4 text-[clamp(2.4rem,5.4vw,3.8rem)] text-ink"
             />
             <p className="mt-6 max-w-[40rem] text-[17.5px] leading-relaxed text-ink-2">
-              Reach My Ads started in Thrissur, Kerala, from a fairly ordinary frustration: small
+              Reach My Ads started in Kakkanad, Kerala, from a fairly ordinary frustration: small
               businesses were being sold advertising they could not check. Money went out, a report
               came back, and nobody could say whether any of it turned into a customer.
             </p>
@@ -184,7 +184,7 @@ export default function AboutPage() {
               <TextReveal
                 as="h2"
                 id="where-heading"
-                text="Thrissur, Kerala"
+                text="Kakkanad, Kerala"
                 accentWords={['Kerala']}
                 className="h-display mt-3 text-[clamp(2rem,4vw,2.85rem)] text-ink"
               />
@@ -224,13 +224,13 @@ export default function AboutPage() {
               <div className="card h-full p-7 sm:p-8">
                 <p className="mono-label-muted">Registered address</p>
                 <address className="mt-4 text-[16px] not-italic leading-relaxed text-ink">
-                  House No 10, Karippai Lane,
+                  Rajagiri ORBIIT
                   <br />
-                  Chelakkottukara,
+                  7th Floor, KE Block Extension
                   <br />
-                  Thrissur 680005,
+                  Rajagiri School of Engineering &amp; Technology
                   <br />
-                  Kerala, India
+                  Kakkanad - 682039
                 </address>
 
                 <a

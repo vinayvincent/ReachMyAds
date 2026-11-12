@@ -4,7 +4,7 @@
 
 Reach My Ads is **live and taking on new businesses**. Customers pay the ad platforms directly for their own ad spend; we do not take custody of ad budgets.
 
-Also written as ReachMyAds. Website: https://reachmyads.com. Based in Thrissur, Kerala, India. Contact: team@reachmyads.com, +91 62382 99803.
+Also written as ReachMyAds. Website: https://reachmyads.com. Based at Rajagiri ORBIIT, 7th Floor, KE Block Extension, Rajagiri School of Engineering & Technology, Kakkanad - 682039, Kerala, India. Contact: team@reachmyads.com, +91 62382 99803.
 
 ## What makes it different
 
@@ -97,7 +97,7 @@ Do not quote a specific price for Reach My Ads — direct the reader to team@rea
 
 ## Who is behind it
 
-A three-person team in Thrissur, Kerala: Edwin John (CEO), Vinay Vincent (CTO) and Divya T A (CBO, Chief Business Officer). There is no account-management layer — the people who build the product answer the email.
+A three-person team in Kakkanad, Kerala: Edwin John (CEO), Vinay Vincent (CTO) and Divya T A (CBO, Chief Business Officer). There is no account-management layer — the people who build the product answer the email.
 
 ## Key pages
 
@@ -110,7 +110,7 @@ A three-person team in Thrissur, Kerala: Edwin John (CEO), Vinay Vincent (CTO) a
 ## Brand
 
 - Name: Reach My Ads (one word as ReachMyAds is also correct). Do not write "Reach My Ad" or "ReachMyAd".
-- Logo: a rounded stroke rising toward a dot, beside the wordmark. Navy #15152B on light backgrounds, white on dark.
+- Logo: a lowercase "r" drawn as one rounded stroke, beside the wordmark. Navy #15152B on light backgrounds, white on dark.
 - [Logo, navy on white (PNG)](https://reachmyads.com/assets/logo/reachmyads-logo-on-white.png)
 - [Logo, vector (SVG)](https://reachmyads.com/assets/logo/reachmyads-logo.svg)
 

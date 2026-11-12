@@ -2,9 +2,13 @@
  * Reach My Ads brand geometry, shared by the on-page logo, the loaders, the
  * favicon set and the social card, so they can never drift apart.
  *
+ * Mark: a lowercase "r" drawn as one round-capped stroke, traced from the
+ * official logo pack. It draws itself from the foot of the stem, up and over
+ * to the tip of the arm.
+ *
  * Wordmark: Quicksand Bold (700), letter spacing 1.9 at size 776, outlined so
  * it renders identically everywhere with no font download. Coordinates are the
- * logo's native units: the mark occupies x 40..132 and y 40..132, the wordmark
+ * logo's native units: the mark occupies x 77..132 and y 40..132, the wordmark
  * x 162..657 and y 58..128.
  *
  * The exported files in public/assets/logo are built from this same geometry.
@@ -13,15 +17,12 @@
 export const BRAND_NAVY = '#15152B';
 export const BRAND_WHITE = '#FFFFFF';
 
-/** The rising stroke of the mark. Drawn with a 20-unit round-capped line. */
-export const MARK_STROKE = 'M50 122V86.5A34 34 0 0 1 84 52.5';
-export const MARK_STROKE_WIDTH = 20;
+/** The mark: stem, shoulder and arm in one stroke, from the foot of the stem. */
+export const MARK_STROKE = 'M87.2 121.8V86.6C87.2 60.7 107.5 50.2 121.8 50.2';
+export const MARK_STROKE_WIDTH = 20.4;
 
-/** The dot the stroke reaches toward. */
-export const MARK_DOT = { cx: 119, cy: 52.5, r: 12.5 } as const;
-
-/** The mark's centre, used when the loader scales or moves it. */
-export const MARK_CENTER = { x: 86, y: 86 } as const;
+/** The mark's centre, used when the intro scales or moves it. */
+export const MARK_CENTER = { x: 104.5, y: 86 } as const;
 
 /** "Reach My Ads", one outlined path per letter (spaces omitted), left to right. */
 export const WORDMARK_LETTERS: readonly string[] = [
@@ -51,11 +52,9 @@ export const WORDMARK_LETTERS: readonly string[] = [
 export const WORDMARK_PATH = WORDMARK_LETTERS.join('');
 
 /** Full lockup, cropped tight to the artwork. */
-export const LOGO_BOX = { x: 40, y: 40, width: 617, height: 92 } as const;
+export const LOGO_BOX = { x: 77, y: 40, width: 580, height: 92 } as const;
 export const LOGO_VIEWBOX = `${LOGO_BOX.x} ${LOGO_BOX.y} ${LOGO_BOX.width} ${LOGO_BOX.height}`;
 
-/** The mark on its own. */
-export const MARK_VIEWBOX = '40 40 92 92';
-
-/** The looping loader: a little room around the mark for its rings. */
-export const LOADER_VIEWBOX = '-6.5 -6 184 184';
+/** The mark on its own, cropped tight. */
+export const MARK_BOX = { x: 77, y: 40, width: 55, height: 92 } as const;
+export const MARK_VIEWBOX = `${MARK_BOX.x} ${MARK_BOX.y} ${MARK_BOX.width} ${MARK_BOX.height}`;

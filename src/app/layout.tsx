@@ -227,11 +227,13 @@ export default function RootLayout({
                     </a>
                   </li>
                   <li className="pt-1 leading-relaxed text-ink-3">
-                    House No 10, Karippai Lane,
+                    Rajagiri ORBIIT
                     <br />
-                    Chelakkottukara,
+                    7th Floor, KE Block Extension
                     <br />
-                    Thrissur 680005, Kerala, India
+                    Rajagiri School of Engineering &amp; Technology
+                    <br />
+                    Kakkanad - 682039
                   </li>
                 </ul>
               </div>
