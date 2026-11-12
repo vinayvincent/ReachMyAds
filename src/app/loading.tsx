@@ -12,7 +12,7 @@ export default function Loading() {
       role="status"
       aria-label="Loading"
     >
-      <LoaderMark className="h-auto w-16 sm:w-20" />
+      <LoaderMark className="h-10 w-auto sm:h-12" />
       <span className="sr-only">Loading Reach My Ads…</span>
     </div>
   );

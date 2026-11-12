@@ -1,10 +1,9 @@
 import type { CSSProperties } from 'react';
 import {
-  LOADER_VIEWBOX,
   LOGO_BOX,
   LOGO_VIEWBOX,
+  MARK_BOX,
   MARK_CENTER,
-  MARK_DOT,
   MARK_STROKE,
   MARK_STROKE_WIDTH,
   MARK_VIEWBOX,
@@ -28,33 +27,22 @@ function a11y(title?: string) {
     : ({ 'aria-hidden': true } as const);
 }
 
-function MarkShapes() {
-  return (
-    <>
-      <path
-        d={MARK_STROKE}
-        fill="none"
-        stroke="currentColor"
-        strokeWidth={MARK_STROKE_WIDTH}
-        strokeLinecap="round"
-      />
-      <circle cx={MARK_DOT.cx} cy={MARK_DOT.cy} r={MARK_DOT.r} fill="currentColor" />
-    </>
-  );
-}
-
 /**
- * The mark with its motion hooks: the stroke redraws, the dot lands and a
- * ring goes out from it, then it holds still for most of the cycle. Timing
- * lives in globals.css under "Header logo motion".
+ * The mark's single stroke. Pass a class to animate it: the motion classes in
+ * globals.css draw it on with stroke-dasharray, so it is measured in
+ * `pathLength` units of 100.
  */
-function AnimatedMarkShapes() {
+function MarkStroke({ className }: { className?: string }) {
   return (
-    <>
-      <path className="logo-anim__stroke" pathLength={100} d={MARK_STROKE} />
-      <circle className="logo-anim__ring" cx={MARK_DOT.cx} cy={MARK_DOT.cy} r={MARK_DOT.r} />
-      <circle className="logo-anim__dot" cx={MARK_DOT.cx} cy={MARK_DOT.cy} r={MARK_DOT.r} />
-    </>
+    <path
+      className={className}
+      pathLength={className ? 100 : undefined}
+      d={MARK_STROKE}
+      fill="none"
+      stroke="currentColor"
+      strokeWidth={MARK_STROKE_WIDTH}
+      strokeLinecap="round"
+    />
   );
 }
 
@@ -65,7 +53,7 @@ function AnimatedMarkShapes() {
  * brand navy on light pages and white on dark ones. Size it by height only;
  * the width follows from the artwork's proportions.
  *
- * `animated` makes the mark replay its draw every few seconds. The wordmark
+ * `animated` makes the mark redraw itself every few seconds. The wordmark
  * always stays put, so the name is readable at every moment.
  */
 export function Logo({
@@ -82,51 +70,43 @@ export function Logo({
       focusable="false"
       {...a11y(title)}
     >
-      {animated ? <AnimatedMarkShapes /> : <MarkShapes />}
+      <MarkStroke className={animated ? 'logo-anim__stroke' : undefined} />
       <path d={WORDMARK_PATH} fill="currentColor" />
     </svg>
   );
 }
 
 /** The mark on its own, for tight spaces. */
-export function LogoMark({ className = 'h-8 w-8', title }: BrandSvgProps) {
+export function LogoMark({ className = 'h-8 w-auto', title }: BrandSvgProps) {
   return (
     <svg
       viewBox={MARK_VIEWBOX}
-      width={92}
-      height={92}
+      width={MARK_BOX.width}
+      height={MARK_BOX.height}
       className={`block shrink-0 text-logo ${className}`}
       focusable="false"
       {...a11y(title)}
     >
-      <MarkShapes />
+      <MarkStroke />
     </svg>
   );
 }
 
 /**
- * The looping loader: the stroke rises, the dot lands and sends out two
- * rings, then the whole mark clears and repeats. Used while a route loads.
+ * The looping loader: the mark draws itself from the foot of the stem, holds,
+ * then withdraws into the tip of the arm and repeats. Used while a route loads.
  */
-export function LoaderMark({ className = 'h-auto w-20' }: { className?: string }) {
+export function LoaderMark({ className = 'h-10 w-auto' }: { className?: string }) {
   return (
     <svg
-      viewBox={LOADER_VIEWBOX}
-      width={184}
-      height={184}
+      viewBox={MARK_VIEWBOX}
+      width={MARK_BOX.width}
+      height={MARK_BOX.height}
       className={`brand-loader text-logo ${className}`}
       aria-hidden="true"
       focusable="false"
     >
-      <path className="brand-loader__stroke" pathLength={100} d={MARK_STROKE} />
-      <circle className="brand-loader__ring" cx={MARK_DOT.cx} cy={MARK_DOT.cy} r={MARK_DOT.r} />
-      <circle
-        className="brand-loader__ring brand-loader__ring--late"
-        cx={MARK_DOT.cx}
-        cy={MARK_DOT.cy}
-        r={MARK_DOT.r}
-      />
-      <circle className="brand-loader__dot" cx={MARK_DOT.cx} cy={MARK_DOT.cy} r={MARK_DOT.r} />
+      <MarkStroke className="brand-loader__stroke" />
     </svg>
   );
 }
@@ -138,10 +118,9 @@ const INTRO_START = {
 };
 
 /**
- * The brand intro, as in the launch video: the mark draws itself in the
- * middle, sends out its rings, slides into place, and the name rises in
- * letter by letter. The rings keep pulsing if the page is still loading.
- * CSS-only, so it plays before any JavaScript has arrived.
+ * The brand intro: the mark draws itself in the middle, as in the logo pack,
+ * slides into place, and the name rises in letter by letter. CSS-only, so it
+ * plays before any JavaScript has arrived.
  */
 export function LogoIntro({ className = 'h-auto w-72' }: { className?: string }) {
   const markStyle = {
@@ -166,15 +145,7 @@ export function LogoIntro({ className = 'h-auto w-72' }: { className?: string })
       </defs>
 
       <g className="logo-intro__mark" style={markStyle}>
-        <path className="logo-intro__stroke" pathLength={100} d={MARK_STROKE} />
-        <circle className="logo-intro__ring" cx={MARK_DOT.cx} cy={MARK_DOT.cy} r={MARK_DOT.r} />
-        <circle
-          className="logo-intro__ring logo-intro__ring--late"
-          cx={MARK_DOT.cx}
-          cy={MARK_DOT.cy}
-          r={MARK_DOT.r}
-        />
-        <circle className="logo-intro__dot" cx={MARK_DOT.cx} cy={MARK_DOT.cy} r={MARK_DOT.r} />
+        <MarkStroke className="logo-intro__stroke" />
       </g>
 
       <g clipPath="url(#logo-intro-clip)">

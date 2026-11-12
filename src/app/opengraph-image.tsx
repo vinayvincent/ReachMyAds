@@ -2,7 +2,6 @@ import { ImageResponse } from 'next/og';
 import {
   LOGO_BOX,
   LOGO_VIEWBOX,
-  MARK_DOT,
   MARK_STROKE,
   MARK_STROKE_WIDTH,
   WORDMARK_PATH,
@@ -42,7 +41,6 @@ export default function OpenGraphImage() {
               strokeWidth={MARK_STROKE_WIDTH}
               strokeLinecap="round"
             />
-            <circle cx={MARK_DOT.cx} cy={MARK_DOT.cy} r={MARK_DOT.r} fill="#ffffff" />
             <path d={WORDMARK_PATH} fill="#ffffff" />
           </svg>
         </div>

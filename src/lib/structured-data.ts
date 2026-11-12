@@ -23,10 +23,11 @@ const SITE_ID = `${SITE_URL}/#website`;
 export const businessInfo = {
   email: 'team@reachmyads.com',
   phones: ['+91-62382-99803', '+91-70121-12355'],
-  street: 'House No 10, Karippai Lane, Chelakkottukara',
-  city: 'Thrissur',
+  street:
+    'Rajagiri ORBIIT, 7th Floor, KE Block Extension, Rajagiri School of Engineering & Technology',
+  city: 'Kakkanad',
   region: 'Kerala',
-  postalCode: '680005',
+  postalCode: '682039',
   country: 'IN',
 } as const;
 
@@ -36,7 +37,7 @@ export const businessInfo = {
  */
 export function organizationSchema(): JsonLd {
   return {
-    // ProfessionalService is a LocalBusiness type: it makes the Thrissur
+    // ProfessionalService is a LocalBusiness type: it makes the Kakkanad
     // office eligible for local results as well as brand results.
     '@type': ['Organization', 'ProfessionalService'],
     '@id': ORG_ID,
@@ -47,7 +48,7 @@ export function organizationSchema(): JsonLd {
     slogan: 'We run your ads. You get customers.',
     foundingLocation: {
       '@type': 'Place',
-      name: 'Thrissur, Kerala, India',
+      name: 'Kakkanad, Kerala, India',
     },
     knowsAbout: [
       'Google Ads',
@@ -73,7 +74,7 @@ export function organizationSchema(): JsonLd {
     logo: {
       '@type': 'ImageObject',
       url: `${SITE_URL}/assets/logo/reachmyads-logo-on-white.png`,
-      width: 2788,
+      width: 2640,
       height: 688,
     },
     image: `${SITE_URL}/assets/icons/reachmyads-icon-512.png`,
